@@ -1,0 +1,102 @@
+body { 
+    font-family: 'Oswald', Arial, sans-serif; 
+}
+
+h1, h2, h3, h4, h5, h6, nav, .font-bold, .font-semibold { 
+    font-family: 'Oswald', Arial, sans-serif; 
+}
+
+img { 
+    max-width: 100%; 
+    height: auto; 
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.6;
+}
+
+/* Navigációs ikonok stílusa */
+nav a i {
+    font-size: 1.1em;
+    transition: transform 0.2s ease;
+}
+
+nav a:hover i {
+    transform: scale(1.1);
+}
+
+@media (max-width: 640px) {
+    .mobile-menu { 
+        display: none; 
+    }
+    .mobile-menu.active { 
+        display: flex; 
+    }
+    
+    /* Mobilnézetben az ikonok kicsit nagyobbak */
+    nav a i {
+        font-size: 1.2em;
+    }
+}
+
+/* Zászlós nyelvválasztó */
+#lang-switcher {
+    gap: 0.5rem;
+}
+.lang-btn {
+    padding: 0.1rem;
+    border-radius: 9999px;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    outline: none;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+.lang-btn:focus {
+    box-shadow: 0 0 0 2px #2563eb;
+}
+.lang-flag {
+    border-width: 2px;
+    border-color: transparent;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.lang-flag.selected {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px #2563eb44;
+}
+.lang-label {
+    font-size: 0.95em;
+    font-weight: 500;
+    margin-left: 0.25rem;
+    color: #e5e7eb;
+}
+
+@media (max-width: 640px) {
+    #lang-switcher {
+        gap: 0.25rem;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        z-index: 60;
+        background: rgba(0,0,0,0.85);
+        padding: 0.2rem 0.5rem;
+        border-radius: 9999px;
+        box-shadow: 0 2px 8px 0 #0004;
+    }
+    .lang-flag {
+        width: 2rem;
+        height: 2rem;
+    }
+    .lang-label {
+        font-size: 1em;
+        margin-left: 0.3rem;
+    }
+} 

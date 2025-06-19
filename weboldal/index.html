@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bömbi István professzionális BMW szerviz és tuning szolgáltatások">
+  <title>BMW Szerviz Bömbi István</title>
+  <link rel="icon" href="../index_images/favicon.png" type="image/png">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="translations.js"></script>
+  <script src="script.js" defer></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.38/bundled/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.8.3/dist/smooth-scrollbar.js"></script>
+</head>
+<body class="bg-black text-white">
+  <div class="menu-overlay"></div>
+  <!-- Fejléc -->
+  <header class="bg-black border-b border-gray-800 fixed top-0 left-0 w-full z-50">
+    <div class="container mx-auto flex flex-row justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center space-x-3">
+        <a href="index.html">
+          <img src="../index_images/logo.jpg" alt="BMW logó" class="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-blue-400 bg-white object-contain p-1">
+        </a>
+        <span class="font-bold text-lg sm:text-2xl">BMW Szerviz Bömbi István</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <!-- Nyelvi választó (asztali nézet) -->
+        <div class="language-selector hidden sm:block">
+          <button class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors" onclick="toggleLanguageMenu()">
+            <span id="current-flag-svg" class="w-6 h-4"> <!-- SVG ide kerül JS-ből --></span>
+            <span class="hidden sm:inline" id="current-lang">HU</span>
+            <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div id="language-menu" class="absolute right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-lg hidden">
+            <div class="py-1">
+              <button onclick="changeLanguage('hu')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                <span class="w-6 h-4"> <!-- HU SVG -->
+                  <svg viewBox="0 0 3 2" width="24" height="16"><rect width="3" height="2" fill="#fff"/><rect width="3" height="0.67" y="0" fill="#cd2a3e"/><rect width="3" height="0.67" y="1.33" fill="#436f4d"/></svg>
+                </span>
+                <span>Magyar</span>
+              </button>
+              <button onclick="changeLanguage('en')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                <span class="w-6 h-4"> <!-- EN SVG -->
+                  <svg viewBox="0 0 60 30" width="24" height="16"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#fff" stroke-width="6"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#c8102e" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#c8102e" stroke-width="6"/></g></svg>
+                </span>
+                <span>English</span>
+              </button>
+              <button onclick="changeLanguage('de')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                <span class="w-6 h-4"> <!-- DE SVG -->
+                  <svg viewBox="0 0 5 3" width="24" height="16"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#dd0000"/><rect width="5" height="1" y="2" fill="#ffce00"/></svg>
+                </span>
+                <span>Deutsch</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <button class="sm:hidden text-blue-400 hover:text-blue-300 transition-colors hamburger-icon" aria-expanded="false" aria-label="Menü megnyitása">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+        <nav id="mobile-menu" class="mobile-menu">
+          <!-- Nyelvi választó (mobil nézet) -->
+          <div class="language-selector-mobile mb-4 sm:hidden">
+            <button class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors w-full" onclick="toggleLanguageMenuMobile()">
+              <span id="current-flag-svg-mobile" class="w-6 h-4"> <!-- SVG ide kerül JS-ből --></span>
+              <span id="current-lang-mobile">HU</span>
+              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div id="language-menu-mobile" class="w-full bg-gray-900 rounded-lg shadow-lg hidden mt-2">
+              <div class="py-1">
+                <button onclick="changeLanguage('hu')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                  <span class="w-6 h-4"> <!-- HU SVG -->
+                    <svg viewBox="0 0 3 2" width="24" height="16"><rect width="3" height="2" fill="#fff"/><rect width="3" height="0.67" y="0" fill="#cd2a3e"/><rect width="3" height="0.67" y="1.33" fill="#436f4d"/></svg>
+                  </span>
+                  <span>Magyar</span>
+                </button>
+                <button onclick="changeLanguage('en')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                  <span class="w-6 h-4"> <!-- EN SVG -->
+                    <svg viewBox="0 0 60 30" width="24" height="16"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#fff" stroke-width="6"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#c8102e" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#c8102e" stroke-width="6"/></g></svg>
+                  </span>
+                  <span>English</span>
+                </button>
+                <button onclick="changeLanguage('de')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                  <span class="w-6 h-4"> <!-- DE SVG -->
+                    <svg viewBox="0 0 5 3" width="24" height="16"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#dd0000"/><rect width="5" height="1" y="2" fill="#ffce00"/></svg>
+                  </span>
+                  <span>Deutsch</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="text-blue-400 hover:text-blue-300 flex items-center space-x-2" data-i18n="nav.home">
+            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-5h-4v5H4a1 1 0 0 1-1-1V10.5z"/></svg></span>
+            <span>Kezdőlap</span>
+          </a>
+          <a href="about.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.about">
+            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><text x="12" y="17" text-anchor="middle" font-size="12" fill="#000" font-family="Arial" font-weight="bold">i</text></svg></span>
+            <span>Rólunk</span>
+          </a>
+          <a href="gallery.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.gallery">
+            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-11-4l2.03 2.71L16 11l4 5H8l3-4zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"/></svg></span>
+            <span>Galéria</span>
+          </a>
+          <a href="contact.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.contact">
+            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1H7.61a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.24 1z"/></svg></span>
+            <span>Kapcsolat</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div id="scroll-container">
+    <div class="header-spacer"></div>
+    <!-- Hero szekció -->
+    <section class="relative min-h-[60vh] sm:min-h-screen flex items-center justify-center bg-black py-12 sm:py-24 lg:py-32 fade-in-up">
+    <img src="../index_images/hero_bg.jpg" alt="BMW autó" class="hero-bg">
+      <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 fade-in">
+      <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-4" data-i18n="hero.title">Professzionális BMW szerviz</h1>
+      <p class="mb-6 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto" data-i18n="hero.subtitle">Fedezze fel BMW-jének teljes körű szervizelési és tuning lehetőségeit, precíziós munkával és legmagasabb színvonalon.</p>
+      <a href="#kapcsolat" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-4 sm:px-6 py-2 rounded-full font-semibold transition text-sm sm:text-base" data-i18n="hero.cta">Ajánlatkérés</a>
+    </div>
+  </section>
+
+  <!-- Szakértelem szekció -->
+    <section id="szolgaltatasok" class="container mx-auto py-12 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 fade-in-up">
+      <h2 class="text-xl sm:text-3xl font-bold text-center mb-8 sm:mb-16 lg:mb-24 fade-in" data-i18n="expertise.title">Szakértelmünk</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 lg:gap-10">
+      <!-- BMW javítás & karbantartás -->
+        <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:transform hover:scale-105 transition-transform fade-in-up">
+        <img src="../index_images/1.png" alt="BMW javítás" class="w-full h-44 object-cover">
+        <div class="p-4 sm:p-6">
+          <h3 class="font-semibold text-base sm:text-lg mb-2" data-i18n="expertise.repair.title">BMW javítás & karbantartás</h3>
+          <p class="text-gray-400 text-sm mb-3" data-i18n="expertise.repair.description">Átfogó diagnosztika, precíziós motormunka, fékrendszer szervizelés és olajcsere, hogy BMW-je mindig tökéletes állapotban legyen.</p>
+          <a href="services.html#javitas" class="text-blue-400 text-sm font-semibold hover:text-blue-300" data-i18n="expertise.repair.more">További információk &gt;</a>
+        </div>
+      </div>
+      
+      <!-- Szoftverfrissítés & kódolás -->
+        <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:transform hover:scale-105 transition-transform fade-in-up">
+        <img src="../index_images/2.png" alt="Szoftverfrissítés" class="w-full h-44 object-cover">
+        <div class="p-4 sm:p-6">
+          <h3 class="font-semibold text-base sm:text-lg mb-2" data-i18n="expertise.software.title">Szoftverfrissítés & kódolás</h3>
+          <p class="text-gray-400 text-sm mb-3" data-i18n="expertise.software.description">Legfrissebb iDrive frissítések, navigációs térképfrissítések és firmware frissítések optimális teljesítményért.</p>
+          <a href="services.html#software" class="text-blue-400 text-sm font-semibold hover:text-blue-300" data-i18n="expertise.software.more">További információk &gt;</a>
+        </div>
+      </div>
+      
+      <!-- Apple CarPlay beépítés -->
+        <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:transform hover:scale-105 transition-transform fade-in-up">
+        <img src="../index_images/3.png" alt="Apple CarPlay" class="w-full h-44 object-cover">
+        <div class="p-4 sm:p-6">
+          <h3 class="font-semibold text-base sm:text-lg mb-2" data-i18n="expertise.carplay.title">Apple CarPlay beépítés</h3>
+          <p class="text-gray-400 text-sm mb-3" data-i18n="expertise.carplay.description">Apple CarPlay zökkenőmentes integrálása BMW-jébe modern infotainment és okostelefon csatlakozás érdekében.</p>
+          <a href="services.html#carplay" class="text-blue-400 text-sm font-semibold hover:text-blue-300" data-i18n="expertise.carplay.more">További információk &gt;</a>
+        </div>
+      </div>
+      
+      <!-- Teljesítmény chiptuning -->
+        <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:transform hover:scale-105 transition-transform fade-in-up">
+        <img src="../index_images/5.png" alt="Teljesítmény chiptuning" class="w-full h-44 object-cover">
+        <div class="p-4 sm:p-6">
+          <h3 class="font-semibold text-base sm:text-lg mb-2" data-i18n="expertise.chiptuning.title">Teljesítmény chiptuning</h3>
+          <p class="text-gray-400 text-sm mb-3" data-i18n="expertise.chiptuning.description">BMW teljesítményének maximalizálása professzionális chiptuninggal.</p>
+          <a href="services.html#chiptuning" class="text-blue-400 text-sm font-semibold hover:text-blue-300" data-i18n="expertise.chiptuning.more">További információk &gt;</a>
+        </div>
+      </div>
+      
+      <!-- Eredeti BMW alkatrészek -->
+        <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:transform hover:scale-105 transition-transform fade-in-up">
+        <img src="../index_images/6.png" alt="BMW alkatrészek" class="w-full h-44 object-cover">
+        <div class="p-4 sm:p-6">
+          <h3 class="font-semibold text-base sm:text-lg mb-2" data-i18n="expertise.parts.title">Eredeti BMW alkatrészek</h3>
+          <p class="text-gray-400 text-sm mb-3" data-i18n="expertise.parts.description">Eredeti BMW alkatrészek megbízható cseréhez és fejlesztéshez.</p>
+          <a href="services.html#alkatreszek" class="text-blue-400 text-sm font-semibold hover:text-blue-300" data-i18n="expertise.parts.more">További információk &gt;</a>
+        </div>
+      </div>
+      
+      <!-- Fejlett diagnosztika -->
+        <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:transform hover:scale-105 transition-transform fade-in-up">
+        <img src="../index_images/1.png" alt="Diagnosztika" class="w-full h-44 object-cover">
+        <div class="p-4 sm:p-6">
+          <h3 class="font-semibold text-base sm:text-lg mb-2" data-i18n="expertise.diagnostics.title">Fejlett diagnosztika</h3>
+          <p class="text-gray-400 text-sm mb-3" data-i18n="expertise.diagnostics.description">Modern diagnosztikai eszközök a problémák gyors és pontos feltárásához.</p>
+          <a href="services.html#diagnosztika" class="text-blue-400 text-sm font-semibold hover:text-blue-300" data-i18n="expertise.diagnostics.more">További információk &gt;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Miért válassz minket -->
+  <section id="rolunk" class="bg-gray-900 py-12 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    <h2 class="text-xl sm:text-3xl font-bold text-center mb-8 sm:mb-16 lg:mb-24" data-i18n="whyUs.title">Miért válassza Bömbi Istvánt?</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-10 max-w-5xl mx-auto">
+      <div class="flex flex-col items-center text-center p-4 bg-gray-800 rounded-lg">
+        <!-- Szakértelmi tudás: diplomakalap -->
+        <svg class="w-8 h-8 mb-2 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z"/></svg>
+        <span class="font-semibold text-sm sm:text-base" data-i18n="whyUs.expertise.title">Szakértelmi tudás</span>
+        <span class="text-gray-400 text-xs sm:text-sm mt-1" data-i18n="whyUs.expertise.description">Évekig tartó BMW-specifikus tapasztalat, kivételes szakértelem és pontos megoldások.</span>
+      </div>
+      <div class="flex flex-col items-center text-center p-4 bg-gray-800 rounded-lg">
+        <!-- Minőségi garancia: pajzs pipa jellel -->
+        <svg class="w-8 h-8 mb-2 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span class="font-semibold text-sm sm:text-base" data-i18n="whyUs.quality.title">Minőségi garancia</span>
+        <span class="text-gray-400 text-xs sm:text-sm mt-1" data-i18n="whyUs.quality.description">Kizárólag eredeti alkatrészek és legjobb gyakorlatok minden javításhoz és fejlesztéshez.</span>
+      </div>
+      <div class="flex flex-col items-center text-center p-4 bg-gray-800 rounded-lg">
+        <!-- Teljesítményközpontúság: sebességmérő -->
+        <svg class="w-8 h-8 mb-2 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span class="font-semibold text-sm sm:text-base" data-i18n="whyUs.performance.title">Teljesítményközpontúság</span>
+        <span class="text-gray-400 text-xs sm:text-sm mt-1" data-i18n="whyUs.performance.description">BMW-je optimális teljesítményre, hatékonyságra és vezetési élményre hangolva.</span>
+      </div>
+      <div class="flex flex-col items-center text-center p-4 bg-gray-800 rounded-lg">
+        <!-- Ügyfélérték: szív -->
+        <svg class="w-8 h-8 mb-2 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 21C12 21 4 13.5 4 8.5A4.5 4.5 0 0112 4a4.5 4.5 0 018 4.5c0 5-8 12.5-8 12.5z"/></svg>
+        <span class="font-semibold text-sm sm:text-base" data-i18n="whyUs.value.title">Ügyfélérték</span>
+        <span class="text-gray-400 text-xs sm:text-sm mt-1" data-i18n="whyUs.value.description">Átlátható kommunikáció és megbízható szolgáltatás, az Ön igényei szerint.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ügyfél vélemények -->
+  <section class="py-12 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl sm:text-4xl font-bold text-center mb-12" data-i18n="testimonials.title">Ügyfeleink mondták</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-gray-900 rounded-lg p-6 shadow-lg">
+          <p class="text-gray-400 mb-4" data-i18n="testimonials.testimonial1">"Bömbi István csapata kiváló munkát végzett BMW-m javításában. Profi, gyors és megbízható szolgáltatás."</p>
+          <p class="font-semibold" data-i18n="testimonials.author1">- Kovács János</p>
+        </div>
+        <div class="bg-gray-900 rounded-lg p-6 shadow-lg">
+          <p class="text-gray-400 mb-4" data-i18n="testimonials.testimonial2">"A tuning szolgáltatásuk után BMW-m teljesítménye jelentősen javult. Csak ajánlani tudom!"</p>
+          <p class="font-semibold" data-i18n="testimonials.author2">- Nagy Péter</p>
+        </div>
+        <div class="bg-gray-900 rounded-lg p-6 shadow-lg">
+          <p class="text-gray-400 mb-4" data-i18n="testimonials.testimonial3">"Az Apple CarPlay beépítés zökkenőmentesen zajlott. Nagyon elégedett vagyok az eredménnyel."</p>
+          <p class="font-semibold" data-i18n="testimonials.author3">- Szabó Anna</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kapcsolat CTA -->
+  <section id="kapcsolat" class="bmw-m-contact py-12 sm:py-24 lg:py-32 text-center px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl sm:text-4xl font-bold mb-4" data-i18n="contact.title">Vegye fel velünk a kapcsolatot</h2>
+    <p class="mb-12 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto" data-i18n="contact.subtitle">Kérdése van, vagy szervizre van szüksége? Töltse ki az alábbi űrlapot, és hamarosan válaszolunk.</p>
+    <a href="contact.html" class="inline-block bg-white hover:bg-gray-200 text-blue-600 text-lg font-semibold py-3 px-6 rounded-md shadow-lg transition-all transform hover:scale-105 tracking-wide" data-i18n="contact.cta"><span>Vegye fel velünk a kapcsolatot</span></a>
+  </section>
+
+  <!-- Lábjegyzet -->
+  <footer class="bg-transparent py-6 sm:py-8 text-center border-t border-gray-800 relative z-10">
+    <div class="flex justify-center space-x-4 mb-4">
+      <a href="https://www.facebook.com/profile.php?id=100089991926013" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/bombis.istvan" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="text-blue-400 hover:text-blue-300"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="mb-2 text-xs text-gray-400" data-i18n="footer.copyright">© 2024 BMW Szerviz Bömbi István. Minden jog fenntartva.</div>
+  </footer>
+  </div>
+</body>
+</html>

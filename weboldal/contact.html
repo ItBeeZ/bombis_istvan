@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lépjen kapcsolatba a Bömbi Istvánnal BMW szerviz és tuning ügyekben">
+  <title>Kapcsolat - BMW Szerviz Bömbi István</title>
+  <link rel="icon" href="../index_images/favicon.png" type="image/png">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="translations.js"></script>
+  <script src="script.js" defer></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.38/bundled/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.8.3/dist/smooth-scrollbar.js"></script>
+</head>
+<body class="bg-black text-white" style="background: url('../index_images/contact_bg.jpg') center center / cover no-repeat fixed;">
+  <div class="menu-overlay"></div>
+  <!-- Fejléc -->
+  <header class="bg-black border-b border-gray-800 fixed top-0 left-0 w-full z-50 py-4 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto flex flex-row justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <a href="index.html">
+          <img src="../index_images/logo.jpg" alt="BMW logó" class="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-blue-400 bg-white object-contain p-1">
+        </a>
+        <span class="font-bold text-lg sm:text-2xl">BMW Szerviz Bömbi István</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <!-- Nyelvi választó (asztali nézet) -->
+        <div class="language-selector hidden sm:block">
+          <button class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors" onclick="toggleLanguageMenu()">
+            <span id="current-flag-svg" class="w-6 h-4"> <!-- SVG ide kerül JS-ből --></span>
+            <span class="hidden sm:inline" id="current-lang">HU</span>
+            <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div id="language-menu" class="absolute right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-lg hidden">
+            <div class="py-1">
+              <button onclick="changeLanguage('hu')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                <span class="w-6 h-4"> <!-- HU SVG -->
+                  <svg viewBox="0 0 3 2" width="24" height="16"><rect width="3" height="2" fill="#fff"/><rect width="3" height="0.67" y="0" fill="#cd2a3e"/><rect width="3" height="0.67" y="1.33" fill="#436f4d"/></svg>
+                </span>
+                <span>Magyar</span>
+              </button>
+              <button onclick="changeLanguage('en')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                <span class="w-6 h-4"> <!-- EN SVG -->
+                  <svg viewBox="0 0 60 30" width="24" height="16"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#fff" stroke-width="6"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#c8102e" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#c8102e" stroke-width="6"/></g></svg>
+                </span>
+                <span>English</span>
+              </button>
+              <button onclick="changeLanguage('de')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                <span class="w-6 h-4"> <!-- DE SVG -->
+                  <svg viewBox="0 0 5 3" width="24" height="16"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#dd0000"/><rect width="5" height="1" y="2" fill="#ffce00"/></svg>
+                </span>
+                <span>Deutsch</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <button class="sm:hidden text-blue-400 hover:text-blue-300 transition-colors hamburger-icon" aria-expanded="false" aria-label="Menü megnyitása">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+        <nav id="mobile-menu" class="mobile-menu">
+          <!-- Nyelvi választó (mobil nézet) -->
+          <div class="language-selector-mobile mb-4 sm:hidden">
+            <button class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors w-full" onclick="toggleLanguageMenuMobile()">
+              <span id="current-flag-svg-mobile" class="w-6 h-4"> <!-- SVG ide kerül JS-ből --></span>
+              <span id="current-lang-mobile">HU</span>
+              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div id="language-menu-mobile" class="w-full bg-gray-900 rounded-lg shadow-lg hidden mt-2">
+              <div class="py-1">
+                <button onclick="changeLanguage('hu')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                  <span class="w-6 h-4"> <!-- HU SVG -->
+                    <svg viewBox="0 0 3 2" width="24" height="16"><rect width="3" height="2" fill="#fff"/><rect width="3" height="0.67" y="0" fill="#cd2a3e"/><rect width="3" height="0.67" y="1.33" fill="#436f4d"/></svg>
+                  </span>
+                  <span>Magyar</span>
+                </button>
+                <button onclick="changeLanguage('en')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                  <span class="w-6 h-4"> <!-- EN SVG -->
+                    <svg viewBox="0 0 60 30" width="24" height="16"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#fff" stroke-width="6"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#c8102e" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#c8102e" stroke-width="6"/></g></svg>
+                  </span>
+                  <span>English</span>
+                </button>
+                <button onclick="changeLanguage('de')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                  <span class="w-6 h-4"> <!-- DE SVG -->
+                    <svg viewBox="0 0 5 3" width="24" height="16"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#dd0000"/><rect width="5" height="1" y="2" fill="#ffce00"/></svg>
+                  </span>
+                  <span>Deutsch</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <a href="index.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.home">
+            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-5h-4v5H4a1 1 0 0 1-1-1V10.5z"/></svg></span>
+            <span>Kezdőlap</span>
+          </a>
+          <a href="about.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.about">
+            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><text x="12" y="17" text-anchor="middle" font-size="12" fill="#000" font-family="Arial" font-weight="bold">i</text></svg></span>
+            <span>Rólunk</span>
+          </a>
+          <a href="gallery.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.gallery">
+            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-11-4l2.03 2.71L16 11l4 5H8l3-4zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"/></svg></span>
+            <span>Galéria</span>
+          </a>
+          <a href="contact.html" class="text-blue-400 hover:text-blue-300 flex items-center space-x-2" data-i18n="nav.contact">
+            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1H7.61a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.24 1z"/></svg></span>
+            <span>Kapcsolat</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div id="scroll-container">
+    <div class="header-spacer"></div>
+    <div class="relative z-10">
+      <section class="relative py-12 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-transparent fade-in-up">
+        <div class="max-w-4xl mx-auto text-center fade-in">
+          <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-4" data-i18n="contactPage.title">Lépjen kapcsolatba Bömbi Istvánnal</h1>
+          <p class="mb-12 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto" data-i18n="contactPage.subtitle">Segítünk minden BMW szerviz igényében. Lépjen kapcsolatba szakértő csapatunkkal még ma!</p>
+        </div>
+        
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 fade-in-up">
+          <!-- Helyszín -->
+          <div class="bg-gray-900 rounded-lg p-6 flex flex-col items-center text-center shadow-lg fade-in-up">
+            <svg class="w-8 h-8 mb-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 7 8 12 8 12s8-5 8-12a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 3-3 3 3 0 0 1-3 3z"/></svg>
+            <h3 class="font-semibold text-lg mb-2" data-i18n="contactPage.locationTitle">Elhelyezkedés</h3>
+            <p class="text-gray-400 text-sm" data-i18n="contactPage.locationAddress">Nyíregyháza, Magyarország</p>
+          </div>
+          
+          <!-- E-mail -->
+          <div class="bg-gray-900 rounded-lg p-6 flex flex-col items-center text-center shadow-lg fade-in-up">
+            <svg class="w-8 h-8 mb-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+            <h3 class="font-semibold text-lg mb-2" data-i18n="contactPage.emailTitle">E-mail Cím</h3>
+            <p class="text-blue-400 text-sm break-all" data-i18n="contactPage.emailAddress">bombis.istvan@gmail.com</p>
+          </div>
+
+          <!-- Telefonszám -->
+          <div class="bg-gray-900 rounded-lg p-6 flex flex-col items-center text-center shadow-lg fade-in-up">
+            <svg class="w-8 h-8 mb-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1H7.61a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.24 1z"/></svg>
+            <h3 class="font-semibold text-lg mb-2" data-i18n="contactPage.phoneTitle">Telefonszám</h3>
+            <p class="text-blue-400 text-sm" data-i18n="contactPage.phoneNumber">+36 30 277 4338</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Űrlap szekció -->
+      <section class="py-12 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 fade-in-up">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 bg-gray-900 rounded-lg shadow-lg p-8 fade-in-up">
+          <div class="p-4 fade-in">
+            <h2 class="text-xl sm:text-3xl font-bold mb-6" data-i18n="contactForm.title">Vegye fel velünk a kapcsolatot</h2>
+            <p class="text-gray-400 mb-6" data-i18n="contactForm.subtitle">Kérdése van, vagy szervizre van szüksége? Töltse ki az alábbi űrlapot, és hamarosan válaszolunk.</p>
+            <form class="space-y-4">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-300" data-i18n="contactForm.yourName">Az Ön neve</label>
+                <input type="text" id="name" name="name" data-i18n="contactForm.namePlaceholder" placeholder="Teljes név" class="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-300" data-i18n="contactForm.yourEmail">Az Ön e-mail címe</label>
+                <input type="email" id="email" name="email" data-i18n="contactForm.emailPlaceholder" placeholder="email@domain.com" class="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-medium text-gray-300" data-i18n="contactForm.yourMessage">Üzenete</label>
+                <textarea id="message" name="message" rows="4" data-i18n="contactForm.messagePlaceholder" placeholder="Mesélje el nekünk igényeit vagy kérdését..." class="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+              </div>
+              <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition-colors" data-i18n="contactForm.sendMessage"><span>Üzenet küldése</span></button>
+            </form>
+          </div>
+          <div class="flex items-center justify-center p-4">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85603.54145785006!2d21.685324399999998!3d47.957597199999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4738528f323a6f1d%3A0x400c4290c1e1130!2zTnlcdTAwZWRyZWd5aMOhemEsIDI0MDA!5e0!3m2!1shu!2shu!4v1700000000000!5m2!1shu!2shu&q=Ny%C3%ADregyh%C3%A1za"
+              width="100%"
+              height="450"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="rounded-lg shadow-lg"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Lábjegyzet -->
+    <footer class="bg-transparent py-6 sm:py-8 text-center border-t border-gray-800 relative z-10">
+      <div class="flex justify-center space-x-4 mb-4">
+        <a href="https://www.facebook.com/profile.php?id=100089991926013" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/bombis.istvan" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-blue-400 hover:text-blue-300"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="mb-2 text-xs text-gray-400" data-i18n="footer.copyright">© 2024 BMW Szerviz Bömbi István. Minden jog fenntartva.</div>
+    </footer>
+  </div>
+</body>
+</html> 
