@@ -395,6 +395,56 @@ nav a svg {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+/* Testimonials Carousel Touch/Swipe Support */
+.testimonials-carousel {
+    touch-action: pan-y pinch-zoom;
+}
+
+.testimonials-track {
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.testimonials-track:active {
+    cursor: grabbing;
+}
+
+@media (max-width: 768px) {
+    .testimonials-track {
+        cursor: default;
+    }
+    
+    .testimonials-carousel {
+        touch-action: pan-y;
+    }
+}
+
+/* Testimonials dots styling - ensure active state overrides hover */
+.testimonials-dot {
+    transition: background-color 0.3s ease;
+}
+
+.testimonials-dot.bg-blue-600,
+.testimonials-dot.active {
+    background-color: #2563eb !important;
+}
+
+.testimonials-dot.bg-gray-600 {
+    background-color: #4b5563 !important;
+}
+
+.testimonials-dot.bg-blue-600:hover,
+.testimonials-dot.active:hover {
+    background-color: #2563eb !important;
+}
+
+.testimonials-dot.bg-gray-600:hover {
+    background-color: #2563eb;
+}
+
 .lg-counter {
     color: white;
 }

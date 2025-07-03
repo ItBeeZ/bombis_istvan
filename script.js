@@ -372,8 +372,17 @@ class TestimonialsCarousel {
         if (!this.track || !this.slides.length) return;
         
         this.currentSlide = 0;
+        this.requestedSlide = 0; // Track which slide was actually requested
         this.slidesPerView = this.getSlidesPerView();
         this.maxSlides = Math.max(0, this.slides.length - this.slidesPerView);
+        this.totalSlides = this.slides.length;
+        this.isMobile = window.innerWidth < 1024; // Track if we're in mobile view
+        
+        // Touch/swipe variables
+        this.startX = 0;
+        this.currentX = 0;
+        this.isDragging = false;
+        this.threshold = 50; // minimum distance for swipe
         
         this.init();
     }
@@ -382,6 +391,22 @@ class TestimonialsCarousel {
         if (window.innerWidth >= 1024) return 3; // lg: 3 slides
         if (window.innerWidth >= 768) return 2;  // md: 2 slides
         return 1; // mobile: 1 slide
+    }
+    
+    getVisibleSlides() {
+        // On mobile (< 1024px), show only first 6 slides
+        // On desktop (>= 1024px), show all 8 slides
+        if (window.innerWidth < 1024) {
+            return Array.from(this.slides).slice(0, 6);
+        } else {
+            return Array.from(this.slides);
+        }
+    }
+    
+    getVisibleDots() {
+        // On mobile (< 1024px), show only first 6 dots
+        // On desktop (>= 1024px), show only first 6 dots (hide last 2)
+        return Array.from(this.dots).slice(0, 6);
     }
     
     init() {
@@ -401,18 +426,163 @@ class TestimonialsCarousel {
         if (this.track) {
             this.track.addEventListener('mouseenter', () => this.stopAutoPlay());
             this.track.addEventListener('mouseleave', () => this.startAutoPlay());
+            
+            // Touch events for mobile swipe
+            this.track.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
+            this.track.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: false });
+            this.track.addEventListener('touchend', (e) => this.handleTouchEnd(e), { passive: true });
+            
+            // Mouse events for desktop drag (optional)
+            this.track.addEventListener('mousedown', (e) => this.handleMouseStart(e));
+            this.track.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+            this.track.addEventListener('mouseup', (e) => this.handleMouseEnd(e));
+            this.track.addEventListener('mouseleave', (e) => this.handleMouseEnd(e));
         }
         
         // Handle window resize
         window.addEventListener('resize', () => {
             this.slidesPerView = this.getSlidesPerView();
-            this.maxSlides = Math.max(0, this.slides.length - this.slidesPerView);
-            this.currentSlide = Math.min(this.currentSlide, this.maxSlides);
-            this.updateCarousel();
+            this.isMobile = window.innerWidth < 1024;
+            
+            const visibleSlides = this.getVisibleSlides();
+            this.maxSlides = Math.max(0, visibleSlides.length - this.slidesPerView);
+            
+            // Adjust current slide if it's out of bounds after resize
+            if (this.currentSlide > this.maxSlides) {
+                this.currentSlide = this.maxSlides;
+            }
+            
+            // Reset requested slide if it's no longer visible (only for dots, not slides)
+            if (this.requestedSlide !== undefined && this.requestedSlide >= 6) {
+                this.requestedSlide = 0;
+                this.currentSlide = 0;
+            }
+            
+            // Try to maintain the requested slide if possible
+            if (this.requestedSlide !== undefined && this.requestedSlide < visibleSlides.length) {
+                this.goToSlide(this.requestedSlide);
+            } else {
+                this.updateCarousel();
+            }
         });
     }
     
+    // Touch event handlers
+    handleTouchStart(e) {
+        this.startX = e.touches[0].clientX;
+        this.isDragging = true;
+        this.stopAutoPlay();
+    }
+    
+    handleTouchMove(e) {
+        if (!this.isDragging) return;
+        
+        this.currentX = e.touches[0].clientX;
+        const diffX = this.startX - this.currentX;
+        
+        // Prevent default scrolling on horizontal swipe
+        if (Math.abs(diffX) > 10) {
+            e.preventDefault();
+        }
+    }
+    
+    handleTouchEnd(e) {
+        if (!this.isDragging) return;
+        
+        const diffX = this.startX - this.currentX;
+        
+        if (Math.abs(diffX) > this.threshold) {
+            const visibleSlides = this.getVisibleSlides();
+            const maxSlides = Math.max(0, visibleSlides.length - this.slidesPerView);
+            
+            if (diffX > 0 && this.currentSlide < maxSlides) {
+                // Swipe left - next slide
+                this.currentSlide++;
+                this.requestedSlide = this.currentSlide;
+            } else if (diffX < 0 && this.currentSlide > 0) {
+                // Swipe right - previous slide
+                this.currentSlide--;
+                this.requestedSlide = this.currentSlide;
+            }
+            this.updateCarousel();
+        }
+        
+        this.isDragging = false;
+        this.startAutoPlay();
+    }
+    
+    // Mouse event handlers (for desktop drag)
+    handleMouseStart(e) {
+        if (window.innerWidth > 768) return; // Only enable on mobile/tablet
+        
+        this.startX = e.clientX;
+        this.isDragging = true;
+        this.stopAutoPlay();
+        e.preventDefault();
+    }
+    
+    handleMouseMove(e) {
+        if (!this.isDragging || window.innerWidth > 768) return;
+        
+        this.currentX = e.clientX;
+        e.preventDefault();
+    }
+    
+    handleMouseEnd(e) {
+        if (!this.isDragging || window.innerWidth > 768) return;
+        
+        const diffX = this.startX - this.currentX;
+        
+        if (Math.abs(diffX) > this.threshold) {
+            const visibleSlides = this.getVisibleSlides();
+            const maxSlides = Math.max(0, visibleSlides.length - this.slidesPerView);
+            
+            if (diffX > 0 && this.currentSlide < maxSlides) {
+                // Drag left - next slide
+                this.currentSlide++;
+                this.requestedSlide = this.currentSlide;
+            } else if (diffX < 0 && this.currentSlide > 0) {
+                // Drag right - previous slide
+                this.currentSlide--;
+                this.requestedSlide = this.currentSlide;
+            }
+            this.updateCarousel();
+        }
+        
+        this.isDragging = false;
+        this.startAutoPlay();
+    }
+    
     updateCarousel() {
+        const visibleSlides = this.getVisibleSlides();
+        const visibleDots = this.getVisibleDots();
+        
+        // Hide/show slides based on screen size
+        this.slides.forEach((slide, index) => {
+            if (window.innerWidth < 1024 && index >= 6) {
+                slide.style.display = 'none';
+            } else {
+                slide.style.display = 'block';
+            }
+        });
+        
+        // Hide/show dots based on screen size
+        this.dots.forEach((dot, index) => {
+            if (index >= 6) {
+                dot.style.display = 'none';
+            } else {
+                dot.style.display = 'block';
+            }
+        });
+        
+        // Recalculate maxSlides based on visible slides
+        const maxSlides = Math.max(0, visibleSlides.length - this.slidesPerView);
+        
+        // Ensure currentSlide is within bounds
+        if (this.currentSlide > maxSlides) {
+            this.currentSlide = maxSlides;
+        }
+        
         const slideWidth = 100 / this.slidesPerView;
         const translateX = -(this.currentSlide * slideWidth);
         
@@ -420,31 +590,52 @@ class TestimonialsCarousel {
             this.track.style.transform = `translateX(${translateX}%)`;
         }
         
-        // Update dots - each dot represents a specific slide position
-        this.dots.forEach((dot, index) => {
-            // Calculate which slides are visible for each dot
-            const slidePosition = index;
-            if (slidePosition === this.currentSlide) {
-                dot.classList.add('bg-blue-600');
-                dot.classList.remove('bg-gray-600');
-            } else {
-                dot.classList.add('bg-gray-600');
-                dot.classList.remove('bg-blue-600');
-            }
+        // Update dots - first remove all active states, then set the requested one
+        visibleDots.forEach((dot, index) => {
+            dot.classList.remove('bg-blue-600', 'active');
+            dot.classList.add('bg-gray-600');
         });
+        
+        // Set the requested dot as active (not necessarily the currentSlide)
+        const activeDotIndex = this.requestedSlide !== undefined ? this.requestedSlide : this.currentSlide;
+        if (activeDotIndex < visibleDots.length && visibleDots[activeDotIndex]) {
+            visibleDots[activeDotIndex].classList.remove('bg-gray-600');
+            visibleDots[activeDotIndex].classList.add('bg-blue-600', 'active');
+        }
     }
     
 
     
     goToSlide(slideIndex) {
-        this.currentSlide = Math.min(slideIndex, this.maxSlides);
+        const visibleSlides = this.getVisibleSlides();
+        const maxSlides = Math.max(0, visibleSlides.length - this.slidesPerView);
+        
+        // Only allow navigation to first 6 dots (even though we have 8 slides)
+        if (slideIndex >= 6) {
+            return;
+        }
+        
+        this.requestedSlide = slideIndex;
+        
+        // Calculate the actual slide position based on slides per view
+        if (slideIndex <= maxSlides) {
+            this.currentSlide = slideIndex;
+        } else {
+            // For the last few slides, position so they're visible
+            this.currentSlide = Math.max(0, visibleSlides.length - this.slidesPerView);
+        }
+        
         this.updateCarousel();
     }
     
     startAutoPlay() {
         this.stopAutoPlay();
         this.autoPlayInterval = setInterval(() => {
-            this.currentSlide = this.currentSlide < this.maxSlides ? this.currentSlide + 1 : 0;
+            const visibleSlides = this.getVisibleSlides();
+            const maxSlides = Math.max(0, visibleSlides.length - this.slidesPerView);
+            
+            this.currentSlide = this.currentSlide < maxSlides ? this.currentSlide + 1 : 0;
+            this.requestedSlide = this.currentSlide;
             this.updateCarousel();
         }, 5000); // Change slide every 5 seconds
     }
