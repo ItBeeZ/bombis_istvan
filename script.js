@@ -120,10 +120,10 @@ function translatePage() {
                 if (textSpan) {
                     textSpan.textContent = translation;
                 } else {
-                    element.textContent = translation;
+                    element.innerHTML = translation;
                 }
             } else {
-                element.textContent = translation;
+                element.innerHTML = translation;
             }
         } catch (error) {
             console.error(`Error translating element: ${error.message}`);
@@ -287,6 +287,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     updateLanguageUI();
     translatePage();
+
+    // Képkörhinta mobil interakció
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const carouselTrack = document.querySelector('.carousel-track');
+    let isPaused = false;
+
+    carouselItems.forEach((item, index) => {
+        if (window.innerWidth <= 640) {
+            item.addEventListener('click', () => {
+                if (!isPaused) {
+                    carouselTrack.style.animationPlayState = 'paused';
+                    item.querySelector('img').style.filter = 'blur(4px)';
+                    item.querySelector('.overlay').style.opacity = '1';
+                    isPaused = true;
+                } else {
+                    carouselTrack.style.animationPlayState = 'running';
+                    item.querySelector('img').style.filter = '';
+                    item.querySelector('.overlay').style.opacity = '0';
+                    isPaused = false;
+                }
+            });
+        }
+    });
     // HAMBURGER MENÜ ESEMÉNYKEZELŐ
     const hamburger = document.querySelector('.hamburger-icon');
     if (hamburger) {
@@ -309,3 +332,132 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15 });
     animatedEls.forEach(el => observer.observe(el));
 })();
+
+// Copyright év automatikus frissítése
+function updateCopyrightYear() {
+    const currentYear = new Date().getFullYear();
+    const copyrightElements = document.querySelectorAll('.copyright-year');
+    copyrightElements.forEach((element) => {
+        element.textContent = currentYear;
+    });
+}
+
+// Oldal betöltésekor frissítjük az évet
+document.addEventListener('DOMContentLoaded', function() {
+    // Kis késleltetés a DOM teljes betöltődéséhez
+    setTimeout(updateCopyrightYear, 100);
+});
+
+// Ha az oldal már betöltött, késleltetéssel frissítjük
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(updateCopyrightYear, 100);
+    });
+} else {
+    setTimeout(updateCopyrightYear, 100);
+}
+
+// Biztonsági frissítés az oldal teljes betöltése után
+window.addEventListener('load', function() {
+    setTimeout(updateCopyrightYear, 200);
+});
+
+// Testimonials Carousel funkcionalitás
+class TestimonialsCarousel {
+    constructor() {
+        this.track = document.querySelector('.testimonials-track');
+        this.slides = document.querySelectorAll('.testimonial-slide');
+        this.dots = document.querySelectorAll('.testimonials-dot');
+        
+        if (!this.track || !this.slides.length) return;
+        
+        this.currentSlide = 0;
+        this.slidesPerView = this.getSlidesPerView();
+        this.maxSlides = Math.max(0, this.slides.length - this.slidesPerView);
+        
+        this.init();
+    }
+    
+    getSlidesPerView() {
+        if (window.innerWidth >= 1024) return 3; // lg: 3 slides
+        if (window.innerWidth >= 768) return 2;  // md: 2 slides
+        return 1; // mobile: 1 slide
+    }
+    
+    init() {
+        this.updateCarousel();
+        this.bindEvents();
+        
+        // Auto-play carousel
+        this.startAutoPlay();
+    }
+    
+    bindEvents() {
+        this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => this.goToSlide(index));
+        });
+        
+        // Pause auto-play on hover
+        if (this.track) {
+            this.track.addEventListener('mouseenter', () => this.stopAutoPlay());
+            this.track.addEventListener('mouseleave', () => this.startAutoPlay());
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            this.slidesPerView = this.getSlidesPerView();
+            this.maxSlides = Math.max(0, this.slides.length - this.slidesPerView);
+            this.currentSlide = Math.min(this.currentSlide, this.maxSlides);
+            this.updateCarousel();
+        });
+    }
+    
+    updateCarousel() {
+        const slideWidth = 100 / this.slidesPerView;
+        const translateX = -(this.currentSlide * slideWidth);
+        
+        if (this.track) {
+            this.track.style.transform = `translateX(${translateX}%)`;
+        }
+        
+        // Update dots - each dot represents a specific slide position
+        this.dots.forEach((dot, index) => {
+            // Calculate which slides are visible for each dot
+            const slidePosition = index;
+            if (slidePosition === this.currentSlide) {
+                dot.classList.add('bg-blue-600');
+                dot.classList.remove('bg-gray-600');
+            } else {
+                dot.classList.add('bg-gray-600');
+                dot.classList.remove('bg-blue-600');
+            }
+        });
+    }
+    
+
+    
+    goToSlide(slideIndex) {
+        this.currentSlide = Math.min(slideIndex, this.maxSlides);
+        this.updateCarousel();
+    }
+    
+    startAutoPlay() {
+        this.stopAutoPlay();
+        this.autoPlayInterval = setInterval(() => {
+            this.currentSlide = this.currentSlide < this.maxSlides ? this.currentSlide + 1 : 0;
+            this.updateCarousel();
+        }, 5000); // Change slide every 5 seconds
+    }
+    
+    stopAutoPlay() {
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+        }
+    }
+}
+
+// Initialize testimonials carousel when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new TestimonialsCarousel();
+});

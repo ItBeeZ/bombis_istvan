@@ -9,14 +9,14 @@ const translations = {
         },
         about: {
             hero: {
-                title: "Bömbi István, Az Ön BMW Specialistája",
+                title: "Bömbis István, Az Ön BMW Specialistája",
                 subtitle: "Szenvedéllyel vezérelve, precízen megépítve."
             },
             journey: {
                 title: "Utunk: Egy életre szóló elkötelezettség a BMW iránt",
-                paragraph1: "Bömbi István szenvedélye a BMW iránt évtizedekkel ezelőtt kezdődött, egy személyes hobbiként, amely szakmai hivatássá nőtte ki magát. Amit aprólékos figyelemmel és kompromisszumok nélküli elhivatottsággal kezdett, az hamarosan egy olyan vízióvá vált, hogy speciális, kiváló minőségű szolgáltatásokat nyújtson a többi BMW-rajongónak.",
+                paragraph1: "Bömbis István szenvedélye a BMW iránt évtizedekkel ezelőtt kezdődött, egy személyes hobbiként, amely szakmai hivatássá nőtte ki magát. Amit aprólékos figyelemmel és kompromisszumok nélküli elhivatottsággal kezdett, az hamarosan egy olyan vízióvá vált, hogy speciális, kiváló minőségű szolgáltatásokat nyújtson a többi BMW-rajongónak.",
                 paragraph2: "Műhelyünk ennek az útnak a tanúsága – felszerelve a legújabb diagnosztikai eszközökkel és szoftverekkel a pontos hibafeltáráshoz és hatékony szolgáltatásnyújtáshoz. Minden javítás, karbantartás vagy utólagos beépítés egy szakértő szemével és a BMW mérnöki tudásának mélyreható ismeretével közelítjük meg.",
-                paragraph3: "Hiszünk az átláthatóságban, a tisztességben és az ígéretek betartásában. Nem csak autókat javítunk; arról van szó, hogy megőrizzük azt a vezetési élményt és teljesítményt, amelyet a BMW-tulajdonosok nagyra tartanak. Ez a Bömbi István-i BMW Szerviz és a BMW-vel való egész életen át tartó, szenvedélyes elkötelezettség."
+                paragraph3: "Hiszünk az átláthatóságban, a tisztességben és az ígéretek betartásában. Nem csak autókat javítunk; arról van szó, hogy megőrizzük azt a vezetési élményt és teljesítményt, amelyet a BMW-tulajdonosok nagyra tartanak. Ez a Bömbis István-i BMW Szerviz és a BMW-vel való egész életen át tartó, szenvedélyes elkötelezettség."
             },
             values: {
                 title: "Alapvető értékeink és szakértelmünk",
@@ -128,7 +128,7 @@ const translations = {
             }
         },
         whyUs: {
-            title: "Miért válassza Bömbi Istvánt?",
+            title: "Miért válassza Bömbis Istvánt?",
             expertise: {
                 title: "Szakértelmi tudás",
                 description: "Évekig tartó BMW-specifikus tapasztalat, kivételes szakértelem és pontos megoldások."
@@ -152,10 +152,10 @@ const translations = {
             cta: "Vegye fel velünk a kapcsolatot"
         },
         contactPage: {
-            title: "Lépjen kapcsolatba Bömbi Istvánnal",
+            title: "Lépjen kapcsolatba Bömbis Istvánnal",
             subtitle: "Segítünk minden BMW szerviz igényében. Lépjen kapcsolatba szakértő csapatunkkal még ma!",
             locationTitle: "Elhelyezkedés",
-            locationAddress: "Nyíregyháza, Magyarország",
+            locationAddress: "Nyíregyháza, Liliom u. 53B, 4400 Magyarország",
             emailTitle: "E-mail Cím",
             emailAddress: "bombis.istvan@gmail.com",
             phoneTitle: "Telefonszám",
@@ -175,18 +175,44 @@ const translations = {
             messagePlaceholder: "Mesélje el nekünk igényeit vagy kérdését..."
         },
         footer: {
-            title: "BMW Szerviz Bömbi István",
+            title: "BMW Szerviz Bömbis István",
             subscribeButton: "Feliratkozás",
-            copyright: "© 2024 BMW Szerviz Bömbi István. Minden jog fenntartva."
+            copyright: "© <span class='copyright-year'>2024</span> BMW Szerviz Bömbis István. Minden jog fenntartva."
         },
         testimonials: {
             title: "Ügyfeleink mondták",
-            testimonial1: "\"Bömbi István csapata kiváló munkát végzett BMW-m javításában. Profi, gyors és megbízható szolgáltatás.\"",
+            testimonial1: "\"Bömbis István csapata kiváló munkát végzett BMW-m javításában. Profi, gyors és megbízható szolgáltatás.\"",
             author1: "- Kovács János",
             testimonial2: "\"A tuning szolgáltatásuk után BMW-m teljesítménye jelentősen javult. Csak ajánlani tudom!\"",
             author2: "- Nagy Péter",
             testimonial3: "\"Az Apple CarPlay beépítés zökkenőmentesen zajlott. Nagyon elégedett vagyok az eredménnyel.\"",
-            author3: "- Szabó Anna"
+            author3: "- Szabó Anna",
+            testimonial4: "\"A diagnosztika során gyorsan megtalálták a hibát, és azonnal megjavították. Kiváló szakértelem!\"",
+            author4: "- Tóth Gábor",
+            testimonial5: "\"A szoftverfrissítés után az iDrive rendszer sokkal gyorsabb lett. Nagyon professzionális munka.\"",
+            author5: "- Horváth Zoltán",
+            testimonial6: "Évek óta hozzájuk járok BMW-mmel. Mindig megbízható és tisztességes árak.",
+            author6: "- Kiss Mária",
+            testimonial7: "A chiptuning után BMW-m sokkal dinamikusabb lett. Fantasztikus eredmény!",
+            author7: "- Varga László",
+            testimonial8: "Precíz munka, fair árak. Bömbis István csapata a legjobb BMW szakszerviz a környéken.",
+            author8: "- Molnár Eszter"
+        },
+        services: {
+            repair: {
+                title: "BMW Javítás & Karbantartás",
+                subtitle: "Átfogó megoldások, hogy BMW-je mindig a legjobb teljesítményt nyújtsa.",
+                heading: "Miért fontos a rendszeres karbantartás?",
+                paragraph1: "A rendszeres karbantartás elengedhetetlen ahhoz, hogy BMW-je megőrizze csúcsteljesítményét, megbízhatóságát és értékét. A gyári előírások szerinti szervizelés nemcsak a garancia feltétele, hanem a hosszú távú, problémamentes működés záloga is. Szakértő csapatunk a legmodernebb diagnosztikai eszközökkel és gyári technológiákkal dolgozik, hogy autója minden porcikája tökéletes állapotban legyen.",
+                paragraph2: "Legyen szó időszakos olajcseréről, fékrendszer-ellenőrzésről, futómű-beállításról vagy komplexebb motordiagnosztikáról, mindenre kiterjedő szolgáltatást nyújtunk. Célunk, hogy Ön mindig maximális biztonságban és élvezettel vezesse autóját.",
+                listTitle: "Karbantartási szolgáltatásaink:",
+                listItem1: "<strong>Időszakos szerviz és olajcsere:</strong> Gyári minőségű olajokkal és szűrőkkel.",
+                listItem2: "<strong>Fékrendszer szerviz:</strong> Fékbetétek, féktárcsák cseréje, fékfolyadék-ellenőrzés és csere.",
+                listItem3: "<strong>Futómű-beállítás és javítás:</strong> Lengéscsillapítók, rugók, lengőkarok ellenőrzése és cseréje.",
+                listItem4: "<strong>Motordiagnosztika és javítás:</strong> Komplex hibafeltárás, motoralkatrészek cseréje.",
+                listItem5: "<strong>Váltóolaj csere:</strong> Automata és manuális váltók szakszerű olajcseréje.",
+                listItem6: "<strong>Klíma rendszer tisztítás és töltés:</strong> A tiszta és hatékony légkondicionálásért."
+            }
         }
     },
     en: {
@@ -199,14 +225,14 @@ const translations = {
         },
         about: {
             hero: {
-                title: "Bömbi István, Your BMW Specialist",
+                title: "Bömbis István, Your BMW Specialist",
                 subtitle: "Driven by Passion, Built on Precision."
             },
             journey: {
                 title: "Our Journey: A Lifelong Dedication to BMW",
-                paragraph1: "Bömbi István's passion for BMW began decades ago, evolving from a personal hobby into a professional calling. What started as meticulous care for his own vehicles soon blossomed into a vision: to provide specialized, high-quality services for fellow BMW enthusiasts.",
+                paragraph1: "Bömbis István's passion for BMW began decades ago, evolving from a personal hobby into a professional calling. What started as meticulous care for his own vehicles soon blossomed into a vision: to provide specialized, high-quality services for fellow BMW enthusiasts.",
                 paragraph2: "Our workshop is a testament to this journey – equipped with state-of-the-art diagnostic tools and software for accurate fault finding and efficient service delivery. Every repair, maintenance, or retrofit is approached with an expert eye and a deep understanding of BMW engineering.",
-                paragraph3: "We believe in transparency, integrity, and delivering results that exceed expectations. It's not just about fixing cars; it's about preserving the driving pleasure and performance that BMW owners cherish. This is BMW Service by Bömbi István, and a lifelong, passionate commitment to BMW."
+                paragraph3: "We believe in transparency, integrity, and delivering results that exceed expectations. It's not just about fixing cars; it's about preserving the driving pleasure and performance that BMW owners cherish. This is BMW Service by Bömbis István, and a lifelong, passionate commitment to BMW."
             },
             values: {
                 title: "Our Core Values & Expertise",
@@ -318,7 +344,7 @@ const translations = {
             }
         },
         whyUs: {
-            title: "Why Choose Bömbi István?",
+            title: "Why Choose Bömbis István?",
             expertise: {
                 title: "Expert Knowledge",
                 description: "Years of BMW-specific experience, exceptional expertise and precise solutions."
@@ -342,10 +368,10 @@ const translations = {
             cta: "Contact Us"
         },
         contactPage: {
-            title: "Reach Out to Bömbi István",
+            title: "Reach Out to Bömbis István",
             subtitle: "We're here to assist you with all your BMW service needs. Get in touch with our expert team today!",
             locationTitle: "Location",
-            locationAddress: "Nyíregyháza, Hungary",
+            locationAddress: "Nyíregyháza, Liliom u. 53B, 4400 Hungary",
             emailTitle: "Email Address",
             emailAddress: "bombis.istvan@gmail.com",
             phoneTitle: "Phone Number",
@@ -365,18 +391,44 @@ const translations = {
             messagePlaceholder: "Tell us your needs or question..."
         },
         footer: {
-            title: "BMW Service Bömbi István",
+            title: "BMW Service Bömbis István",
             subscribeButton: "Subscribe",
-            copyright: "© 2024 BMW Service Bömbi István. All rights reserved."
+            copyright: "© <span class='copyright-year'>2024</span> BMW Service Bömbis István. All rights reserved."
         },
         testimonials: {
             title: "What Our Clients Say",
-            testimonial1: "\"Bömbi István's team did an excellent job repairing my BMW. Professional, fast, and reliable service.\"",
+            testimonial1: "\"Bömbis István's team did an excellent job repairing my BMW. Professional, fast, and reliable service.\"",
             author1: "- John Smith",
             testimonial2: "\"After their tuning service, my BMW's performance improved significantly. Highly recommended!\"",
             author2: "- Peter Brown",
             testimonial3: "\"The Apple CarPlay installation went smoothly. Very satisfied with the result.\"",
-            author3: "- Anna White"
+            author3: "- Anna White",
+            testimonial4: "\"During diagnostics, they quickly found the problem and fixed it immediately. Excellent expertise!\"",
+            author4: "- Gabriel Thompson",
+            testimonial5: "\"After the software update, the iDrive system became much faster. Very professional work.\"",
+            author5: "- Michael Johnson",
+            testimonial6: "I've been bringing my BMW here for years. Always reliable and fair prices.",
+            author6: "- Maria Davis",
+            testimonial7: "After the chiptuning, my BMW became much more dynamic. Fantastic result!",
+            author7: "- Larry Wilson",
+            testimonial8: "Precise work, fair prices. Bömbis István's team is the best BMW specialist in the area.",
+            author8: "- Sarah Miller"
+        },
+        services: {
+            repair: {
+                title: "BMW Repair & Maintenance",
+                subtitle: "Comprehensive solutions to keep your BMW at peak performance.",
+                heading: "Why is regular maintenance important?",
+                paragraph1: "Regular maintenance is essential to maintain your BMW's peak performance, reliability, and value. Servicing according to factory specifications is not only a condition of the warranty, but also the key to long-term, trouble-free operation. Our expert team works with the latest diagnostic tools and factory technologies to ensure that every part of your car is in perfect condition.",
+                paragraph2: "Whether it's a periodic oil change, brake system check, wheel alignment, or more complex engine diagnostics, we provide a comprehensive service. Our goal is for you to always drive your car with maximum safety and enjoyment.",
+                listTitle: "Our maintenance services:",
+                listItem1: "<strong>Periodic service and oil change:</strong> With factory quality oils and filters.",
+                listItem2: "<strong>Brake system service:</strong> Replacement of brake pads, brake discs, brake fluid check and replacement.",
+                listItem3: "<strong>Wheel alignment and repair:</strong> Inspection and replacement of shock absorbers, springs, wishbones.",
+                listItem4: "<strong>Engine diagnostics and repair:</strong> Complex troubleshooting, replacement of engine parts.",
+                listItem5: "<strong>Transmission oil change:</strong> Professional oil change for automatic and manual transmissions.",
+                listItem6: "<strong>Climate system cleaning and charging:</strong> For clean and efficient air conditioning."
+            }
         }
     },
     de: {
@@ -389,14 +441,14 @@ const translations = {
         },
         about: {
             hero: {
-                title: "Bömbi István, Ihr BMW Spezialist",
+                title: "Bömbis István, Ihr BMW Spezialist",
                 subtitle: "Angetrieben von Leidenschaft, gebaut mit Präzision."
             },
             journey: {
                 title: "Unsere Reise: Eine lebenslange Hingabe an BMW",
-                paragraph1: "Bömbi Istváns Leidenschaft für BMW begann vor Jahrzehnten und entwickelte sich von einem persönlichen Hobby zu einer beruflichen Berufung. Was als akribische Pflege der eigenen Fahrzeuge begann, entwickelte sich bald zu einer Vision: spezialisierte, hochwertige Dienstleistungen für andere BMW-Enthusiasten anzubieten.",
+                paragraph1: "Bömbis Istváns Leidenschaft für BMW begann vor Jahrzehnten und entwickelte sich von einem persönlichen Hobby zu einer beruflichen Berufung. Was als akribische Pflege der eigenen Fahrzeuge begann, entwickelte sich bald zu einer Vision: spezialisierte, hochwertige Dienstleistungen für andere BMW-Enthusiasten anzubieten.",
                 paragraph2: "Unsere Werkstatt ist ein Zeugnis dieser Reise – ausgestattet mit modernsten Diagnosegeräten und Software für präzise Fehlerfindung und effiziente Serviceleistungen. Jede Reparatur, Wartung oder Nachrüstung wird mit einem Expertenauge und einem tiefen Verständnis der BMW-Technik angegangen.",
-                paragraph3: "Wir glauben an Transparenz, Integrität und die Erfüllung von Versprechen. Es geht nicht nur darum, Autos zu reparieren; es geht darum, das Fahrvergnügen und die Leistung, die BMW-Besitzer schätzen, zu bewahren. Das ist BMW Service von Bömbi István und eine lebenslange, leidenschaftliche Verpflichtung gegenüber BMW."
+                paragraph3: "Wir glauben an Transparenz, Integrität und die Erfüllung von Versprechen. Es geht nicht nur darum, Autos zu reparieren; es geht darum, das Fahrvergnügen und die Leistung, die BMW-Besitzer schätzen, zu bewahren. Das ist BMW Service von Bömbis István und eine lebenslange, leidenschaftliche Verpflichtung gegenüber BMW."
             },
             values: {
                 title: "Unsere Kernwerte & Expertise",
@@ -508,7 +560,7 @@ const translations = {
             }
         },
         whyUs: {
-            title: "Warum Bömbi István wählen?",
+            title: "Warum Bömbis István wählen?",
             expertise: {
                 title: "Fachwissen",
                 description: "Jahrelange BMW-spezifische Erfahrung, außergewöhnliche Expertise und präzise Lösungen."
@@ -532,10 +584,10 @@ const translations = {
             cta: "Kontaktieren Sie uns"
         },
         contactPage: {
-            title: "Kontaktieren Sie Bömbi István",
+            title: "Kontaktieren Sie Bömbis István",
             subtitle: "Wir helfen Ihnen bei allen BMW-Servicebedürfnissen. Nehmen Sie noch heute Kontakt mit unserem Expertenteam auf!",
             locationTitle: "Standort",
-            locationAddress: "Nyíregyháza, Ungarn",
+            locationAddress: "Nyíregyháza, Liliom u. 53B, 4400 Ungarn",
             emailTitle: "E-Mail-Adresse",
             emailAddress: "bombis.istvan@gmail.com",
             phoneTitle: "Telefonnummer",
@@ -555,18 +607,44 @@ const translations = {
             messagePlaceholder: "Teilen Sie uns Ihre Anliegen oder Fragen mit..."
         },
         footer: {
-            title: "BMW Service Bömbi István",
+            title: "BMW Service Bömbis István",
             subscribeButton: "Abonnieren",
-            copyright: "© 2024 BMW Service Bömbi István. Alle Rechte vorbehalten."
+            copyright: "© <span class='copyright-year'>2024</span> BMW Service Bömbis István. Alle Rechte vorbehalten."
         },
         testimonials: {
             title: "Was unsere Kunden sagen",
-            testimonial1: "\"Bömbi Istváns Team hat hervorragende Arbeit bei der Reparatur meines BMW geleistet. Professioneller, schneller und zuverlässiger Service.\"",
+            testimonial1: "\"Bömbis Istváns Team hat hervorragende Arbeit bei der Reparatur meines BMW geleistet. Professioneller, schneller und zuverlässiger Service.\"",
             author1: "- Hans Schmidt",
             testimonial2: "\"Nach ihrem Tuning-Service hat sich die Leistung meines BMW deutlich verbessert. Sehr zu empfehlen!\"",
             author2: "- Peter Braun",
             testimonial3: "\"Die Apple CarPlay-Installation verlief reibungslos. Sehr zufrieden mit dem Ergebnis.\"",
-            author3: "- Anna Weiß"
+            author3: "- Anna Weiß",
+            testimonial4: "\"Bei der Diagnose haben sie das Problem schnell gefunden und sofort behoben. Ausgezeichnete Expertise!\"",
+            author4: "- Gabriel Müller",
+            testimonial5: "\"Nach dem Software-Update wurde das iDrive-System viel schneller. Sehr professionelle Arbeit.\"",
+            author5: "- Michael Weber",
+            testimonial6: "Ich bringe meinen BMW seit Jahren hierher. Immer zuverlässig und faire Preise.",
+            author6: "- Maria Fischer",
+            testimonial7: "Nach dem Chiptuning wurde mein BMW viel dynamischer. Fantastisches Ergebnis!",
+            author7: "- Lars Wagner",
+            testimonial8: "Präzise Arbeit, faire Preise. Bömbis Istváns Team ist der beste BMW-Spezialist in der Gegend.",
+            author8: "- Sabine Hoffmann"
+        },
+        services: {
+            repair: {
+                title: "BMW Reparatur & Wartung",
+                subtitle: "Umfassende Lösungen, damit Ihr BMW immer die beste Leistung erbringt.",
+                heading: "Warum ist eine regelmäßige Wartung wichtig?",
+                paragraph1: "Eine regelmäßige Wartung ist unerlässlich, um die Spitzenleistung, Zuverlässigkeit und den Wert Ihres BMW zu erhalten. Die Wartung nach Werksspezifikationen ist nicht nur eine Garantiebedingung, sondern auch der Schlüssel zu einem langfristigen, störungsfreien Betrieb. Unser Expertenteam arbeitet mit den neuesten Diagnosewerkzeugen und Werkstechnologien, um sicherzustellen, dass jeder Teil Ihres Autos in einwandfreiem Zustand ist.",
+                paragraph2: "Ob es sich um einen regelmäßigen Ölwechsel, eine Überprüfung der Bremsanlage, eine Achsvermessung oder eine komplexere Motordiagnose handelt, wir bieten einen umfassenden Service. Unser Ziel ist es, dass Sie Ihr Auto immer mit maximaler Sicherheit und Freude fahren.",
+                listTitle: "Unsere Wartungsdienste:",
+                listItem1: "<strong>Regelmäßiger Service und Ölwechsel:</strong> Mit Ölen und Filtern in Werksqualität.",
+                listItem2: "<strong>Bremsenservice:</strong> Austausch von Bremsbelägen, Bremsscheiben, Überprüfung und Austausch von Bremsflüssigkeit.",
+                listItem3: "<strong>Achsvermessung und -reparatur:</strong> Überprüfung und Austausch von Stoßdämpfern, Federn, Querlenkern.",
+                listItem4: "<strong>Motordiagnose und -reparatur:</strong> Komplexe Fehlersuche, Austausch von Motorteilen.",
+                listItem5: "<strong>Getriebeölwechsel:</strong> Professioneller Ölwechsel für Automatik- und Schaltgetriebe.",
+                listItem6: "<strong>Reinigung und Aufladung der Klimaanlage:</strong> Für eine saubere und effiziente Klimatisierung."
+            }
         }
     }
-}; 
+};
