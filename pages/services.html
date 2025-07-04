@@ -3,19 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Professzionális BMW javítás és karbantartás Bömbis Istvánnál. Teljes körű szerviz, hogy autója mindig csúcsformában legyen.">
+  <meta name="description" content="Professzionális BMW javítás és karbantartás Bömbis Istvánnál. Teljes körű szerviz, időszakos karbantartás, motordiagnosztika, fékrendszer javítás és futómű beállítás, hogy BMW-je mindig csúcsformában legyen.">
+  <meta name="keywords" content="BMW szerviz, BMW javítás, BMW karbantartás, motordiagnosztika, fékrendszer javítás, futómű beállítás, olajcsere, Bömbis István, BMW szerelő">
+  <meta name="author" content="Bömbis István">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bombisistvan.hu/pages/services.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bombisistvan.hu/pages/services.html">
+  <meta property="og:title" content="BMW Javítás & Karbantartás - BMW Szerviz Bömbis István">
+  <meta property="og:description" content="Professzionális BMW javítás és karbantartás Bömbis Istvánnál. Teljes körű szerviz, hogy autója mindig csúcsformában legyen.">
+  <meta property="og:image" content="https://bombisistvan.hu/assets/images/hero_bg.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://bombisistvan.hu/pages/services.html">
+  <meta property="twitter:title" content="BMW Javítás & Karbantartás - BMW Szerviz Bömbis István">
+  <meta property="twitter:description" content="Professzionális BMW javítás és karbantartás Bömbis Istvánnál. Teljes körű szerviz, hogy autója mindig csúcsformában legyen.">
+  <meta property="twitter:image" content="https://bombisistvan.hu/assets/images/hero_bg.jpg">
+  
   <title>BMW Javítás & Karbantartás - BMW Szerviz Bömbis István</title>
-  <link rel="icon" href="index_images/favicon.png" type="image/png">
+  <link rel="icon" href="../assets/images/favicon.png" type="image/png">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-  <script src="translations.js"></script>
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/translations.js"></script>
+  <script src="../assets/js/script.js" defer></script>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.38/bundled/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.8.3/dist/smooth-scrollbar.js"></script>
+  
+  <!-- Strukturált adat a szolgáltatásokról -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "BMW Szerviz Bömbis István",
+    "image": "https://bombisistvan.hu/assets/images/logo.jpg",
+    "url": "https://bombisistvan.hu/pages/services.html",
+    "telephone": "+36-30-123-4567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Fő utca 123",
+      "addressLocality": "Budapest",
+      "postalCode": "1011",
+      "addressCountry": "HU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.497912,
+      "longitude": 19.040235
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "priceRange": "$$",
+    "servesCuisine": "BMW Repair",
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Időszakos szerviz és olajcsere",
+          "description": "Gyári minőségű olajokkal és szűrőkkel"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Fékrendszer szerviz",
+          "description": "Fékbetétek, féktárcsák cseréje, fékfolyadék-ellenőrzés és csere"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Futómű-beállítás és javítás",
+          "description": "Lengéscsillapítók, rugók, lengőkarok ellenőrzése és cseréje"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Motordiagnosztika és javítás",
+          "description": "Komplex hibafeltárás, motoralkatrészek cseréje"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-black text-white">
   <div class="menu-overlay"></div>
@@ -23,8 +110,8 @@
   <header class="bg-black border-b border-gray-800 fixed top-0 left-0 w-full z-50">
     <div class="container mx-auto flex flex-row justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
       <div class="flex items-center space-x-3">
-        <a href="index.html">
-          <img src="index_images/logo.jpg" alt="BMW logó" class="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-blue-400 bg-white object-contain p-1">
+        <a href="../index.html">
+          <img src="../assets/images/logo.jpg" alt="BMW Szerviz Bömbis István logó" class="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-blue-400 bg-white object-contain p-1" loading="eager">
         </a>
         <span class="font-bold text-lg sm:text-2xl">BMW Szerviz Bömbis István</span>
       </div>
@@ -93,7 +180,7 @@
               </div>
             </div>
           </div>
-          <a href="index.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.home">
+          <a href="../index.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.home">
             <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-5h-4v5H4a1 1 0 0 1-1-1V10.5z"/></svg></span>
             <span>Kezdőlap</span>
           </a>
@@ -115,9 +202,9 @@
     <div class="header-spacer"></div>
     <!-- Hero szekció -->
     <section class="relative min-h-[60vh] sm:min-h-screen flex items-center justify-center bg-black py-12 sm:py-24 lg:py-32 fade-in-up">
-      <video autoplay loop muted playsinline class="hero-bg">
-        <source src="index_images/4k_bg.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+      <video autoplay loop muted playsinline class="hero-bg" aria-label="BMW szerviz háttérvideó - professzionális javítás és karbantartás">
+        <source src="../assets/images/4k_bg.mp4" type="video/mp4">
+        Az Ön böngészője nem támogatja a videó lejátszását.
       </video>
       <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 fade-in">
         <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-4" data-i18n="services.repair.title">BMW Javítás & Karbantartás</h1>
@@ -138,52 +225,52 @@
     <section class="carousel-container">
       <div class="carousel-track">
         <div class="carousel-item">
-          <img src="index_images/1.png" alt="Szervizkép 1">
+          <img src="../assets/images/1.png" alt="BMW motor diagnosztika és javítás Bömbis István műhelyében" loading="lazy">
           <div class="overlay"><span>Motor diagnosztika</span></div>
         </div>
         <div class="carousel-item">
-          <img src="index_images/2.png" alt="Szervizkép 2">
+          <img src="../assets/images/2.png" alt="BMW fékrendszer javítás és karbantartás Bömbis István műhelyében" loading="lazy">
           <div class="overlay"><span>Fékrendszer javítás</span></div>
         </div>
         <div class="carousel-item">
-          <img src="index_images/3.png" alt="Szervizkép 3">
+          <img src="../assets/images/3.png" alt="BMW olajcsere és folyadékszint ellenőrzés Bömbis István műhelyében" loading="lazy">
           <div class="overlay"><span>Olajcsere</span></div>
         </div>
         <div class="carousel-item">
-          <img src="index_images/5.png" alt="Szervizkép 4">
+          <img src="../assets/images/5.png" alt="BMW futómű beállítás és javítás Bömbis István műhelyében" loading="lazy">
           <div class="overlay"><span>Futómű beállítás</span></div>
         </div>
         <div class="carousel-item">
-          <img src="index_images/6.png" alt="Szervizkép 5">
+          <img src="../assets/images/6.png" alt="BMW váltó szerviz és karbantartás Bömbis István műhelyében" loading="lazy">
           <div class="overlay"><span>Váltó szerviz</span></div>
         </div>
         <div class="carousel-item">
-          <img src="index_images/7.png" alt="Szervizkép 6">
+          <img src="../assets/images/7.png" alt="BMW klíma karbantartás és javítás Bömbis István műhelyében" loading="lazy">
           <div class="overlay"><span>Klíma karbantartás</span></div>
         </div>
         <!-- Duplikált elemek a végtelenített hatáshoz -->
         <div class="carousel-item">
-          <img src="index_images/1.png" alt="Szervizkép 1">
+          <img src="../assets/images/1.png" alt="BMW motor diagnosztika és javítás Bömbis István műhelyében" loading="lazy">
           <div class="overlay"><span>Motor diagnosztika</span></div>
         </div>
         <div class="carousel-item">
-          <img src="index_images/2.png" alt="Szervizkép 2">
+          <img src="../assets/images/2.png" alt="BMW fékrendszer javítás és karbantartás Bömbis István műhelyében" loading="lazy">
           <div class="overlay"><span>Fékrendszer javítás</span></div>
         </div>
         <div class="carousel-item">
-          <img src="index_images/3.png" alt="Szervizkép 3">
+          <img src="../assets/images/3.png" alt="BMW olajcsere és folyadékszint ellenőrzés Bömbis István műhelyében" loading="lazy">
           <div class="overlay"><span>Olajcsere</span></div>
         </div>
         <div class="carousel-item">
-          <img src="index_images/5.png" alt="Szervizkép 4">
+          <img src="../assets/images/5.png" alt="BMW futómű beállítás és javítás Bömbis István műhelyében" loading="lazy">
           <div class="overlay"><span>Futómű beállítás</span></div>
         </div>
         <div class="carousel-item">
-          <img src="index_images/6.png" alt="Szervizkép 5">
+          <img src="../assets/images/6.png" alt="BMW váltó szerviz és karbantartás Bömbis István műhelyében" loading="lazy">
           <div class="overlay"><span>Váltó szerviz</span></div>
         </div>
         <div class="carousel-item">
-          <img src="index_images/7.png" alt="Szervizkép 6">
+          <img src="../assets/images/7.png" alt="BMW klíma karbantartás és javítás Bömbis István műhelyében" loading="lazy">
           <div class="overlay"><span>Klíma karbantartás</span></div>
         </div>
       </div>
@@ -208,7 +295,7 @@
     <section id="kapcsolat" class="bmw-m-contact py-12 sm:py-24 lg:py-32 text-center px-4 sm:px-6 lg:px-8">
       <h2 class="text-2xl sm:text-4xl font-bold mb-4" data-i18n="contact.title">Kérjen időpontot szervizünbe!</h2>
       <p class="mb-12 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto" data-i18n="contact.subtitle">Vegye fel velünk a kapcsolatot, és kérjen ajánlatot vagy időpontot BMW-je karbantartására.</p>
-      <a href="contact.html" class="inline-block bg-white hover:bg-gray-200 text-blue-600 text-lg font-semibold py-3 px-6 rounded-md shadow-lg transition-all transform hover:scale-105 tracking-wide" data-i18n="contact.cta"><span>Időpontfoglalás</span></a>
+      <a href="contact.html" class="inline-block bg-white hover:bg-gray-200 text-blue-600 text-lg font-semibold py-3 px-6 rounded-md shadow-lg transition-all transform hover:scale-105 tracking-wide" data-i18n="contact.cta" aria-label="Időpontfoglalás BMW szervizre"><span>Időpontfoglalás</span></a>
     </section>
 
     <!-- Lábjegyzet -->
