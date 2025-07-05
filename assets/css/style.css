@@ -147,6 +147,13 @@ input[type="email"]:focus {
 .language-selector {
     position: relative;
     z-index: 50;
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .language-selector {
+        display: block;
+    }
 }
 
 .language-selector button {

@@ -5,16 +5,26 @@ let currentLanguage = 'hu';
 function toggleLanguageMenu() {
     const menu = document.querySelector('#language-menu');
     if (menu) {
-        menu.classList.remove('hidden');
-        menu.classList.toggle('active');
+        if (menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            menu.classList.add('hidden');
+        } else {
+            menu.classList.remove('hidden');
+            menu.classList.add('active');
+        }
     }
 }
 
 function toggleLanguageMenuMobile() {
     const menu = document.querySelector('#language-menu-mobile');
     if (menu) {
-        menu.classList.remove('hidden');
-        menu.classList.toggle('active');
+        if (menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            menu.classList.add('hidden');
+        } else {
+            menu.classList.remove('hidden');
+            menu.classList.add('active');
+        }
     }
 }
 
