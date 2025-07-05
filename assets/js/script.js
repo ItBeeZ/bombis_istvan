@@ -335,7 +335,7 @@ function initTestimonialsCarousel() {
         
         // Dots frissítése - csak az aktív dotok számáig
         dots.forEach((dot, index) => {
-            if (index < activeDots) {
+            if (index < activeDots && dot) {
                 if (index === currentSlide) {
                     dot.classList.remove('bg-gray-600');
                     dot.classList.add('bg-blue-600', 'active');
@@ -367,7 +367,7 @@ function initTestimonialsCarousel() {
     
     // Dots eseménykezelők - csak az aktív dotokra
     dots.forEach((dot, index) => {
-        if (index < activeDots) {
+        if (index < activeDots && dot) {
             dot.addEventListener('click', () => {
                 stopAutoSlide();
                 updateSlide(index);
