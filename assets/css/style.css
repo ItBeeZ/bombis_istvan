@@ -460,25 +460,29 @@ nav a svg {
 
 /* Testimonials dots styling - ensure active state overrides hover */
 .testimonials-dot {
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .testimonials-dot.bg-blue-600,
 .testimonials-dot.active {
-    background-color: #2563eb !important;
+    background-color: #f59e0b !important;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.6) !important;
+    transform: scale(1.2) !important;
 }
 
 .testimonials-dot.bg-gray-600 {
-    background-color: #4b5563 !important;
+    background-color: #6b7280 !important;
 }
 
 .testimonials-dot.bg-blue-600:hover,
 .testimonials-dot.active:hover {
-    background-color: #2563eb !important;
+    background-color: #f59e0b !important;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.8) !important;
 }
 
 .testimonials-dot.bg-gray-600:hover {
-    background-color: #2563eb;
+    background-color: #9ca3af;
+    transform: scale(1.1);
 }
 
 .lg-counter {

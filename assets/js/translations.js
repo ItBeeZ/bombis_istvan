@@ -191,12 +191,14 @@ const translations = {
             author4: "- Tóth Gábor",
             testimonial5: "\"A szoftverfrissítés után az iDrive rendszer sokkal gyorsabb lett. Nagyon professzionális munka.\"",
             author5: "- Horváth Zoltán",
-            testimonial6: "Évek óta hozzájuk járok BMW-mmel. Mindig megbízható és tisztességes árak.",
-        author6: "- Kiss Mária",
-        testimonial7: "A chiptuning után BMW-m sokkal erősebb lett, de a fogyasztás nem nőtt jelentősen. Fantasztikus munka!",
-        author7: "- Varga László",
-        testimonial8: "Precíz munka, fair árak és kiváló ügyfélszolgálat. Bömbis István a legjobb BMW szakember!",
-        author8: "- Molnár Tamás"
+            testimonial6: "\"Évek óta hozzájuk járok BMW-mmel. Mindig megbízható és tisztességes árak.\"",
+            author6: "- Kiss Mária",
+            testimonial7: "\"A chiptuning után BMW-m sokkal erősebb lett, de a fogyasztás nem nőtt jelentősen. Fantasztikus munka!\"",
+            author7: "- Varga László",
+            testimonial8: "\"Precíz munka, fair árak és kiváló ügyfélszolgálat. Bömbis István a legjobb BMW szakember!\"",
+            author8: "- Molnár Tamás",
+            testimonial9: "\"A BMW-m karbantartása mindig időben és hibátlanul történik. Megbízható partner minden BMW tulajdonos számára.\"",
+            author9: "- Fekete Zoltán"
         },
         services: {
             repair: {
@@ -407,12 +409,14 @@ const translations = {
             author4: "- Gabriel Thompson",
             testimonial5: "\"After the software update, the iDrive system became much faster. Very professional work.\"",
             author5: "- Michael Johnson",
-            testimonial6: "I've been coming to them with my BMW for years. Always reliable and fair prices.",
-        author6: "- Maria Kiss",
-        testimonial7: "After the chiptuning, my BMW became much more powerful, but fuel consumption didn't increase significantly. Fantastic work!",
-        author7: "- László Varga",
-        testimonial8: "Precise work, fair prices and excellent customer service. Bömbis István is the best BMW specialist!",
-        author8: "- Tamás Molnár"
+            testimonial6: "\"I've been coming to them with my BMW for years. Always reliable and fair prices.\"",
+            author6: "- Maria Kiss",
+            testimonial7: "\"After the chiptuning, my BMW became much more powerful, but fuel consumption didn't increase significantly. Fantastic work!\"",
+            author7: "- László Varga",
+            testimonial8: "\"Precise work, fair prices and excellent customer service. Bömbis István is the best BMW specialist!\"",
+            author8: "- Tamás Molnár",
+            testimonial9: "\"My BMW's maintenance is always done on time and flawlessly. A reliable partner for every BMW owner.\"",
+            author9: "- Zoltán Fekete"
         },
         services: {
             repair: {
@@ -623,12 +627,14 @@ const translations = {
             author4: "- Gabriel Müller",
             testimonial5: "\"Nach dem Software-Update wurde das iDrive-System viel schneller. Sehr professionelle Arbeit.\"",
             author5: "- Michael Weber",
-            testimonial6: "Ich komme seit Jahren mit meinem BMW zu ihnen. Immer zuverlässig und faire Preise.",
-        author6: "- Maria Kiss",
-        testimonial7: "Nach dem Chiptuning wurde mein BMW viel stärker, aber der Verbrauch stieg nicht wesentlich. Fantastische Arbeit!",
-        author7: "- László Varga",
-        testimonial8: "Präzise Arbeit, faire Preise und exzellenter Kundenservice. Bömbis István ist der beste BMW-Spezialist!",
-        author8: "- Tamás Molnár",
+            testimonial6: "\"Ich komme seit Jahren mit meinem BMW zu ihnen. Immer zuverlässig und faire Preise.\"",
+            author6: "- Maria Kiss",
+            testimonial7: "\"Nach dem Chiptuning wurde mein BMW viel stärker, aber der Verbrauch stieg nicht wesentlich. Fantastische Arbeit!\"",
+            author7: "- László Varga",
+            testimonial8: "\"Präzise Arbeit, faire Preise und exzellenter Kundenservice. Bömbis István ist der beste BMW-Spezialist!\"",
+            author8: "- Tamás Molnár",
+            testimonial9: "\"Die Wartung meines BMW erfolgt immer pünktlich und fehlerfrei. Ein zuverlässiger Partner für jeden BMW-Besitzer.\"",
+            author9: "- Zoltán Fekete"
         },
         services: {
             repair: {

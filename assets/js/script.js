@@ -1,5 +1,3 @@
-document.body.style.opacity = '1';
-
 let currentLanguage = 'hu';
 
 function toggleLanguageMenu() {
@@ -303,8 +301,103 @@ function initScrollAnimations() {
     });
 }
 
+// Testimonials carousel inicializálása
+function initTestimonialsCarousel() {
+    const track = document.querySelector('.testimonials-track');
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.testimonials-dot');
+    
+    if (!track || slides.length === 0 || dots.length === 0) return;
+    
+    let currentSlide = 0;
+    let autoSlideInterval;
+    const isDesktop = window.innerWidth >= 769;
+    const visibleSlides = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
+    const maxSlide = isDesktop ? Math.min(3, slides.length - 1) : Math.max(0, slides.length - visibleSlides);
+    const activeDots = isDesktop ? Math.min(4, dots.length) : dots.length;
+    
+    // Slide frissítése
+    function updateSlide(slideIndex) {
+        currentSlide = Math.max(0, Math.min(slideIndex, maxSlide));
+        
+        let translateX;
+        if (isDesktop) {
+            // Asztali nézeten: egy slide szélességű léptetés
+            const slideWidth = slides[0].offsetWidth;
+            translateX = -(currentSlide * slideWidth);
+            track.style.transform = `translateX(${translateX}px)`;
+        } else {
+            // Mobil nézeten: slide szélességű léptetés
+            const slideWidth = slides[0].offsetWidth;
+            translateX = -(currentSlide * slideWidth);
+            track.style.transform = `translateX(${translateX}px)`;
+        }
+        
+        // Dots frissítése - csak az aktív dotok számáig
+        dots.forEach((dot, index) => {
+            if (index < activeDots) {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-gray-600');
+                    dot.classList.add('bg-blue-600', 'active');
+                } else {
+                    dot.classList.remove('bg-blue-600', 'active');
+                    dot.classList.add('bg-gray-600');
+                }
+            }
+        });
+    }
+    
+    // Következő slide
+    function nextSlide() {
+        updateSlide(currentSlide + 1 > maxSlide ? 0 : currentSlide + 1);
+    }
+    
+    // Automatikus léptetés indítása
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 4000); // 4 másodpercenként
+    }
+    
+    // Automatikus léptetés leállítása
+    function stopAutoSlide() {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = null;
+        }
+    }
+    
+    // Dots eseménykezelők - csak az aktív dotokra
+    dots.forEach((dot, index) => {
+        if (index < activeDots) {
+            dot.addEventListener('click', () => {
+                stopAutoSlide();
+                updateSlide(index);
+                startAutoSlide();
+            });
+        }
+    });
+    
+    // Mouse hover események
+    const carousel = document.querySelector('.testimonials-carousel');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', stopAutoSlide);
+        carousel.addEventListener('mouseleave', startAutoSlide);
+    }
+    
+    // Ablak átméretezés kezelése
+    window.addEventListener('resize', () => {
+        location.reload(); // Egyszerű megoldás az átméretezésre
+    });
+    
+    // Kezdeti beállítások
+    updateSlide(0);
+    startAutoSlide();
+}
+
 // Fő inicializáló függvény
 document.addEventListener('DOMContentLoaded', function() {
+    // Body opacity beállítása
+    document.body.style.opacity = '1';
+    
     // Nyelvi menük elrejtése alapértelmezetten
     const languageMenu = document.querySelector('#language-menu');
     const languageMenuMobile = document.querySelector('#language-menu-mobile');
@@ -324,6 +417,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initLanguageSelector();
     initMobileMenu();
     initScrollAnimations();
+    initTestimonialsCarousel();
     
     // Nyelv beállítások
     const savedLanguage = localStorage.getItem('preferredLanguage');
