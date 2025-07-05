@@ -1,16 +1,20 @@
+document.body.style.opacity = '1';
+
 let currentLanguage = 'hu';
 
 function toggleLanguageMenu() {
-    const menu = document.getElementById('language-menu');
+    const menu = document.querySelector('#language-menu');
     if (menu) {
-        menu.classList.toggle('hidden');
+        menu.classList.remove('hidden');
+        menu.classList.toggle('active');
     }
 }
 
 function toggleLanguageMenuMobile() {
-    const menu = document.getElementById('language-menu-mobile');
+    const menu = document.querySelector('#language-menu-mobile');
     if (menu) {
-        menu.classList.toggle('hidden');
+        menu.classList.remove('hidden');
+        menu.classList.toggle('active');
     }
 }
 
@@ -19,17 +23,20 @@ function changeLanguage(lang) {
         console.error(`Language ${lang} not found in translations`);
         return;
     }
-    
     currentLanguage = lang;
     updateLanguageUI();
     translatePage();
-    
-    if (window.innerWidth >= 640) {
-        toggleLanguageMenu();
-    } else {
-        toggleLanguageMenuMobile();
+    // Elrejtjük a nyelvi menüt a nyelv kiválasztása után
+    const languageMenu = document.querySelector('#language-menu');
+    const languageMenuMobile = document.querySelector('#language-menu-mobile');
+    if (languageMenu) {
+        languageMenu.classList.remove('active');
+        languageMenu.classList.add('hidden');
     }
-    
+    if (languageMenuMobile) {
+        languageMenuMobile.classList.remove('active');
+        languageMenuMobile.classList.add('hidden');
+    }
     localStorage.setItem('preferredLanguage', lang);
 }
 
@@ -131,156 +138,184 @@ function translatePage() {
     });
 }
 
-let scrollbar;
-if (window.Scrollbar && window.innerWidth > 640) {
-    scrollbar = Scrollbar.init(document.querySelector('#scroll-container'), {
-        damping: 0.08,
-        alwaysShowTracks: true,
-        delegateTo: document,
-    });
+// Smooth scrollbar initialization with fallback
+function initSmoothScrollbar() {
+    // Only proceed if Scrollbar is available
+    if (typeof Scrollbar === 'undefined') {
+        return;
+    }
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (!targetId || targetId === '#') return;
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
+    // Try to find scroll container element
+    const scrollContainer = document.querySelector('#scroll-container');
+    
+    // If container exists, initialize smooth scrollbar
+    if (scrollContainer) {
+        try {
+            const scrollbar = Scrollbar.init(scrollContainer, {
+                damping: 0.1,
+                delegateTo: document
+            });
+
+            // Add smooth scrolling for anchor links
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            if (anchorLinks.length > 0) {
+                anchorLinks.forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        if (targetId === "#") return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const offsetTop = targetElement.offsetTop;
+                            scrollbar.scrollTo(0, offsetTop, 1000);
+                        }
+                    });
+                });
+            }
+        } catch (error) {
+            console.error('Error initializing smooth scrollbar:', error);
+        }
+    } else {
+        // Fallback to native smooth scrolling if container doesn't exist
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const rect = targetElement.getBoundingClientRect();
-                const scrollTop = rect.top + scrollbar.scrollTop;
-                scrollbar.scrollTo(0, scrollTop, 1200);
+                const targetId = this.getAttribute('href');
+                if (targetId === "#") return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+}
+
+// Language selector inicializálás
+function initLanguageSelector() {
+    const languageSelectorBtn = document.querySelector('.language-selector-btn');
+    const languageSelectorMobileBtn = document.querySelector('.language-selector-mobile-btn');
+    
+    if (languageSelectorBtn) {
+        languageSelectorBtn.addEventListener('click', toggleLanguageMenu);
+    }
+    
+    if (languageSelectorMobileBtn) {
+        languageSelectorMobileBtn.addEventListener('click', toggleLanguageMenuMobile);
+    }
+    
+    document.querySelectorAll('.language-option, .language-option-mobile').forEach(option => {
+        option.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            if (lang) {
+                changeLanguage(lang);
             }
         });
     });
-}
-
-window.addEventListener('resize', () => {
-    if (window.innerWidth <= 640 && window.Scrollbar && scrollbar) {
-        scrollbar.destroy();
-        scrollbar = null;
-    }
-});
-
-function toggleMenu() {
-    const menu = document.getElementById('mobile-menu');
-    const hamburger = document.querySelector('.hamburger-icon');
-    const overlay = document.querySelector('.menu-overlay');
     
-    if (menu && hamburger) {
-        menu.classList.toggle('active');
-        hamburger.classList.toggle('active');
+    document.addEventListener('click', function(event) {
+        const languageSelector = document.querySelector('.language-selector');
+        const languageSelectorMobile = document.querySelector('.language-selector-mobile');
+        const languageMenu = document.querySelector('#language-menu');
+        const languageMenuMobile = document.querySelector('#language-menu-mobile');
         
-        if (!overlay) {
-            const newOverlay = document.createElement('div');
-            newOverlay.className = 'menu-overlay';
-            document.body.appendChild(newOverlay);
-            newOverlay.classList.toggle('active');
-        } else {
-            overlay.classList.toggle('active');
-        }
-    }
-}
-
-// Javított eseménykezelés a menü bezárásához
-document.addEventListener('click', (event) => {
-    const menu = document.getElementById('mobile-menu');
-    const hamburger = document.querySelector('.hamburger-icon');
-    const overlay = document.querySelector('.menu-overlay');
-    const languageSelectorMobile = document.querySelector('.language-selector-mobile');
-    const languageMenuMobile = document.getElementById('language-menu-mobile');
-    
-    // Ellenőrizzük, hogy a kattintás a menü elemein belül történt-e
-    const isClickInsideMenu = menu && (menu.contains(event.target) || event.target.closest('#mobile-menu'));
-    const isClickOnHamburger = hamburger && hamburger.contains(event.target);
-    const isClickInsideLanguageMenu = languageMenuMobile && languageMenuMobile.contains(event.target);
-    const isClickOnLanguageSelector = languageSelectorMobile && languageSelectorMobile.contains(event.target);
-    
-    if (menu && hamburger && overlay && window.innerWidth < 640 && menu.classList.contains('active')) {
-        if (!isClickInsideMenu && !isClickOnHamburger && !isClickInsideLanguageMenu && !isClickOnLanguageSelector) {
-            menu.classList.remove('active');
-            hamburger.classList.remove('active');
-            overlay.classList.remove('active');
-            if (languageMenuMobile) {
-                languageMenuMobile.classList.add('hidden');
-            }
-        }
-    }
-});
-
-// Javított menü link kezelés
-document.querySelectorAll('#mobile-menu a:not(.language-selector-mobile a)').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.stopImmediatePropagation();
-        
-        const menu = document.getElementById('mobile-menu');
-        const hamburger = document.querySelector('.hamburger-icon');
-        const overlay = document.querySelector('.menu-overlay');
-        
-        if (menu && hamburger && overlay) {
-            menu.classList.remove('active');
-            hamburger.classList.remove('active');
-            overlay.classList.remove('active');
-        }
-
-        const href = this.getAttribute('href');
-        if (href && href.startsWith('#')) {
-            e.preventDefault();
-            if (window.Scrollbar && window.innerWidth > 640 && typeof scrollbar !== 'undefined' && scrollbar) {
-                const targetElement = document.querySelector(href);
-                if (targetElement) {
-                    const rect = targetElement.getBoundingClientRect();
-                    const scrollTop = rect.top + scrollbar.scrollTop;
-                    scrollbar.scrollTo(0, scrollTop, 1200);
-                }
-            } else {
-                const targetElement = document.querySelector(href);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-        }
-    });
-});
-
-document.querySelectorAll('#language-menu-mobile button').forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-document.addEventListener('click', (event) => {
-    const languageSelector = document.querySelector('.language-selector');
-    const languageMenu = document.getElementById('language-menu');
-    const languageSelectorMobile = document.querySelector('.language-selector-mobile');
-    const languageMenuMobile = document.getElementById('language-menu-mobile');
-    
-    if (window.innerWidth >= 640) {
-        if (languageSelector && languageMenu && !languageSelector.contains(event.target) && !languageMenu.contains(event.target)) {
+        if (languageMenu && languageMenu.classList.contains('active') && 
+            languageSelector && !languageSelector.contains(event.target) && 
+            !languageMenu.contains(event.target)) {
+            languageMenu.classList.remove('active');
             languageMenu.classList.add('hidden');
         }
-    } else {
-        if (languageSelectorMobile && languageMenuMobile && !languageSelectorMobile.contains(event.target) && !languageMenuMobile.contains(event.target)) {
+        
+        if (languageMenuMobile && languageMenuMobile.classList.contains('active') && 
+            languageSelectorMobile && !languageSelectorMobile.contains(event.target) && 
+            !languageMenuMobile.contains(event.target)) {
+            languageMenuMobile.classList.remove('active');
             languageMenuMobile.classList.add('hidden');
         }
-    }
-});
+    });
+}
 
-document.addEventListener('DOMContentLoaded', () => {
+// Mobile menu inicializálás
+function initMobileMenu() {
+    const hamburgerIcon = document.querySelector('.hamburger-icon');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (hamburgerIcon && mobileMenu) {
+        hamburgerIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('active');
+            hamburgerIcon.classList.toggle('active');
+            if (menuOverlay) menuOverlay.classList.toggle('active');
+        });
+    }
+    
+    if (menuOverlay && mobileMenu && hamburgerIcon) {
+        menuOverlay.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mobileMenu.classList.remove('active');
+            hamburgerIcon.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        });
+    }
+    
+    // Mobile menü linkekre zárás
+    if (mobileMenu && hamburgerIcon) {
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                hamburgerIcon.classList.remove('active');
+                if (menuOverlay) menuOverlay.classList.remove('active');
+            });
+        });
+    }
+}
+
+// Scroll animációk inicializálása
+function initScrollAnimations() {
+    const fadeElements = document.querySelectorAll('.fade-in, .fade-in-up');
+    if (fadeElements.length === 0) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    fadeElements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Fő inicializáló függvény
+document.addEventListener('DOMContentLoaded', function() {
+    // Nyelvi menük elrejtése alapértelmezetten
+    const languageMenu = document.querySelector('#language-menu');
+    const languageMenuMobile = document.querySelector('#language-menu-mobile');
+    
+    if (languageMenu) {
+        languageMenu.classList.remove('active');
+        languageMenu.classList.add('hidden');
+    }
+    
+    if (languageMenuMobile) {
+        languageMenuMobile.classList.remove('active');
+        languageMenuMobile.classList.add('hidden');
+    }
+    
+    // Alapvető inicializálások
+    initSmoothScrollbar();
+    initLanguageSelector();
+    initMobileMenu();
+    initScrollAnimations();
+    
+    // Nyelv beállítások
     const savedLanguage = localStorage.getItem('preferredLanguage');
     if (savedLanguage && translations[savedLanguage]) {
         currentLanguage = savedLanguage;
@@ -288,11 +323,12 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLanguageUI();
     translatePage();
 
-    // Képkörhinta mobil interakció
+    // Képkörhinta mobil és asztali interakció
     const carouselItems = document.querySelectorAll('.carousel-item');
     const carouselTrack = document.querySelector('.carousel-track');
     let isPaused = false;
 
+    // Mobil interakció (kattintásra)
     carouselItems.forEach((item, index) => {
         if (window.innerWidth <= 640) {
             item.addEventListener('click', () => {
@@ -310,345 +346,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
-    // HAMBURGER MENÜ ESEMÉNYKEZELŐ
-    const hamburger = document.querySelector('.hamburger-icon');
-    if (hamburger) {
-        hamburger.addEventListener('click', function(e) {
-            e.stopPropagation();
-            toggleMenu();
+    
+    // Asztali interakció (hover-re)
+    if (window.innerWidth > 640) {
+        carouselItems.forEach((item) => {
+            item.addEventListener('mouseenter', () => {
+                carouselTrack.style.animationPlayState = 'paused';
+            });
+            item.addEventListener('mouseleave', () => {
+                carouselTrack.style.animationPlayState = 'running';
+            });
         });
     }
 });
-(function() {
-    const animatedEls = document.querySelectorAll('.fade-in, .fade-in-up');
-    if (animatedEls.length === 0) return;
-    const observer = new window.IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
-    animatedEls.forEach(el => observer.observe(el));
-})();
 
-// Copyright év automatikus frissítése
-function updateCopyrightYear() {
-    const currentYear = new Date().getFullYear();
-    const copyrightElements = document.querySelectorAll('.copyright-year');
-    copyrightElements.forEach((element) => {
-        element.textContent = currentYear;
-    });
-}
-
-// Oldal betöltésekor frissítjük az évet
-document.addEventListener('DOMContentLoaded', function() {
-    // Kis késleltetés a DOM teljes betöltődéséhez
-    setTimeout(updateCopyrightYear, 100);
-});
-
-// Ha az oldal már betöltött, késleltetéssel frissítjük
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(updateCopyrightYear, 100);
-    });
-} else {
-    setTimeout(updateCopyrightYear, 100);
-}
-
-// Biztonsági frissítés az oldal teljes betöltése után
-window.addEventListener('load', function() {
-    setTimeout(updateCopyrightYear, 200);
-});
-
-// Testimonials Carousel funkcionalitás
-class TestimonialsCarousel {
-    constructor() {
-        this.track = document.querySelector('.testimonials-track');
-        this.slides = document.querySelectorAll('.testimonial-slide');
-        this.dots = document.querySelectorAll('.testimonials-dot');
-        
-        if (!this.track || !this.slides.length) return;
-        
-        this.currentSlide = 0;
-        this.requestedSlide = 0; // Track which slide was actually requested
-        this.slidesPerView = this.getSlidesPerView();
-        this.maxSlides = Math.max(0, this.slides.length - this.slidesPerView);
-        this.totalSlides = this.slides.length;
-        this.isMobile = window.innerWidth < 1024; // Track if we're in mobile view
-        
-        // Touch/swipe variables
-        this.startX = 0;
-        this.currentX = 0;
-        this.isDragging = false;
-        this.threshold = 50; // minimum distance for swipe
-        
-        this.init();
-    }
-    
-    getSlidesPerView() {
-        if (window.innerWidth >= 1024) return 3; // lg: 3 slides
-        if (window.innerWidth >= 768) return 2;  // md: 2 slides
-        return 1; // mobile: 1 slide
-    }
-    
-    getVisibleSlides() {
-        // On mobile (< 1024px), show only first 6 slides
-        // On desktop (>= 1024px), show all 8 slides
-        if (window.innerWidth < 1024) {
-            return Array.from(this.slides).slice(0, 6);
-        } else {
-            return Array.from(this.slides);
-        }
-    }
-    
-    getVisibleDots() {
-        // On mobile (< 1024px), show only first 6 dots
-        // On desktop (>= 1024px), show only first 6 dots (hide last 2)
-        return Array.from(this.dots).slice(0, 6);
-    }
-    
-    init() {
-        this.updateCarousel();
-        this.bindEvents();
-        
-        // Auto-play carousel
-        this.startAutoPlay();
-    }
-    
-    bindEvents() {
-        this.dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => this.goToSlide(index));
-        });
-        
-        // Pause auto-play on hover
-        if (this.track) {
-            this.track.addEventListener('mouseenter', () => this.stopAutoPlay());
-            this.track.addEventListener('mouseleave', () => this.startAutoPlay());
-            
-            // Touch events for mobile swipe
-            this.track.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
-            this.track.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: false });
-            this.track.addEventListener('touchend', (e) => this.handleTouchEnd(e), { passive: true });
-            
-            // Mouse events for desktop drag (optional)
-            this.track.addEventListener('mousedown', (e) => this.handleMouseStart(e));
-            this.track.addEventListener('mousemove', (e) => this.handleMouseMove(e));
-            this.track.addEventListener('mouseup', (e) => this.handleMouseEnd(e));
-            this.track.addEventListener('mouseleave', (e) => this.handleMouseEnd(e));
-        }
-        
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            this.slidesPerView = this.getSlidesPerView();
-            this.isMobile = window.innerWidth < 1024;
-            
-            const visibleSlides = this.getVisibleSlides();
-            this.maxSlides = Math.max(0, visibleSlides.length - this.slidesPerView);
-            
-            // Adjust current slide if it's out of bounds after resize
-            if (this.currentSlide > this.maxSlides) {
-                this.currentSlide = this.maxSlides;
-            }
-            
-            // Reset requested slide if it's no longer visible (only for dots, not slides)
-            if (this.requestedSlide !== undefined && this.requestedSlide >= 6) {
-                this.requestedSlide = 0;
-                this.currentSlide = 0;
-            }
-            
-            // Try to maintain the requested slide if possible
-            if (this.requestedSlide !== undefined && this.requestedSlide < visibleSlides.length) {
-                this.goToSlide(this.requestedSlide);
-            } else {
-                this.updateCarousel();
-            }
-        });
-    }
-    
-    // Touch event handlers
-    handleTouchStart(e) {
-        this.startX = e.touches[0].clientX;
-        this.isDragging = true;
-        this.stopAutoPlay();
-    }
-    
-    handleTouchMove(e) {
-        if (!this.isDragging) return;
-        
-        this.currentX = e.touches[0].clientX;
-        const diffX = this.startX - this.currentX;
-        
-        // Prevent default scrolling on horizontal swipe
-        if (Math.abs(diffX) > 10) {
-            e.preventDefault();
-        }
-    }
-    
-    handleTouchEnd(e) {
-        if (!this.isDragging) return;
-        
-        const diffX = this.startX - this.currentX;
-        
-        if (Math.abs(diffX) > this.threshold) {
-            const visibleSlides = this.getVisibleSlides();
-            const maxSlides = Math.max(0, visibleSlides.length - this.slidesPerView);
-            
-            if (diffX > 0 && this.currentSlide < maxSlides) {
-                // Swipe left - next slide
-                this.currentSlide++;
-                this.requestedSlide = this.currentSlide;
-            } else if (diffX < 0 && this.currentSlide > 0) {
-                // Swipe right - previous slide
-                this.currentSlide--;
-                this.requestedSlide = this.currentSlide;
-            }
-            this.updateCarousel();
-        }
-        
-        this.isDragging = false;
-        this.startAutoPlay();
-    }
-    
-    // Mouse event handlers (for desktop drag)
-    handleMouseStart(e) {
-        if (window.innerWidth > 768) return; // Only enable on mobile/tablet
-        
-        this.startX = e.clientX;
-        this.isDragging = true;
-        this.stopAutoPlay();
-        e.preventDefault();
-    }
-    
-    handleMouseMove(e) {
-        if (!this.isDragging || window.innerWidth > 768) return;
-        
-        this.currentX = e.clientX;
-        e.preventDefault();
-    }
-    
-    handleMouseEnd(e) {
-        if (!this.isDragging || window.innerWidth > 768) return;
-        
-        const diffX = this.startX - this.currentX;
-        
-        if (Math.abs(diffX) > this.threshold) {
-            const visibleSlides = this.getVisibleSlides();
-            const maxSlides = Math.max(0, visibleSlides.length - this.slidesPerView);
-            
-            if (diffX > 0 && this.currentSlide < maxSlides) {
-                // Drag left - next slide
-                this.currentSlide++;
-                this.requestedSlide = this.currentSlide;
-            } else if (diffX < 0 && this.currentSlide > 0) {
-                // Drag right - previous slide
-                this.currentSlide--;
-                this.requestedSlide = this.currentSlide;
-            }
-            this.updateCarousel();
-        }
-        
-        this.isDragging = false;
-        this.startAutoPlay();
-    }
-    
-    updateCarousel() {
-        const visibleSlides = this.getVisibleSlides();
-        const visibleDots = this.getVisibleDots();
-        
-        // Hide/show slides based on screen size
-        this.slides.forEach((slide, index) => {
-            if (window.innerWidth < 1024 && index >= 6) {
-                slide.style.display = 'none';
-            } else {
-                slide.style.display = 'block';
-            }
-        });
-        
-        // Hide/show dots based on screen size
-        this.dots.forEach((dot, index) => {
-            if (index >= 6) {
-                dot.style.display = 'none';
-            } else {
-                dot.style.display = 'block';
-            }
-        });
-        
-        // Recalculate maxSlides based on visible slides
-        const maxSlides = Math.max(0, visibleSlides.length - this.slidesPerView);
-        
-        // Ensure currentSlide is within bounds
-        if (this.currentSlide > maxSlides) {
-            this.currentSlide = maxSlides;
-        }
-        
-        const slideWidth = 100 / this.slidesPerView;
-        const translateX = -(this.currentSlide * slideWidth);
-        
-        if (this.track) {
-            this.track.style.transform = `translateX(${translateX}%)`;
-        }
-        
-        // Update dots - first remove all active states, then set the requested one
-        visibleDots.forEach((dot, index) => {
-            dot.classList.remove('bg-blue-600', 'active');
-            dot.classList.add('bg-gray-600');
-        });
-        
-        // Set the requested dot as active (not necessarily the currentSlide)
-        const activeDotIndex = this.requestedSlide !== undefined ? this.requestedSlide : this.currentSlide;
-        if (activeDotIndex < visibleDots.length && visibleDots[activeDotIndex]) {
-            visibleDots[activeDotIndex].classList.remove('bg-gray-600');
-            visibleDots[activeDotIndex].classList.add('bg-blue-600', 'active');
-        }
-    }
-    
-
-    
-    goToSlide(slideIndex) {
-        const visibleSlides = this.getVisibleSlides();
-        const maxSlides = Math.max(0, visibleSlides.length - this.slidesPerView);
-        
-        // Only allow navigation to first 6 dots (even though we have 8 slides)
-        if (slideIndex >= 6) {
-            return;
-        }
-        
-        this.requestedSlide = slideIndex;
-        
-        // Calculate the actual slide position based on slides per view
-        if (slideIndex <= maxSlides) {
-            this.currentSlide = slideIndex;
-        } else {
-            // For the last few slides, position so they're visible
-            this.currentSlide = Math.max(0, visibleSlides.length - this.slidesPerView);
-        }
-        
-        this.updateCarousel();
-    }
-    
-    startAutoPlay() {
-        this.stopAutoPlay();
-        this.autoPlayInterval = setInterval(() => {
-            const visibleSlides = this.getVisibleSlides();
-            const maxSlides = Math.max(0, visibleSlides.length - this.slidesPerView);
-            
-            this.currentSlide = this.currentSlide < maxSlides ? this.currentSlide + 1 : 0;
-            this.requestedSlide = this.currentSlide;
-            this.updateCarousel();
-        }, 5000); // Change slide every 5 seconds
-    }
-    
-    stopAutoPlay() {
-        if (this.autoPlayInterval) {
-            clearInterval(this.autoPlayInterval);
-            this.autoPlayInterval = null;
-        }
-    }
-}
-
-// Initialize testimonials carousel when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    new TestimonialsCarousel();
-});
+// ... meglévő kód ...

@@ -1,6 +1,8 @@
 body { 
     font-family: 'Oswald', Arial, sans-serif; 
     scroll-behavior: smooth;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
 
 h1, h2, h3, h4, h5, h6, nav, .font-bold, .font-semibold { 
@@ -111,6 +113,7 @@ nav a:hover i {
     }
 }
 
+
 /* Hover animációk */
 .hover\:transform:hover {
     transform: scale(1.05);
@@ -169,6 +172,15 @@ input[type="email"]:focus {
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     overflow: hidden;
+    z-index: 60;
+}
+
+#language-menu.hidden {
+    display: none;
+}
+
+#language-menu.active {
+    display: block;
 }
 
 /* Mobil nyelvi választó stílusok */
@@ -198,6 +210,15 @@ input[type="email"]:focus {
     border: 1px solid #374151;
     border-radius: 0.5rem;
     margin-top: 0.5rem;
+    z-index: 60;
+}
+
+#language-menu-mobile.hidden {
+    display: none;
+}
+
+#language-menu-mobile.active {
+    display: block;
 }
 
 .carousel-container {
@@ -238,15 +259,13 @@ input[type="email"]:focus {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 1rem;
   opacity: 0;
   transition: opacity 0.3s ease;
-  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
 }
 
 .carousel-item:hover img {
@@ -318,40 +337,279 @@ nav a svg {
 
 /* BMW M stílus a Kapcsolat szekcióhoz */
 .bmw-m-contact {
-  background-color: #f2f2f2;
   position: relative;
+  color: #fff;
   overflow: hidden;
-  color: #000;
-}
-
-.bmw-m-contact h2 {
-  color: #000;
-  position: relative;
-  z-index: 2;
-}
-
-.bmw-m-contact p {
-  color: #000;
-  position: relative;
-  z-index: 2;
+  padding: 5rem 0;
 }
 
 .bmw-m-contact::before {
   content: '';
   position: absolute;
+  top: -60px;
+  left: -10vw;
+  width: 120vw;
+  height: calc(100% + 120px);
+  background: repeating-linear-gradient(
+    110deg,
+    #fff 0 22vw,
+    #81C4FF 22vw 34vw,
+    #16588E 34vw 46vw,
+    #E7222E 46vw 200vw
+  );
+  transform: skewY(-5deg);
+  z-index: -1;
+}
+
+
+.bmw-m-contact > * {
+  position: relative;
+  z-index: 1;
+}
+
+.bmw-m-contact h2,
+.bmw-m-contact p {
+  color: #fff;
+}
+
+.bmw-m-contact a.inline-block {
+  background-color: #fff;
+  color: #00205B;
+}
+
+.bmw-m-contact a.inline-block:hover {
+  background-color: #ddd;
+}
+
+/* Második before blokk eltávolítva */
+
+/* Galéria stílusok */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.filter-btn {
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* LightGallery testreszabások */
+.lg-backdrop {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lg-toolbar {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Testimonials Carousel Touch/Swipe Support */
+.testimonials-carousel {
+    touch-action: pan-y pinch-zoom;
+}
+
+.testimonials-track {
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.testimonials-track:active {
+    cursor: grabbing;
+}
+
+@media (max-width: 768px) {
+    .testimonials-track {
+        cursor: default;
+    }
+    
+    .testimonials-carousel {
+        touch-action: pan-y;
+    }
+}
+
+/* Testimonials dots styling - ensure active state overrides hover */
+.testimonials-dot {
+    transition: background-color 0.3s ease;
+}
+
+.testimonials-dot.bg-blue-600,
+.testimonials-dot.active {
+    background-color: #2563eb !important;
+}
+
+.testimonials-dot.bg-gray-600 {
+    background-color: #4b5563 !important;
+}
+
+.testimonials-dot.bg-blue-600:hover,
+.testimonials-dot.active:hover {
+    background-color: #2563eb !important;
+}
+
+.testimonials-dot.bg-gray-600:hover {
+    background-color: #2563eb;
+}
+
+.lg-counter {
+    color: white;
+}
+
+.lg-close {
+    color: white;
+}
+
+.lg-close:hover {
+    color: #3b82f6;
+}
+
+/* Reszponzív galéria */
+@media (max-width: 768px) {
+    .gallery-item img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 640px) {
+    .gallery-item img {
+        height: 200px;
+    }
+    
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Scrollra belépő animációk */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+.fade-in.animated {
+  opacity: 1;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+.fade-in-up.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html, body {
+  overflow-x: hidden;
+  height: auto;
+}
+#scroll-container {
+  width: 100vw;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Smooth Scrollbar custom stílusok */
+.scrollbar-track {
+  background: #18181b !important;
+}
+.scrollbar-thumb {
+  background: #3b82f6 !important;
+  border-radius: 4px !important;
+}
+
+.header-spacer {
+  height: 72px;
+  width: 100%;
+  display: block;
+}
+
+.carousel-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  width: 100%;
+  border-radius: 0.5rem;
+  transition: filter 0.3s ease;
+}
+
+.carousel-item .overlay {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, 
-    #007AFF 0%, #007AFF 16.66%,
-    #005FB9 16.66%, #005FB9 33.33%,
-    #C8102E 33.33%, #C8102E 50%
-  );
-  opacity: 0.5;
-  transform: skewX(-20deg);
-  transform-origin: bottom left;
-  z-index: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.carousel-item:hover .overlay {
+  opacity: 1;
+}
+
+.carousel-item:hover img {
+  filter: brightness(0.8);
+  transition: filter 0.3s ease;
+}
+
+.carousel-item .service-text {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-item:hover .service-text {
+  opacity: 1;
+}
+
+.carousel-item .service-text {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-item:hover .service-text {
+  opacity: 1;
 }
 
 /* Galéria stílusok */
@@ -518,3 +776,5 @@ html, body {
   width: 100%;
   display: block;
 }
+
+.hidden { display: none !important; }
