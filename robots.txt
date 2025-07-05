@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://bombisistvan.hu/sitemap.xml
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Allow all other content
+Allow: /assets/
+Allow: /pages/
