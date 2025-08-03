@@ -27,9 +27,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/style.min.css">
-  <script src="../assets/js/translation.min.js"></script>
-  <script src="../assets/js/script.min.js"></script>
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.38/bundled/lenis.min.js"></script>
+  <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/chiptuning.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.8.3/dist/smooth-scrollbar.js"></script>
 </head>
 <body class="bg-black text-white">
@@ -140,65 +141,277 @@
     </section>
 
     <!-- Szolgáltatás részletei -->
-    <section class="container mx-auto py-12 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 fade-in-up">
-      <div class="max-w-4xl mx-auto">
+    <section class="py-12 sm:py-24 lg:py-32 fade-in-up">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
         <h2 class="text-xl sm:text-3xl font-bold mb-6">Mi a chiptuning és miért érdemes?</h2>
         <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-4">A chiptuning egy olyan folyamat, amely során a motor vezérlőegységének (ECU) szoftverét optimalizáljuk, hogy növeljük a teljesítményt, javítsuk a hatékonyságot és finomhangoljuk a motor karakterisztikáját. BMW járműveknél ez különösen hatékony, mivel a gyári beállítások gyakran konzervatívak, hogy megfeleljenek a különböző piacok követelményeinek.</p>
         <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-8">Szakértő csapatunk a legmodernebb chiptuning eszközökkel és szoftverekkel dolgozik, hogy biztonságosan és megbízhatóan növelje autója teljesítményét. Minden tuning egyedi, az adott motor specifikációihoz és az ügyfél igényeihez igazítva.</p>
       </div>
     </section>
 
-    <!-- Képkörhinta -->
-    <section class="carousel-container">
-      <div class="carousel-track">
-        <div class="carousel-item">
-          <img src="../assets/images/3.png" alt="BMW ECU programozás és chiptuning" loading="lazy">
-          <div class="overlay"><span>ECU programozás</span></div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/6.png" alt="BMW teljesítménymérés chiptuning során" loading="lazy">
-          <div class="overlay"><span>Teljesítménymérés</span></div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/1.png" alt="BMW diagnosztika chiptuning előtt" loading="lazy">
-          <div class="overlay"><span>Diagnosztika</span></div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/2.png" alt="BMW motor optimalizálás chiptuning során" loading="lazy">
-          <div class="overlay"><span>Optimalizálás</span></div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/5.png" alt="BMW chiptuning utáni tesztelés" loading="lazy">
-          <div class="overlay"><span>Tesztelés</span></div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/7.png" alt="BMW chiptuning véglegesítés és ellenőrzés" loading="lazy">
-          <div class="overlay"><span>Véglegesítés</span></div>
-        </div>
-        <!-- Duplikált elemek a végtelenített hatáshoz -->
-        <div class="carousel-item">
-          <img src="../assets/images/3.png" alt="BMW ECU programozás és chiptuning" loading="lazy">
-          <div class="overlay"><span>ECU programozás</span></div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/6.png" alt="BMW teljesítménymérés chiptuning során" loading="lazy">
-          <div class="overlay"><span>Teljesítménymérés</span></div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/1.png" alt="BMW diagnosztika chiptuning előtt" loading="lazy">
-          <div class="overlay"><span>Diagnosztika</span></div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/2.png" alt="BMW motor optimalizálás chiptuning során" loading="lazy">
-          <div class="overlay"><span>Optimalizálás</span></div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/5.png" alt="BMW chiptuning utáni tesztelés" loading="lazy">
-          <div class="overlay"><span>Tesztelés</span></div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/7.png" alt="BMW chiptuning véglegesítés és ellenőrzés" loading="lazy">
-          <div class="overlay"><span>Véglegesítés</span></div>
+    <!-- Chiptuning Autók Galéria -->
+    <section class="container mx-auto py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-12 text-blue-400">Chiptuningolt Autóink</h2>
+        <p class="text-center text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto">Hallgassa meg a chiptuningolt BMW-k lenyűgöző hangjait! Kattintson a lejátszás gombra és élvezze a teljesítménynövelés eredményét.</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+          <!-- Audi A7 C7 3.0 BiTDI -->
+          <div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative overflow-hidden">
+              <img src="../assets/images/chiptuning/Audi a7 c7/AUDI A7 C7 3.0 BiTDI.jpg" alt="Audi A7 C7 3.0 BiTDI chiptuning" class="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white font-bold text-lg sm:text-xl mb-1">Audi A7 C7</h3>
+                <p class="text-blue-400 text-sm font-medium">3.0 BiTDI</p>
+              </div>
+            </div>
+            <div class="p-4 sm:p-6">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                  <button onclick="playAudio('audi-a7')" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors duration-200 shadow-lg hover:shadow-blue-500/30">
+                    <i class="fas fa-play text-sm"></i>
+                  </button>
+                  <div class="text-sm text-gray-300">
+                    <span class="block font-medium">Hangminta</span>
+                    <span class="text-xs text-gray-400">Kattints a lejátszáshoz</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-green-400 font-bold text-sm">+50 LE</div>
+                  <div class="text-green-400 font-bold text-sm">+120 Nm</div>
+                </div>
+              </div>
+              <audio id="audi-a7" preload="none">
+                <source src="../assets/images/chiptuning/Audi a7 c7/AUDI A7 C7 3.0 BiTDI.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <!-- BMW F30 335i -->
+          <div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative overflow-hidden">
+              <img src="../assets/images/chiptuning/BMW F30 335i/BMW F30 335i.jpeg" alt="BMW F30 335i chiptuning" class="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white font-bold text-lg sm:text-xl mb-1">BMW F30</h3>
+                <p class="text-blue-400 text-sm font-medium">335i</p>
+              </div>
+            </div>
+            <div class="p-4 sm:p-6">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                  <button onclick="playAudio('bmw-f30')" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors duration-200 shadow-lg hover:shadow-blue-500/30">
+                    <i class="fas fa-play text-sm"></i>
+                  </button>
+                  <div class="text-sm text-gray-300">
+                    <span class="block font-medium">Hangminta</span>
+                    <span class="text-xs text-gray-400">Kattints a lejátszáshoz</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-green-400 font-bold text-sm">+60 LE</div>
+                  <div class="text-green-400 font-bold text-sm">+80 Nm</div>
+                </div>
+              </div>
+              <audio id="bmw-f30" preload="none">
+                <source src="../assets/images/chiptuning/BMW F30 335i/BMW F30 335i.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <!-- BMW G05 X5 40i -->
+          <div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative overflow-hidden">
+              <img src="../assets/images/chiptuning/BMW G05 X5 40i xDrive/BMW G05 X5 40i xDrive.jpeg" alt="BMW G05 X5 40i xDrive chiptuning" class="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white font-bold text-lg sm:text-xl mb-1">BMW G05 X5</h3>
+                <p class="text-blue-400 text-sm font-medium">40i xDrive</p>
+              </div>
+            </div>
+            <div class="p-4 sm:p-6">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                  <button onclick="playAudio('bmw-g05')" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors duration-200 shadow-lg hover:shadow-blue-500/30">
+                    <i class="fas fa-play text-sm"></i>
+                  </button>
+                  <div class="text-sm text-gray-300">
+                    <span class="block font-medium">Hangminta</span>
+                    <span class="text-xs text-gray-400">Kattints a lejátszáshoz</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-green-400 font-bold text-sm">+70 LE</div>
+                  <div class="text-green-400 font-bold text-sm">+100 Nm</div>
+                </div>
+              </div>
+              <audio id="bmw-g05" preload="none">
+                <source src="../assets/images/chiptuning/BMW G05 X5 40i xDrive/BMW G05 X5 40i xDrive.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <!-- BMW G20 330i -->
+          <div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative overflow-hidden">
+              <img src="../assets/images/chiptuning/BMW G20 330i xDrive/BMW G20 330i xDrive.jpeg" alt="BMW G20 330i xDrive chiptuning" class="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white font-bold text-lg sm:text-xl mb-1">BMW G20</h3>
+                <p class="text-blue-400 text-sm font-medium">330i xDrive</p>
+              </div>
+            </div>
+            <div class="p-4 sm:p-6">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                  <button onclick="playAudio('bmw-g20-330i')" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors duration-200 shadow-lg hover:shadow-blue-500/30">
+                    <i class="fas fa-play text-sm"></i>
+                  </button>
+                  <div class="text-sm text-gray-300">
+                    <span class="block font-medium">Hangminta</span>
+                    <span class="text-xs text-gray-400">Kattints a lejátszáshoz</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-green-400 font-bold text-sm">+55 LE</div>
+                  <div class="text-green-400 font-bold text-sm">+90 Nm</div>
+                </div>
+              </div>
+              <audio id="bmw-g20-330i" preload="none">
+                <source src="../assets/images/chiptuning/BMW G20 330i xDrive/BMW G20 330i xDrive.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <!-- BMW G32 640i GT -->
+          <div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative overflow-hidden">
+              <img src="../assets/images/chiptuning/BMW G32 640i GT xDrive/BMW G32 640i GT xDrive.jpeg" alt="BMW G32 640i GT xDrive chiptuning" class="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white font-bold text-lg sm:text-xl mb-1">BMW G32</h3>
+                <p class="text-blue-400 text-sm font-medium">640i GT xDrive</p>
+              </div>
+            </div>
+            <div class="p-4 sm:p-6">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                  <button onclick="playAudio('bmw-g32')" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors duration-200 shadow-lg hover:shadow-blue-500/30">
+                    <i class="fas fa-play text-sm"></i>
+                  </button>
+                  <div class="text-sm text-gray-300">
+                    <span class="block font-medium">Hangminta</span>
+                    <span class="text-xs text-gray-400">Kattints a lejátszáshoz</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-green-400 font-bold text-sm">+80 LE</div>
+                  <div class="text-green-400 font-bold text-sm">+120 Nm</div>
+                </div>
+              </div>
+              <audio id="bmw-g32" preload="none">
+                <source src="../assets/images/chiptuning/BMW G32 640i GT xDrive/BMW G32 640i GT xDrive.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <!-- BMW G20 320d -->
+          <div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative overflow-hidden">
+              <img src="../assets/images/chiptuning/bmw 320d g20/2023 BMW 320d ( G20 ) xDrive.jpg" alt="BMW G20 320d xDrive chiptuning" class="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white font-bold text-lg sm:text-xl mb-1">BMW G20</h3>
+                <p class="text-blue-400 text-sm font-medium">320d xDrive</p>
+              </div>
+            </div>
+            <div class="p-4 sm:p-6">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                  <button onclick="playAudio('bmw-g20-320d')" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors duration-200 shadow-lg hover:shadow-blue-500/30">
+                    <i class="fas fa-play text-sm"></i>
+                  </button>
+                  <div class="text-sm text-gray-300">
+                    <span class="block font-medium">Hangminta</span>
+                    <span class="text-xs text-gray-400">Kattints a lejátszáshoz</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-green-400 font-bold text-sm">+40 LE</div>
+                  <div class="text-green-400 font-bold text-sm">+80 Nm</div>
+                </div>
+              </div>
+              <audio id="bmw-g20-320d" preload="none">
+                <source src="../assets/images/chiptuning/bmw 320d g20/BMW G20 320d xDrive.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <!-- BMW F01 750i -->
+          <div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative overflow-hidden">
+              <img src="../assets/images/chiptuning/bmw 750i/2013 BMW 750i.jpeg" alt="BMW F01 750i chiptuning" class="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white font-bold text-lg sm:text-xl mb-1">BMW F01</h3>
+                <p class="text-blue-400 text-sm font-medium">750i N63</p>
+              </div>
+            </div>
+            <div class="p-4 sm:p-6">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                  <button onclick="playAudio('bmw-f01')" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors duration-200 shadow-lg hover:shadow-blue-500/30">
+                    <i class="fas fa-play text-sm"></i>
+                  </button>
+                  <div class="text-sm text-gray-300">
+                    <span class="block font-medium">Hangminta</span>
+                    <span class="text-xs text-gray-400">Kattints a lejátszáshoz</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-green-400 font-bold text-sm">+90 LE</div>
+                  <div class="text-green-400 font-bold text-sm">+150 Nm</div>
+                </div>
+              </div>
+              <audio id="bmw-f01" preload="none">
+                <source src="../assets/images/chiptuning/bmw 750i/BMW F01 750i N63.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <!-- BMW F10 530d -->
+          <div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-2 group">
+            <div class="relative overflow-hidden">
+              <img src="../assets/images/chiptuning/bmw f10 530d/BMW F10 530d xDrive.jpeg" alt="BMW F10 530d xDrive chiptuning" class="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white font-bold text-lg sm:text-xl mb-1">BMW F10</h3>
+                <p class="text-blue-400 text-sm font-medium">530d xDrive</p>
+              </div>
+            </div>
+            <div class="p-4 sm:p-6">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                  <button onclick="playAudio('bmw-f10')" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors duration-200 shadow-lg hover:shadow-blue-500/30">
+                    <i class="fas fa-play text-sm"></i>
+                  </button>
+                  <div class="text-sm text-gray-300">
+                    <span class="block font-medium">Hangminta</span>
+                    <span class="text-xs text-gray-400">Kattints a lejátszáshoz</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-green-400 font-bold text-sm">+65 LE</div>
+                  <div class="text-green-400 font-bold text-sm">+130 Nm</div>
+                </div>
+              </div>
+              <audio id="bmw-f10" preload="none">
+                <source src="../assets/images/chiptuning/bmw f10 530d/BMW F10 530d xDrive.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -215,6 +428,7 @@
           <li><strong>Sebességhatároló eltávolítás:</strong> Gyári sebességkorlátozás feloldása.</li>
           <li><strong>Egyedi tuning:</strong> Speciális igényekhez szabott motoroptimalizálás.</li>
         </ul>
+        </div>
       </div>
     </section>
 

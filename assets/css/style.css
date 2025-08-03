@@ -1,3 +1,58 @@
+/* CSS Reset for cross-browser consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+}
+
+/* Firefox-specific fixes */
+@-moz-document url-prefix() {
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .container {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    section {
+        margin: 0 !important;
+    }
+}
+
+/* Brave browser specific fixes */
+@supports (-webkit-appearance: none) {
+    .container {
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .mx-auto {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    body {
+        overflow-x: hidden !important;
+    }
+    
+    section {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+
 body { 
     font-family: 'Oswald', Arial, sans-serif; 
     scroll-behavior: smooth;

@@ -106,6 +106,14 @@ function getFlagSvgContent(lang) {
     }
 }
 
+function updateCopyrightYear() {
+    const currentYear = new Date().getFullYear();
+    const copyrightYearElements = document.querySelectorAll('.copyright-year');
+    copyrightYearElements.forEach(element => {
+        element.textContent = currentYear;
+    });
+}
+
 function translatePage() {
     if (!translations[currentLanguage]) {
         console.error(`Translations not found for language: ${currentLanguage}`);
@@ -138,69 +146,118 @@ function translatePage() {
                     element.innerHTML = translation;
                 }
             } else {
-                element.innerHTML = translation;
+                // Speciális kezelés a copyright szöveghez
+                if (key === 'footer.copyright') {
+                    // Mentjük el az aktuális évszámot a copyright-year span-ból
+                    const copyrightYearSpan = element.querySelector('.copyright-year');
+                    const currentYear = copyrightYearSpan ? copyrightYearSpan.textContent : new Date().getFullYear();
+                    
+                    // Beállítjuk a fordított szöveget
+                    element.innerHTML = translation;
+                    
+                    // Visszaállítjuk az aktuális évszámot
+                    const newCopyrightYearSpan = element.querySelector('.copyright-year');
+                    if (newCopyrightYearSpan) {
+                        newCopyrightYearSpan.textContent = currentYear;
+                    }
+                } else {
+                    element.innerHTML = translation;
+                }
             }
         } catch (error) {
             console.error(`Error translating element: ${error.message}`);
         }
     });
+    
+    // Évszám frissítése a fordítások után
+    updateCopyrightYear();
 }
 
 // Smooth scrollbar initialization with fallback
 function initSmoothScrollbar() {
-    // Only proceed if Scrollbar is available
-    if (typeof Scrollbar === 'undefined') {
-        return;
-    }
-
-    // Try to find scroll container element
-    const scrollContainer = document.querySelector('#scroll-container');
-    
-    // If container exists, initialize smooth scrollbar
-    if (scrollContainer) {
+    // Initialize Lenis smooth scroll if available
+    if (typeof Lenis !== 'undefined') {
         try {
-            const scrollbar = Scrollbar.init(scrollContainer, {
-                damping: 0.1,
-                delegateTo: document
-            });
+            // Wait for DOM to be fully loaded
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => {
+                    initLenisScroll();
+                });
+            } else {
+                initLenisScroll();
+            }
+            
+            function initLenisScroll() {
+                const lenis = new Lenis({
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                    direction: 'vertical',
+                    gestureDirection: 'vertical',
+                    smooth: true,
+                    mouseMultiplier: 1,
+                    smoothTouch: false,
+                    touchMultiplier: 2,
+                    infinite: false,
+                });
 
-            // Add smooth scrolling for anchor links
-            const anchorLinks = document.querySelectorAll('a[href^="#"]');
-            if (anchorLinks.length > 0) {
-                anchorLinks.forEach(anchor => {
-                    anchor.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const targetId = this.getAttribute('href');
-                        if (targetId === "#") return;
-                        
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            const offsetTop = targetElement.offsetTop;
-                            scrollbar.scrollTo(0, offsetTop, 1000);
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+
+                requestAnimationFrame(raf);
+
+                // Add smooth scrolling for anchor links with delay
+                setTimeout(() => {
+                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                        if (anchor && anchor.getAttribute) {
+                            anchor.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                const targetId = this.getAttribute('href');
+                                if (targetId === "#") return;
+                                
+                                const targetElement = document.querySelector(targetId);
+                                if (targetElement) {
+                                    lenis.scrollTo(targetElement, {
+                                        offset: -80,
+                                        duration: 1.5
+                                    });
+                                }
+                            });
                         }
                     });
-                });
+                }, 100);
+
+                console.log('Lenis smooth scroll initialized successfully');
             }
         } catch (error) {
-            console.error('Error initializing smooth scrollbar:', error);
+            console.error('Error initializing Lenis:', error);
+            // Fallback to native smooth scrolling
+            initNativeSmoothScroll();
         }
     } else {
-        // Fallback to native smooth scrolling if container doesn't exist
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === "#") return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+        console.warn('Lenis not found, using native smooth scroll');
+        initNativeSmoothScroll();
     }
+}
+
+function initNativeSmoothScroll() {
+    // Fallback to native smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === "#") return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 }
 
 // Language selector inicializálás
@@ -419,6 +476,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initTestimonialsCarousel();
     
+    // Évszám frissítése
+    updateCopyrightYear();
+
     // Nyelv beállítások
     const savedLanguage = localStorage.getItem('preferredLanguage');
     if (savedLanguage && translations[savedLanguage]) {
@@ -463,5 +523,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
-// ... meglévő kód ...
