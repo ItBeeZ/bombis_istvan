@@ -200,6 +200,127 @@ const translations = {
             testimonial9: "\"A BMW-m karbantartása mindig időben és hibátlanul történik. Megbízható partner minden BMW tulajdonos számára.\"",
             author9: "- Fekete Zoltán"
         },
+        software: {
+            hero: {
+                title: "Szoftverfrissítés & Kódolás",
+                subtitle: "Frissítse BMW-je szoftverét és aktiváljon rejtett funkciókat professzionális kódolással."
+            },
+            about: {
+                title: "Mi a BMW kódolás és szoftverfrissítés?",
+                description1: "A BMW kódolás egy speciális folyamat, amely során a jármű különböző elektronikus rendszereinek beállításait módosítjuk, hogy aktiváljunk rejtett funkciókat vagy testreszabjuk a meglévő funkciókat. A szoftverfrissítés során a legújabb gyári szoftververziókra frissítjük az autó különböző moduljait.",
+                description2: "Szakértő csapatunk a legmodernebb BMW diagnosztikai eszközökkel és szoftverekkel dolgozik, hogy biztonságosan és megbízhatóan végezze el a kódolási és frissítési munkálatokat. Minden beavatkozás előtt alapos diagnosztikát végzünk, és biztosítjuk, hogy a módosítások kompatibilisek legyenek az adott járművel."
+            },
+            carousel: {
+                diagnostics: "Diagnosztika",
+                diagnosticsText: "Professzionális BMW diagnosztika és hibakód olvasás a legmodernebb eszközökkel",
+                softwareUpdate: "Szoftverfrissítés",
+                softwareUpdateText: "Gyári BMW szoftverfrissítés a legújabb verzióra minden modulhoz",
+                functionActivation: "Funkció aktiválás",
+                functionActivationText: "Rejtett BMW funkciók aktiválása és testreszabása",
+                customization: "Testreszabás",
+                customizationText: "BMW rendszerek egyedi testreszabása az Ön igényei szerint",
+                testing: "Tesztelés",
+                testingText: "Alapos tesztelés és ellenőrzés minden beavatkozás után",
+                finalization: "Véglegesítés",
+                finalizationText: "Kódolás véglegesítése és rendszerellenőrzés a tökéletes működésért"
+            },
+            services: {
+                title: "Kódolási és szoftverfrissítési szolgáltatásaink:",
+                angelEyes: "Angel Eyes aktiválás:",
+                angelEyesDesc: "LED körgyűrűk bekapcsolása parkoláskor és menetközben.",
+                autoWindows: "Automatikus ablakemelő:",
+                autoWindowsDesc: "Kulcsról történő ablakemelés és -süllyesztés aktiválása.",
+                speedVolume: "Sebességfüggő hangerő:",
+                speedVolumeDesc: "Rádió hangerejének automatikus szabályozása sebesség alapján.",
+                comfort: "Komfort funkciók:",
+                comfortDesc: "Automatikus zárás, welcome light, stb. aktiválása.",
+                navigation: "Navigációs frissítések:",
+                navigationDesc: "Térképek és szoftver frissítése a legújabb verzióra.",
+                idrive: "iDrive testreszabás:",
+                idriveDesc: "Menürendszer személyre szabása és funkciók aktiválása.",
+                factoryUpdate: "Gyári szoftverfrissítés:",
+                factoryUpdateDesc: "Összes modul frissítése a legújabb gyári verzióra.",
+                errorCodes: "Hibakód törlés:",
+                errorCodesDesc: "Rendszerhibák diagnosztizálása és javítása."
+            },
+            contact: {
+                title: "Kérjen ajánlatot kódolásra!",
+                subtitle: "Vegye fel velünk a kapcsolatot, és kérjen személyre szabott ajánlatot BMW-je szoftverfrissítésére és kódolására.",
+                button: "Ajánlatkérés"
+            }
+        },
+        chiptuning: {
+            hero: {
+                title: "BMW Chiptuning",
+                subtitle: "Maximalizálja BMW-je teljesítményét professzionális chiptuninggal"
+            },
+            about: {
+                title: "Mi a chiptuning?",
+                description1: "A chiptuning egy speciális folyamat, amely során a jármű motorvezérlő egységének (ECU) szoftverét módosítjuk a teljesítmény, nyomaték és hatékonyság optimalizálása érdekében. Ez a folyamat lehetővé teszi, hogy BMW-je elérje valódi potenciálját.",
+                description2: "Szakértő csapatunk csak biztonságos és megbízható chiptuning megoldásokat alkalmaz, amelyek nem veszélyeztetik a motor élettartamát. Minden chiptuning egyedileg van kalibrálva az adott járműhöz és az ügyfél igényeihez."
+            },
+            gallery: {
+                stage1: "1. szakasz",
+                stage1Text: "Alapszintű teljesítménynövelés biztonságos paraméterekkel",
+                stage2: "2. szakasz",
+                stage2Text: "Fejlett optimalizálás nagyobb teljesítménynyereségért",
+                stage3: "3. szakasz",
+                stage3Text: "Maximális teljesítmény hardver módosításokkal",
+                dyno: "Dyno tesztelés",
+                dynoText: "Pontos teljesítménymérés és validálás",
+                before: "Előtte/Utána",
+                beforeText: "Részletes összehasonlítás a chiptuning előtt és után",
+                custom: "Egyedi beállítás",
+                customText: "Személyre szabott tuning az Ön vezetési stílusához"
+            },
+            benefits: {
+                title: "Chiptuning előnyei:",
+                power: "Teljesítménynövelés:",
+                powerDesc: "15-30% teljesítménynövelés a motor típusától függően.",
+                torque: "Nyomatéknövelés:",
+                torqueDesc: "Jobb gyorsulás és vonóerő minden fordulatszámon.",
+                efficiency: "Hatékonyság:",
+                efficiencyDesc: "Optimalizált fogyasztás megfelelő vezetési stílus mellett.",
+                response: "Gázreakció:",
+                responseDesc: "Javított motor válaszidő és vezethetőség.",
+                safety: "Biztonság:",
+                safetyDesc: "Minden módosítás a gyári biztonsági határokon belül.",
+                warranty: "Garancia:",
+                warrantyDesc: "Teljes garancia a chiptuning munkára és eredményekre."
+            },
+            contact: {
+                title: "Kérjen chiptuning ajánlatot!",
+                subtitle: "Vegye fel velünk a kapcsolatot, és fedezze fel BMW-je rejtett teljesítményét professzionális chiptuninggal.",
+                button: "Ajánlatkérés"
+            }
+        },
+        services: {
+            hero: {
+                title: "BMW Javítás & Karbantartás",
+                subtitle: "Átfogó megoldások BMW járművek számára"
+            },
+            about: {
+                title: "Miért fontos a rendszeres karbantartás?",
+                description1: "A BMW járművek kifinomult technológiával rendelkeznek, amely rendszeres szakszerű karbantartást igényel. A megfelelő karbantartás nemcsak meghosszabbítja járműve élettartamát, hanem biztosítja az optimális teljesítményt és biztonságot is.",
+                description2: "Szakértő csapatunk minden BMW modellel rendelkezik tapasztalattal, és csak eredeti BMW alkatrészeket használunk. Korszerű diagnosztikai eszközeinkkel gyorsan és pontosan azonosítjuk a problémákat, majd professzionális megoldásokat kínálunk."
+            },
+            servicesList: {
+                title: "Karbantartási szolgáltatásaink",
+                oilChange: "Olajcsere és szűrőcsere",
+                brakeService: "Fékrendszer karbantartás",
+                engineDiagnostics: "Motor diagnosztika",
+                transmission: "Váltó szerviz",
+                suspension: "Futómű ellenőrzés",
+                electrical: "Elektromos rendszer",
+                airConditioning: "Klímaszerelés",
+                timing: "Vezérlés szerviz"
+            },
+            contact: {
+                title: "Foglaljon időpontot még ma!",
+                subtitle: "Vegye fel velünk a kapcsolatot, és biztosítsa BMW-je tökéletes állapotát szakértő karbantartással.",
+                button: "Időpontfoglalás"
+            }
+        },
         services: {
             repair: {
                 title: "BMW Javítás & Karbantartás",
@@ -214,6 +335,26 @@ const translations = {
                 listItem4: "<strong>Motordiagnosztika és javítás:</strong> Komplex hibafeltárás, motoralkatrészek cseréje.",
                 listItem5: "<strong>Váltóolaj csere:</strong> Automata és manuális váltók szakszerű olajcseréje.",
                 listItem6: "<strong>Klíma rendszer tisztítás és töltés:</strong> A tiszta és hatékony légkondicionálásért."
+            },
+            contact: {
+                title: "Kapcsolat",
+                subtitle: "Vegye fel velünk a kapcsolatot és biztosítsa BMW-je tökéletes állapotát szakértő karbantartással.",
+                button: "Időpont foglalás"
+            }
+        },
+        chiptuning: {
+            hero: {
+                title: "BMW Teljesítmény Chiptuning",
+                subtitle: "Szabadítsa fel BMW-je rejtett teljesítményét professzionális chiptuninggal és ECU optimalizálással."
+            },
+            about: {
+                title: "Mi a chiptuning és miért érdemes?",
+                paragraph1: "A chiptuning egy olyan folyamat, amely során a motor vezérlőegységének (ECU) szoftverét optimalizáljuk, hogy növeljük a teljesítményt, javítsuk a hatékonyságot és finomhangoljuk a motor karakterisztikáját. BMW járműveknél ez különösen hatékony, mivel a gyári beállítások gyakran konzervatívak, hogy megfeleljenek a különböző piacok követelményeinek.",
+                paragraph2: "Szakértő csapatunk a legmodernebb chiptuning eszközökkel és szoftverekkel dolgozik, hogy biztonságosan és megbízhatóan növelje autója teljesítményét. Minden tuning egyedi, az adott motor specifikációihoz és az ügyfél igényeihez igazítva."
+            },
+            gallery: {
+                title: "Chiptuningolt Autóink",
+                subtitle: "Hallgassa meg a chiptuningolt autók lenyűgöző hangjait! Kattintson a lejátszás gombra és élvezze a teljesítménynövelés eredményét."
             }
         }
     },
@@ -433,6 +574,21 @@ const translations = {
                 listItem5: "<strong>Transmission oil change:</strong> Professional oil change for automatic and manual transmissions.",
                 listItem6: "<strong>Climate system cleaning and charging:</strong> For clean and efficient air conditioning."
             }
+        },
+        chiptuning: {
+            hero: {
+                title: "BMW Performance Chiptuning",
+                subtitle: "Unlock your BMW's hidden potential with professional chiptuning and ECU optimization."
+            },
+            about: {
+                title: "What is chiptuning and why is it worth it?",
+                paragraph1: "Chiptuning is a process where we optimize the engine control unit (ECU) software to increase performance, improve efficiency, and fine-tune the engine's characteristics. For BMW vehicles, this is particularly effective since factory settings are often conservative to meet various market requirements.",
+                paragraph2: "Our expert team works with the most modern chiptuning tools and software to safely and reliably increase your car's performance. Every tuning is unique, tailored to the specific engine specifications and customer needs."
+            },
+            gallery: {
+                title: "Our Chiptuned Cars",
+                subtitle: "Listen to the impressive sounds of our chiptuned cars! Click the play button and enjoy the results of performance enhancement."
+            }
         }
     },
     de: {
@@ -637,19 +793,82 @@ const translations = {
             author9: "- Zoltán Fekete"
         },
         services: {
-            repair: {
-                title: "BMW Reparatur & Wartung",
-                subtitle: "Umfassende Lösungen, damit Ihr BMW immer die beste Leistung erbringt.",
-                heading: "Warum ist eine regelmäßige Wartung wichtig?",
+            hero: {
+                title: "BMW Service & Wartung",
+                subtitle: "Professionelle BMW-Wartung und -Reparatur für optimale Leistung und Zuverlässigkeit."
+            },
+            about: {
+                title: "Warum ist eine regelmäßige Wartung wichtig?",
                 paragraph1: "Eine regelmäßige Wartung ist unerlässlich, um die Spitzenleistung, Zuverlässigkeit und den Wert Ihres BMW zu erhalten. Die Wartung nach Werksspezifikationen ist nicht nur eine Garantiebedingung, sondern auch der Schlüssel zu einem langfristigen, störungsfreien Betrieb. Unser Expertenteam arbeitet mit den neuesten Diagnosewerkzeugen und Werkstechnologien, um sicherzustellen, dass jeder Teil Ihres Autos in einwandfreiem Zustand ist.",
-                paragraph2: "Ob es sich um einen regelmäßigen Ölwechsel, eine Überprüfung der Bremsanlage, eine Achsvermessung oder eine komplexere Motordiagnose handelt, wir bieten einen umfassenden Service. Unser Ziel ist es, dass Sie Ihr Auto immer mit maximaler Sicherheit und Freude fahren.",
-                listTitle: "Unsere Wartungsdienste:",
-                listItem1: "<strong>Regelmäßiger Service und Ölwechsel:</strong> Mit Ölen und Filtern in Werksqualität.",
-                listItem2: "<strong>Bremsenservice:</strong> Austausch von Bremsbelägen, Bremsscheiben, Überprüfung und Austausch von Bremsflüssigkeit.",
-                listItem3: "<strong>Achsvermessung und -reparatur:</strong> Überprüfung und Austausch von Stoßdämpfern, Federn, Querlenkern.",
-                listItem4: "<strong>Motordiagnose und -reparatur:</strong> Komplexe Fehlersuche, Austausch von Motorteilen.",
-                listItem5: "<strong>Getriebeölwechsel:</strong> Professioneller Ölwechsel für Automatik- und Schaltgetriebe.",
-                listItem6: "<strong>Reinigung und Aufladung der Klimaanlage:</strong> Für eine saubere und effiziente Klimatisierung."
+                paragraph2: "Ob es sich um einen regelmäßigen Ölwechsel, eine Überprüfung der Bremsanlage, eine Achsvermessung oder eine komplexere Motordiagnose handelt, wir bieten einen umfassenden Service. Unser Ziel ist es, dass Sie Ihr Auto immer mit maximaler Sicherheit und Freude fahren."
+            },
+            servicesList: {
+                title: "Unsere Wartungsdienste:",
+                item1: "<strong>Regelmäßiger Service und Ölwechsel:</strong> Mit Ölen und Filtern in Werksqualität.",
+                item2: "<strong>Bremsenservice:</strong> Austausch von Bremsbelägen, Bremsscheiben, Überprüfung und Austausch von Bremsflüssigkeit.",
+                item3: "<strong>Achsvermessung und -reparatur:</strong> Überprüfung und Austausch von Stoßdämpfern, Federn, Querlenkern.",
+                item4: "<strong>Motordiagnose und -reparatur:</strong> Komplexe Fehlersuche, Austausch von Motorteilen.",
+                item5: "<strong>Getriebeölwechsel:</strong> Professioneller Ölwechsel für Automatik- und Schaltgetriebe.",
+                item6: "<strong>Reinigung und Aufladung der Klimaanlage:</strong> Für eine saubere und effiziente Klimatisierung."
+            },
+            contact: {
+                title: "Kontakt",
+                subtitle: "Nehmen Sie Kontakt mit uns auf und sorgen Sie für den perfekten Zustand Ihres BMW mit fachkundiger Wartung.",
+                button: "Termin buchen"
+            }
+        },
+        software: {
+            hero: {
+                title: "BMW Software-Updates & Codierung",
+                subtitle: "Halten Sie Ihr BMW mit den neuesten Software-Updates und professioneller Codierung auf dem neuesten Stand."
+            },
+            about: {
+                title: "Warum sind Software-Updates wichtig?",
+                paragraph1: "Moderne BMW-Fahrzeuge sind hochentwickelte Computer auf Rädern. Regelmäßige Software-Updates sind entscheidend für optimale Leistung, neue Funktionen und Sicherheitsverbesserungen. Unser Team ist spezialisiert auf BMW-Software-Updates, iDrive-Systeme und professionelle Fahrzeugcodierung.",
+                paragraph2: "Von Navigationskarten-Updates bis hin zu komplexen ECU-Programmierungen bieten wir umfassende Software-Dienstleistungen. Wir verwenden nur originale BMW-Software und -Tools, um die Kompatibilität und Zuverlässigkeit zu gewährleisten."
+            },
+            carousel: {
+                slide1: {
+                    title: "iDrive System Updates",
+                    description: "Neueste iDrive-Software für verbesserte Benutzerfreundlichkeit und neue Funktionen."
+                },
+                slide2: {
+                    title: "Navigationskarten-Updates",
+                    description: "Aktuelle Kartendaten für präzise Navigation und Verkehrsinformationen."
+                },
+                slide3: {
+                    title: "ECU-Programmierung",
+                    description: "Professionelle Motorsteuergerät-Programmierung für optimale Leistung."
+                }
+            },
+            services: {
+                title: "Unsere Software-Services:",
+                item1: "<strong>iDrive System Updates:</strong> Neueste Software-Versionen für Ihr Infotainment-System.",
+                item2: "<strong>Navigationskarten-Updates:</strong> Aktuelle Kartendaten für Europa und weltweit.",
+                item3: "<strong>ECU-Programmierung:</strong> Motorsteuergerät-Updates und -Optimierung.",
+                item4: "<strong>Fahrzeugcodierung:</strong> Aktivierung versteckter Funktionen und Anpassungen.",
+                item5: "<strong>Firmware-Updates:</strong> Updates für verschiedene Fahrzeugmodule.",
+                item6: "<strong>Diagnose-Software:</strong> Professionelle Fehlerdiagnose mit BMW-Tools."
+            },
+            contact: {
+                title: "Kontakt",
+                subtitle: "Kontaktieren Sie uns für professionelle BMW Software-Updates und Codierung.",
+                button: "Beratung anfordern"
+            }
+        },
+        chiptuning: {
+            hero: {
+                title: "BMW Leistungs-Chiptuning",
+                subtitle: "Entfesseln Sie das verborgene Potenzial Ihres BMW mit professionellem Chiptuning und ECU-Optimierung."
+            },
+            about: {
+                title: "Was ist Chiptuning und warum lohnt es sich?",
+                paragraph1: "Chiptuning ist ein Prozess, bei dem wir die Software der Motorsteuerung (ECU) optimieren, um die Leistung zu steigern, die Effizienz zu verbessern und die Motorcharakteristik feinabzustimmen. Bei BMW-Fahrzeugen ist dies besonders effektiv, da die Werkseinstellungen oft konservativ sind, um verschiedenen Marktanforderungen zu entsprechen.",
+                paragraph2: "Unser Expertenteam arbeitet mit modernsten Chiptuning-Tools und Software, um die Leistung Ihres Autos sicher und zuverlässig zu steigern. Jedes Tuning ist einzigartig, angepasst an die spezifischen Motorspezifikationen und Kundenbedürfnisse."
+            },
+            gallery: {
+                title: "Unsere Chipgetunten Autos",
+                subtitle: "Hören Sie die beeindruckenden Klänge unserer chipgetunten Autos! Klicken Sie auf Play und genießen Sie die Ergebnisse der Leistungssteigerung."
             }
         }
     }
