@@ -19,8 +19,8 @@
   <meta name="twitter:image" content="https://bombisistvan.hu/assets/images/hero_bg.jpg">
   <title>BMW Szoftverfrissítés - Bömbis István</title>
   <link rel="icon" href="../assets/images/logos/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="../assets/images/logos/favicon.png" type="image/png">
-    <link rel="apple-touch-icon" href="../assets/images/logos/favicon.png">
+  <link rel="icon" href="../assets/images/logos/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/images/logos/favicon.png">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/style.min.css">
   <script src="../assets/js/translations.js"></script>
-<script src="../assets/js/script.js"></script>
+  <script src="../assets/js/script.js"></script>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.8.3/dist/smooth-scrollbar.js"></script>
 </head>
@@ -39,92 +39,263 @@
     <div class="container mx-auto flex flex-row justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
       <div class="flex items-center space-x-3">
         <a href="../index.html">
-          <img src="../assets/images/logos/logo.jpg" alt="BMW Szerviz Bömbis István logó" loading="eager" class="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-blue-400 bg-white object-contain p-1">
+          <img
+            src="../assets/images/logos/logo.jpg"
+            alt="BMW Szerviz Bömbis István logó"
+            class="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-blue-400 bg-white object-contain p-1"
+            loading="eager"
+          />
         </a>
-        <span class="font-bold text-lg sm:text-2xl">BMW Szerviz Bömbis István</span>
+        <span class="font-bold text-lg sm:text-2xl"
+          >BMW Szerviz Bömbis István</span
+        >
       </div>
       <div class="flex items-center space-x-4">
         <!-- Nyelvi választó (asztali nézet) -->
         <div class="language-selector sm:block">
-          <button class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors language-selector-btn">
+          <button
+            class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors language-selector-btn"
+          >
             <span id="current-flag-svg" class="w-6 h-4"></span>
             <span id="current-lang">HU</span>
-            <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            <svg
+              class="w-3 h-3 ml-1"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
           </button>
-          <div id="language-menu" class="absolute right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-lg hidden">
+          <div
+            id="language-menu"
+            class="absolute right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-lg hidden"
+          >
             <div class="py-1">
-              <button onclick="changeLanguage('hu')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
-                <span class="w-6 h-4"> <!-- HU SVG -->
-                  <svg viewBox="0 0 3 2" width="24" height="16"><rect width="3" height="2" fill="#fff"/><rect width="3" height="0.67" y="0" fill="#cd2a3e"/><rect width="3" height="0.67" y="1.33" fill="#436f4d"/></svg>
+              <button
+                data-lang="hu"
+                class="language-option flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800"
+              >
+                <span class="w-6 h-4">
+                  <!-- HU SVG -->
+                  <svg viewBox="0 0 3 2" width="24" height="16">
+                    <rect width="3" height="2" fill="#fff" />
+                    <rect width="3" height="0.67" y="0" fill="#cd2a3e" />
+                    <rect width="3" height="0.67" y="1.33" fill="#436f4d" />
+                  </svg>
                 </span>
                 <span>Magyar</span>
               </button>
-              <button onclick="changeLanguage('en')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
-                <span class="w-6 h-4"> <!-- EN SVG -->
-                  <svg viewBox="0 0 60 30" width="24" height="16"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#fff" stroke-width="6"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#c8102e" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#c8102e" stroke-width="6"/></g></svg>
+              <button
+                data-lang="en"
+                class="language-option flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800"
+              >
+                <span class="w-6 h-4">
+                  <!-- EN SVG -->
+                  <svg viewBox="0 0 60 30" width="24" height="16">
+                    <clipPath id="s">
+                      <path d="M0,0 v30 h60 v-30 z" />
+                    </clipPath>
+                    <g clip-path="url(#s)">
+                      <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                      <path
+                        d="M0,0 l60,30 M60,0 l-60,30"
+                        stroke="#fff"
+                        stroke-width="6"
+                      />
+                      <path
+                        d="M0,0 l60,30 M60,0 l-60,30"
+                        stroke="#c8102e"
+                        stroke-width="4"
+                      />
+                      <path
+                        d="M30,0 v30 M0,15 h60"
+                        stroke="#fff"
+                        stroke-width="10"
+                      />
+                      <path
+                        d="M30,0 v30 M0,15 h60"
+                        stroke="#c8102e"
+                        stroke-width="6"
+                      />
+                    </g>
+                  </svg>
                 </span>
                 <span>English</span>
               </button>
-              <button onclick="changeLanguage('de')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
-                <span class="w-6 h-4"> <!-- DE SVG -->
-                  <svg viewBox="0 0 5 3" width="24" height="16"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#dd0000"/><rect width="5" height="1" y="2" fill="#ffce00"/></svg>
+              <button
+                data-lang="de"
+                class="language-option flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800"
+              >
+                <span class="w-6 h-4">
+                  <!-- DE SVG -->
+                  <svg viewBox="0 0 5 3" width="24" height="16">
+                    <rect width="5" height="1" y="0" fill="#000" />
+                    <rect width="5" height="1" y="1" fill="#dd0000" />
+                    <rect width="5" height="1" y="2" fill="#ffce00" />
+                  </svg>
                 </span>
                 <span>Deutsch</span>
               </button>
             </div>
           </div>
         </div>
-        <button type="button" class="sm:hidden text-blue-400 hover:text-blue-300 transition-colors hamburger-icon" aria-expanded="false" aria-label="Menü megnyitása">
+        <button
+          type="button"
+          class="sm:hidden text-blue-400 hover:text-blue-300 transition-colors hamburger-icon"
+          aria-expanded="false"
+          aria-label="Menü megnyitása"
+        >
           <i class="fas fa-bars text-2xl"></i>
         </button>
         <nav id="mobile-menu" class="mobile-menu">
           <!-- Nyelvi választó (mobil nézet) -->
           <div class="language-selector-mobile mb-4 sm:hidden">
-            <button class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors w-full" onclick="toggleLanguageMenuMobile()">
-              <span id="current-flag-svg-mobile" class="w-6 h-4"> <!-- SVG ide kerül JS-ből --></span>
+            <button
+              class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors w-full language-selector-mobile-btn"
+            >
+              <span id="current-flag-svg-mobile" class="w-6 h-4">
+                <!-- SVG ide kerül JS-ből --></span
+              >
               <span id="current-lang-mobile">HU</span>
-              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+              <svg
+                class="w-3 h-3 ml-1"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
             </button>
-            <div id="language-menu-mobile" class="w-full bg-gray-900 rounded-lg shadow-lg mt-2 hidden">
+            <div
+              id="language-menu-mobile"
+              class="w-full bg-gray-900 rounded-lg shadow-lg mt-2 hidden"
+            >
               <div class="py-1">
-                <button onclick="changeLanguage('hu')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
-                  <span class="w-6 h-4"> <!-- HU SVG -->
-                    <svg viewBox="0 0 3 2" width="24" height="16"><rect width="3" height="2" fill="#fff"/><rect width="3" height="0.67" y="0" fill="#cd2a3e"/><rect width="3" height="0.67" y="1.33" fill="#436f4d"/></svg>
+                <button
+                  data-lang="hu"
+                  class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800"
+                >
+                  <span class="w-6 h-4">
+                    <!-- HU SVG -->
+                    <svg viewBox="0 0 3 2" width="24" height="16">
+                      <rect width="3" height="2" fill="#fff" />
+                      <rect width="3" height="0.67" y="0" fill="#cd2a3e" />
+                      <rect width="3" height="0.67" y="1.33" fill="#436f4d" />
+                    </svg>
                   </span>
                   <span>Magyar</span>
                 </button>
-                <button onclick="changeLanguage('en')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
-                  <span class="w-6 h-4"> <!-- EN SVG -->
-                    <svg viewBox="0 0 60 30" width="24" height="16"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#fff" stroke-width="6"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#c8102e" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#c8102e" stroke-width="6"/></g></svg>
+                <button
+                  data-lang="en"
+                  class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800"
+                >
+                  <span class="w-6 h-4">
+                    <!-- EN SVG -->
+                    <svg viewBox="0 0 60 30" width="24" height="16">
+                      <clipPath id="s">
+                        <path d="M0,0 v30 h60 v-30 z" />
+                      </clipPath>
+                      <g clip-path="url(#s)">
+                        <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                        <path
+                          d="M0,0 l60,30 M60,0 l-60,30"
+                          stroke="#fff"
+                          stroke-width="6"
+                        />
+                        <path
+                          d="M0,0 l60,30 M60,0 l-60,30"
+                          stroke="#c8102e"
+                          stroke-width="4"
+                        />
+                        <path
+                          d="M30,0 v30 M0,15 h60"
+                          stroke="#fff"
+                          stroke-width="10"
+                        />
+                        <path
+                          d="M30,0 v30 M0,15 h60"
+                          stroke="#c8102e"
+                          stroke-width="6"
+                        />
+                      </g>
+                    </svg>
                   </span>
                   <span>English</span>
                 </button>
-                <button onclick="changeLanguage('de')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
-                  <span class="w-6 h-4"> <!-- DE SVG -->
-                    <svg viewBox="0 0 5 3" width="24" height="16"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#dd0000"/><rect width="5" height="1" y="2" fill="#ffce00"/></svg>
+                <button
+                  data-lang="de"
+                  class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800"
+                >
+                  <span class="w-6 h-4">
+                    <!-- DE SVG -->
+                    <svg viewBox="0 0 5 3" width="24" height="16">
+                      <rect width="5" height="1" y="0" fill="#000" />
+                      <rect width="5" height="1" y="1" fill="#dd0000" />
+                      <rect width="5" height="1" y="2" fill="#ffce00" />
+                    </svg>
                   </span>
                   <span>Deutsch</span>
                 </button>
               </div>
             </div>
           </div>
-          <a href="../index.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.home">
-            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-5h-4v5H4a1 1 0 0 1-1-1V10.5z"/></svg></span>
+          <a
+            href="../index.html"
+            class="text-blue-400 hover:text-blue-300 flex items-center space-x-2"
+            data-i18n="nav.home"
+          >
+            <span class="w-5 h-5 flex items-center justify-center"
+              ><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <path
+                  d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-5h-4v5H4a1 1 0 0 1-1-1V10.5z"
+                /></svg
+            ></span>
             <span>Kezdőlap</span>
           </a>
-          <a href="about.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.about">
-            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><text x="12" y="17" text-anchor="middle" font-size="12" fill="#000" font-family="Arial" font-weight="bold">i</text></svg></span>
+          <a
+            href="about.html"
+            class="hover:text-blue-400 flex items-center space-x-2"
+            data-i18n="nav.about"
+          >
+            <span class="w-5 h-5 flex items-center justify-center"
+              ><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <circle cx="12" cy="12" r="10" />
+                <text
+                  x="12"
+                  y="17"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="#000"
+                  font-family="Arial"
+                  font-weight="bold"
+                >
+                  i
+                </text>
+              </svg></span
+            >
             <span>Rólunk</span>
           </a>
-
-          <a href="contact.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.contact">
-            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1H7.61a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.24 1z"/></svg></span>
+          <a
+            href="contact.html"
+            class="hover:text-blue-400 flex items-center space-x-2"
+            data-i18n="nav.contact"
+          >
+            <span class="w-5 h-5 flex items-center justify-center"
+              ><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <path
+                  d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1H7.61a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.24 1z"
+                /></svg
+            ></span>
             <span>Kapcsolat</span>
           </a>
         </nav>
       </div>
     </div>
   </header>
+
   <div id="scroll-container">
     <div class="header-spacer"></div>
     <!-- Hero szekció -->
@@ -139,141 +310,319 @@
       </div>
     </section>
 
-    <!-- Szolgáltatás részletei -->
-    <section class="py-12 sm:py-24 lg:py-32 fade-in-up">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-        <h2 class="text-xl sm:text-3xl font-bold mb-6" data-i18n="software.about.title">Mi a BMW kódolás és szoftverfrissítés?</h2>
-        <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-4" data-i18n="software.about.description1">A BMW kódolás egy speciális folyamat, amely során a jármű különböző elektronikus rendszereinek beállításait módosítjuk, hogy aktiváljunk rejtett funkciókat vagy testreszabjuk a meglévő funkciókat. A szoftverfrissítés során a legújabb gyári szoftververziókra frissítjük az autó különböző moduljait.</p>
-        <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-8" data-i18n="software.about.description2">Szakértő csapatunk a legmodernebb BMW diagnosztikai eszközökkel és szoftverekkel dolgozik, hogy biztonságosan és megbízhatóan végezze el a kódolási és frissítési munkálatokat. Minden beavatkozás előtt alapos diagnosztikát végzünk, és biztosítjuk, hogy a módosítások kompatibilisek legyenek az adott járművel.</p>
-      </div>
-    </section>
+  <!-- Fő tartalom -->
+  <main>
 
-    <!-- Képkörhinta -->
-    <section class="carousel-container">
-      <div class="carousel-track">
-        <div class="carousel-item">
-          <img src="../assets/images/services/kodolas/1.jpg" alt="BMW diagnosztika és hibakód olvasás - Bömbis István műhelye" class="w-full h-64 sm:h-72 md:h-80 object-cover" loading="lazy">
-          <div class="overlay">
-            <span data-i18n="software.carousel.diagnostics">Diagnosztika</span>
-            <div class="service-text" data-i18n="software.carousel.diagnosticsText">Professzionális BMW diagnosztika és hibakód olvasás a legmodernebb eszközökkel</div>
+    <!-- Apple CarPlay / Android Auto szekció -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Tartalom -->
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-blue-400">
+              <i class="fas fa-mobile-alt mr-3"></i>
+              Apple CarPlay / Android Auto
+            </h2>
+            <div class="space-y-6">
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-white">Szoftveres aktiválás</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  A legmodernebb módszer, amely során a meglévő rendszerben aktiváljuk a CarPlay/Android Auto funkciókat. 
+                  Ez a megoldás nem igényel fizikai beavatkozást, csak szoftver szintű módosítást.
+                </p>
+              </div>
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-white">Modullal történő beépítés</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  Speciális CarPlay/Android Auto modul beépítése, amely teljes kompatibilitást biztosít 
+                  a BMW eredeti rendszerével. Gyári minőségű integráció és működés.
+                </p>
+              </div>
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-white">Nagy kijelzőre átalakítás</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  A kisebb kijelzők cseréje nagyobb, modernebb displayekre, amelyek jobban kihasználják 
+                  a CarPlay/Android Auto lehetőségeit. Tökéletes illeszkedés és gyári megjelenés.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/services/kodolas/2.jpg" alt="BMW szoftverfrissítés és rendszerfrissítés - Bömbis István műhelye" class="w-full h-64 sm:h-72 md:h-80 object-cover" loading="lazy">
-          <div class="overlay">
-            <span data-i18n="software.carousel.softwareUpdate">Szoftverfrissítés</span>
-            <div class="service-text" data-i18n="software.carousel.softwareUpdateText">Gyári BMW szoftverfrissítés a legújabb verzióra minden modulhoz</div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/services/kodolas/3.jpg" alt="BMW rejtett funkciók aktiválása és kódolás - Bömbis István műhelye" class="w-full h-64 sm:h-72 md:h-80 object-cover" loading="lazy">
-          <div class="overlay">
-            <span data-i18n="software.carousel.functionActivation">Funkció aktiválás</span>
-            <div class="service-text" data-i18n="software.carousel.functionActivationText">Rejtett BMW funkciók aktiválása és testreszabása</div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/services/kodolas/4.jpg" alt="BMW rendszerek testreszabása és kódolása - Bömbis István műhelye" class="w-full h-64 sm:h-72 md:h-80 object-cover" loading="lazy">
-          <div class="overlay">
-            <span data-i18n="software.carousel.customization">Testreszabás</span>
-            <div class="service-text" data-i18n="software.carousel.customizationText">BMW rendszerek egyedi testreszabása az Ön igényei szerint</div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/services/kodolas/5.jpg" alt="BMW szoftverfrissítés tesztelése és ellenőrzése - Bömbis István műhelye" class="w-full h-64 sm:h-72 md:h-80 object-cover" loading="lazy">
-          <div class="overlay">
-            <span data-i18n="software.carousel.testing">Tesztelés</span>
-            <div class="service-text" data-i18n="software.carousel.testingText">Alapos tesztelés és ellenőrzés minden beavatkozás után</div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/services/kodolas/6.jpg" alt="BMW kódolás véglegesítése és ellenőrzése - Bömbis István műhelye" class="w-full h-64 sm:h-72 md:h-80 object-cover" loading="lazy">
-          <div class="overlay">
-            <span data-i18n="software.carousel.finalization">Véglegesítés</span>
-            <div class="service-text" data-i18n="software.carousel.finalizationText">Kódolás véglegesítése és rendszerellenőrzés a tökéletes működésért</div>
-          </div>
-        </div>
-        <!-- Duplikált elemek a végtelenített hatáshoz -->
-        <div class="carousel-item">
-          <img src="../assets/images/services/kodolas/1.jpg" alt="BMW diagnosztika és hibakód olvasás - Bömbis István műhelye" class="w-full h-64 sm:h-72 md:h-80 object-cover" loading="lazy">
-          <div class="overlay">
-            <span>Diagnosztika</span>
-            <div class="service-text">Professzionális BMW diagnosztika és hibakód olvasás a legmodernebb eszközökkel</div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/services/kodolas/2.jpg" alt="BMW szoftverfrissítés és rendszerfrissítés - Bömbis István műhelye" class="w-full h-64 sm:h-72 md:h-80 object-cover" loading="lazy">
-          <div class="overlay">
-            <span>Szoftverfrissítés</span>
-            <div class="service-text">Gyári BMW szoftverfrissítés a legújabb verzióra minden modulhoz</div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/services/kodolas/3.jpg" alt="BMW rejtett funkciók aktiválása és kódolás - Bömbis István műhelye" class="w-full h-64 sm:h-72 md:h-80 object-cover" loading="lazy">
-          <div class="overlay">
-            <span>Funkció aktiválás</span>
-            <div class="service-text">Rejtett BMW funkciók aktiválása és testreszabása</div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/services/kodolas/4.jpg" alt="BMW rendszerek testreszabása és kódolása - Bömbis István műhelye" class="w-full h-64 sm:h-72 md:h-80 object-cover" loading="lazy">
-          <div class="overlay">
-            <span>Testreszabás</span>
-            <div class="service-text">BMW rendszerek egyedi testreszabása az Ön igényei szerint</div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/services/kodolas/5.jpg" alt="BMW szoftverfrissítés tesztelése és ellenőrzése - Bömbis István műhelye" class="w-full h-64 sm:h-72 md:h-80 object-cover" loading="lazy">
-          <div class="overlay">
-            <span>Tesztelés</span>
-            <div class="service-text">Alapos tesztelés és ellenőrzés minden beavatkozás után</div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/services/kodolas/6.jpg" alt="BMW kódolás véglegesítése és ellenőrzése - Bömbis István műhelye" class="w-full h-64 sm:h-72 md:h-80 object-cover" loading="lazy">
-          <div class="overlay">
-            <span>Véglegesítés</span>
-            <div class="service-text">Kódolás véglegesítése és rendszerellenőrzés a tökéletes működésért</div>
+          <!-- Galéria -->
+          <div class="relative">
+            <div class="gallery-container bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
+              <div id="carplay-gallery" class="relative h-96">
+                <!-- Képek dinamikusan töltődnek be -->
+              </div>
+              <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2" id="carplay-dots" style="display: none;">
+                <!-- Pontok dinamikusan töltődnek be -->
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Szolgáltatás részletei -->
-    <section class="container mx-auto py-12 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 fade-in-up">
-      <div class="max-w-4xl mx-auto">
-        <h3 class="text-lg sm:text-2xl font-bold mb-6" data-i18n="software.services.title">Kódolási és szoftverfrissítési szolgáltatásaink:</h3>
-        <ul class="list-disc list-inside text-gray-400 space-y-4 text-sm sm:text-base">
-          <li><strong data-i18n="software.services.angelEyes">Angel Eyes aktiválás:</strong> <span data-i18n="software.services.angelEyesDesc">LED körgyűrűk bekapcsolása parkoláskor és menetközben.</span></li>
-          <li><strong data-i18n="software.services.autoWindows">Automatikus ablakemelő:</strong> <span data-i18n="software.services.autoWindowsDesc">Kulcsról történő ablakemelés és -süllyesztés aktiválása.</span></li>
-          <li><strong data-i18n="software.services.speedVolume">Sebességfüggő hangerő:</strong> <span data-i18n="software.services.speedVolumeDesc">Rádió hangerejének automatikus szabályozása sebesség alapján.</span></li>
-          <li><strong data-i18n="software.services.comfort">Komfort funkciók:</strong> <span data-i18n="software.services.comfortDesc">Automatikus zárás, welcome light, stb. aktiválása.</span></li>
-          <li><strong data-i18n="software.services.navigation">Navigációs frissítések:</strong> <span data-i18n="software.services.navigationDesc">Térképek és szoftver frissítése a legújabb verzióra.</span></li>
-          <li><strong data-i18n="software.services.idrive">iDrive testreszabás:</strong> <span data-i18n="software.services.idriveDesc">Menürendszer személyre szabása és funkciók aktiválása.</span></li>
-          <li><strong data-i18n="software.services.factoryUpdate">Gyári szoftverfrissítés:</strong> <span data-i18n="software.services.factoryUpdateDesc">Összes modul frissítése a legújabb gyári verzióra.</span></li>
-          <li><strong data-i18n="software.services.errorCodes">Hibakód törlés:</strong> <span data-i18n="software.services.errorCodesDesc">Rendszerhibák diagnosztizálása és javítása.</span></li>
-        </ul>
+    <!-- Retrofit / Utólagos extrák szekció -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Galéria -->
+          <div class="relative order-2 lg:order-1">
+            <div class="gallery-container bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
+              <div id="retrofit-gallery" class="relative h-96">
+                <!-- Képek dinamikusan töltődnek be -->
+              </div>
+              <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2" id="retrofit-dots" style="display: none;">
+                <!-- Pontok dinamikusan töltődnek be -->
+              </div>
+            </div>
+            <!-- Második galéria nagyobb kijelzőkön -->
+            <div class="gallery-container bg-gray-700 rounded-lg overflow-hidden shadow-2xl mt-36 relative" style="display: none;" id="retrofit-gallery-container-2">
+              <div id="retrofit-gallery-2" class="relative h-96">
+                <!-- Képek dinamikusan töltődnek be -->
+              </div>
+              <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2" id="retrofit-dots-2" style="display: none;">
+                <!-- Pontok dinamikusan töltődnek be -->
+              </div>
+            </div>
+          </div>
+          <!-- Tartalom -->
+          <div class="order-1 lg:order-2">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-green-400">
+              <i class="fas fa-cogs mr-3"></i>
+              Retrofit / Utólagos extrák
+            </h2>
+            <div class="space-y-6">
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-white">Tolatókamera beépítés</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  Professzionális tolatókamera rendszer telepítése gyári minőségben. 
+                  Tökéletes integráció a BMW iDrive rendszerrel.
+                </p>
+              </div>
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-white">Táblafelismerő rendszer</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  Intelligens sebességtábla felismerő és figyelmeztetőrendszer beépítése. 
+                  Automatikus sebességhatár detektálás és kijelzés.
+                </p>
+              </div>
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-white">Comfort Access</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  Kulcs nélküli nyitórendszer telepítése. Kényelmes be- és kiszállás 
+                  anélkül, hogy elő kellene venni a kulcsot.
+                </p>
+              </div>
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-white">Távtartó tempomat</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  Adaptív tempomat rendszer beépítése, amely automatikusan tartja a távolságot 
+                  az előtte haladó járműtől.
+                </p>
+              </div>
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-white">Elektromos memóriás ülések</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  Memóriás ülésbeállítás funkció aktiválása vagy telepítése. 
+                  Személyre szabott kényelmi beállítások mentése.
+                </p>
+              </div>
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-white">ID6 update és egyéb fejlesztések</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  A legújabb iDrive verzióra frissítés, új funkciók aktiválása 
+                  és rendszeroptimalizálás.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Kapcsolat CTA -->
-    <section id="kapcsolat" class="bmw-m-contact py-12 sm:py-24 lg:py-32 text-center px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl sm:text-4xl font-bold mb-4" data-i18n="software.contact.title">Kérjen ajánlatot kódolásra!</h2>
-      <p class="mb-12 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto" data-i18n="software.contact.subtitle">Vegye fel velünk a kapcsolatot, és kérjen személyre szabott ajánlatot BMW-je szoftverfrissítésére és kódolására.</p>
-      <a href="contact.html" class="inline-block bg-white hover:bg-gray-200 text-blue-600 text-lg font-semibold py-3 px-6 rounded-md shadow-lg transition-all transform hover:scale-105 tracking-wide" aria-label="Ajánlatkérés BMW szoftverfrissítésre és kódolásra"><span data-i18n="software.contact.button">Ajánlatkérés</span></a>
+    <section class="bmw-m-contact py-12 sm:py-24 lg:py-32 text-center px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-4xl font-bold mb-4">Kérjen ajánlatot elektronikai szolgáltatásainkra!</h2>
+      <p class="mb-12 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto">
+        Vegye fel velünk a kapcsolatot, és kérjen személyre szabott ajánlatot BMW-je elektronikai fejlesztésére.
+      </p>
+      <a href="contact.html" class="inline-block bg-white hover:bg-gray-200 text-blue-600 text-lg font-semibold py-3 px-6 rounded-md shadow-lg transition-all transform hover:scale-105 tracking-wide">
+        <span>Kapcsolatfelvétel</span>
+      </a>
     </section>
+  </main>
 
     <!-- Lábjegyzet -->
     <footer class="bg-transparent py-6 sm:py-8 text-center border-t border-gray-800 relative z-10">
       <div class="flex justify-center space-x-4 mb-4">
         <a href="https://www.facebook.com/profile.php?id=100089991926013" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/bombis.istvan" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-instagram"></i></a>
-        
       </div>
       <div class="mb-2 text-xs text-gray-400">© <span class="copyright-year">2024</span> BMW Szerviz Bömbis István. Minden jog fenntartva.</div>
     </footer>
   </div>
+
+  <script>
+    // Galéria képek
+    const carplayImages = [
+      '../assets/images/services/auto_carplay/1.jpg',
+      '../assets/images/services/auto_carplay/2.jpg',
+      '../assets/images/services/auto_carplay/3.jpg',
+      '../assets/images/services/auto_carplay/4.jpg',
+      '../assets/images/services/auto_carplay/5.jpg',
+      '../assets/images/services/auto_carplay/6.jpg',
+      '../assets/images/services/auto_carplay/7.JPG',
+      '../assets/images/services/auto_carplay/8.jpg'
+    ];
+
+    const retrofitImages = [
+      '../assets/images/services/rejtett_extrak/1.jpg',
+      '../assets/images/services/rejtett_extrak/2.jpg',
+      '../assets/images/services/rejtett_extrak/3.jpg',
+      '../assets/images/services/rejtett_extrak/4.JPG',
+      '../assets/images/services/rejtett_extrak/5.jpg',
+      '../assets/images/services/rejtett_extrak/6.jpg',
+      '../assets/images/services/rejtett_extrak/7.jpg',
+      '../assets/images/services/rejtett_extrak/8.jpg',
+      '../assets/images/services/rejtett_extrak/9.jpg',
+      '../assets/images/services/rejtett_extrak/10.jpg',
+      '../assets/images/services/rejtett_extrak/11.jpg',
+      '../assets/images/services/rejtett_extrak/12.jpg',
+      '../assets/images/services/rejtett_extrak/13.jpg',
+      '../assets/images/services/rejtett_extrak/14.jpg',
+      '../assets/images/services/rejtett_extrak/15.jpg',
+      '../assets/images/services/rejtett_extrak/17.jpg',
+      '../assets/images/services/rejtett_extrak/18.jpg',
+      '../assets/images/services/rejtett_extrak/19.jpg',
+      '../assets/images/services/rejtett_extrak/20.jpg',
+      '../assets/images/services/rejtett_extrak/21.jpg'
+    ];
+
+    let carplayCurrentIndex = 0;
+    let retrofitCurrentIndex = 0;
+    let retrofitCurrentIndex2 = 0;
+
+    // Galéria inicializálás
+    function initGallery(galleryId, dotsId, images, currentIndexVar) {
+      const gallery = document.getElementById(galleryId);
+      const dots = document.getElementById(dotsId);
+      
+      // Véletlenszerű kezdő index
+      const randomStartIndex = Math.floor(Math.random() * images.length);
+      
+      // Képek létrehozása
+      images.forEach((image, index) => {
+        const img = document.createElement('img');
+        img.src = image;
+        img.alt = `Galéria kép ${index + 1}`;
+        img.className = `absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${index === randomStartIndex ? 'opacity-100' : 'opacity-0'}`;
+        gallery.appendChild(img);
+      });
+      
+      // Pontok létrehozása
+      images.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = `w-3 h-3 rounded-full transition-colors ${index === randomStartIndex ? 'bg-blue-400' : 'bg-gray-600'}`;
+        dot.onclick = () => showImage(galleryId, dotsId, images, index);
+        dots.appendChild(dot);
+      });
+      
+      // Kezdő index beállítása a megfelelő változóban
+      if (galleryId === 'carplay-gallery') {
+        carplayCurrentIndex = randomStartIndex;
+      } else if (galleryId === 'retrofit-gallery') {
+        retrofitCurrentIndex = randomStartIndex;
+      } else if (galleryId === 'retrofit-gallery-2') {
+        retrofitCurrentIndex2 = randomStartIndex;
+      }
+    }
+
+    // Kép megjelenítés
+    function showImage(galleryId, dotsId, images, index) {
+      const gallery = document.getElementById(galleryId);
+      const dots = document.getElementById(dotsId);
+      
+      // Képek frissítése
+      const imgs = gallery.querySelectorAll('img');
+      imgs.forEach((img, i) => {
+        img.className = `absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${i === index ? 'opacity-100' : 'opacity-0'}`;
+      });
+      
+      // Pontok frissítése
+      const dotElements = dots.querySelectorAll('button');
+      dotElements.forEach((dot, i) => {
+        dot.className = `w-3 h-3 rounded-full transition-colors ${i === index ? 'bg-blue-400' : 'bg-gray-600'}`;
+      });
+    }
+
+    // Automatikus váltás véletlenszerűen
+    function autoSlide(galleryId, dotsId, images, currentIndexVar, intervalTime = 4000) {
+      setInterval(() => {
+        let newIndex;
+        if (galleryId === 'carplay-gallery') {
+          // Véletlenszerű index generálása, de nem ugyanaz mint a jelenlegi
+          do {
+            newIndex = Math.floor(Math.random() * images.length);
+          } while (newIndex === carplayCurrentIndex && images.length > 1);
+          carplayCurrentIndex = newIndex;
+          showImage(galleryId, dotsId, images, carplayCurrentIndex);
+        } else if (galleryId === 'retrofit-gallery') {
+          do {
+            newIndex = Math.floor(Math.random() * images.length);
+          } while (newIndex === retrofitCurrentIndex && images.length > 1);
+          retrofitCurrentIndex = newIndex;
+          showImage(galleryId, dotsId, images, retrofitCurrentIndex);
+        } else if (galleryId === 'retrofit-gallery-2') {
+          do {
+            newIndex = Math.floor(Math.random() * images.length);
+          } while (newIndex === retrofitCurrentIndex2 && images.length > 1);
+          retrofitCurrentIndex2 = newIndex;
+          showImage(galleryId, dotsId, images, retrofitCurrentIndex2);
+        }
+      }, intervalTime);
+    }
+
+    // Második galéria megjelenítésének kezelése
+    function handleSecondGalleryVisibility() {
+      const galleryContainer2 = document.getElementById('retrofit-gallery-container-2');
+      const gallery2 = document.getElementById('retrofit-gallery-2');
+      
+      console.log('Képernyő szélessége:', window.innerWidth);
+      
+      if (window.innerWidth >= 1024) {
+        // Nagyobb kijelzőn megjelenítjük
+        galleryContainer2.style.display = 'block';
+        console.log('Második galéria megjelenítve');
+        
+        // Ha még nincs inicializálva, inicializáljuk
+        if (gallery2 && gallery2.children.length === 0) {
+          console.log('Második galéria inicializálása...');
+          initGallery('retrofit-gallery-2', 'retrofit-dots-2', retrofitImages, retrofitCurrentIndex2);
+          autoSlide('retrofit-gallery-2', 'retrofit-dots-2', retrofitImages, retrofitCurrentIndex2, 6000);
+        }
+      } else {
+        // Kisebb kijelzőn elrejtjük
+        galleryContainer2.style.display = 'none';
+        console.log('Második galéria elrejtve');
+      }
+    }
+
+    // Oldal betöltés után inicializálás
+    document.addEventListener('DOMContentLoaded', function() {
+      initGallery('carplay-gallery', 'carplay-dots', carplayImages, carplayCurrentIndex);
+      initGallery('retrofit-gallery', 'retrofit-dots', retrofitImages, retrofitCurrentIndex);
+      
+      // Automatikus váltás indítása
+      autoSlide('carplay-gallery', 'carplay-dots', carplayImages, carplayCurrentIndex, 4000);
+      autoSlide('retrofit-gallery', 'retrofit-dots', retrofitImages, retrofitCurrentIndex, 5000);
+      
+      // Második galéria kezelése
+      handleSecondGalleryVisibility();
+       
+      // Ablak átméretezésének figyelése
+      window.addEventListener('resize', handleSecondGalleryVisibility);
+    });
+  </script>
 </body>
 </html>

@@ -552,6 +552,13 @@ nav a svg {
     color: #3b82f6;
 }
 
+/* Galéria navigációs pontok elrejtése */
+#carplay-dots,
+#retrofit-dots,
+#retrofit-dots-2 {
+    display: none !important;
+}
+
 /* Reszponzív galéria */
 @media (max-width: 768px) {
     .gallery-item img {
