@@ -1,0 +1,235 @@
+// Service page gallery functionality
+
+// Gallery configuration
+const galleryConfig = {
+  service: {
+    containerId: 'service-gallery',
+    imagePath: '../assets/images/services/kisebb_szervizek/',
+    images: [],
+    currentIndex: 0,
+    interval: null
+  },
+  maintenance: {
+    containerId: 'maintenance-gallery',
+    imagePath: '../assets/images/services/fekek/',
+    images: [],
+    currentIndex: 0,
+    interval: null
+  }
+};
+
+// Auto-slide intervals (different for each gallery)
+const SLIDE_INTERVALS = {
+  service: 3500,
+  maintenance: 4000
+};
+
+// Initialize galleries when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  initializeGalleries();
+});
+
+// Initialize both galleries
+function initializeGalleries() {
+  loadGalleryImages('service');
+  loadGalleryImages('maintenance');
+}
+
+// Load images for a specific gallery
+function loadGalleryImages(galleryType) {
+  const config = galleryConfig[galleryType];
+  const container = document.getElementById(config.containerId);
+  
+  if (!container) {
+    console.warn(`Gallery container ${config.containerId} not found`);
+    return;
+  }
+
+  // Add loading state
+  container.classList.add('gallery-loading');
+  
+  // Define image lists based on gallery type
+  const imageFiles = getImageFiles(galleryType);
+  
+  if (imageFiles.length === 0) {
+    console.warn(`No images found for gallery type: ${galleryType}`);
+    return;
+  }
+
+  // Store image files in config
+  config.images = imageFiles.map(filename => config.imagePath + filename);
+  
+  // Create gallery images
+  createGalleryImages(galleryType);
+  
+  // Start auto-slide
+  startAutoSlide(galleryType);
+  
+  // Remove loading state
+  setTimeout(() => {
+    container.classList.remove('gallery-loading');
+  }, 500);
+}
+
+// Get image files for each gallery type
+function getImageFiles(galleryType) {
+  if (galleryType === 'service') {
+    return [
+      '1.jpg',
+      '2.jpg',
+      '3.jpg',
+      '4.jpg',
+      '5.jpg',
+      '6.jpg',
+      '8.jpg',
+      '9.jpg',
+      '10.jpg',
+      '13.jpg'
+    ];
+  } else if (galleryType === 'maintenance') {
+    return [
+      '1.jpg',
+      '3.jpg',
+      '4.JPG',
+      '7.jpg',
+      '11.jpg',
+      '12.jpg'
+    ];
+  }
+  return [];
+}
+
+// Create gallery images
+function createGalleryImages(galleryType) {
+  const config = galleryConfig[galleryType];
+  const container = document.getElementById(config.containerId);
+  
+  // Clear existing content
+  container.innerHTML = '';
+  
+  // Create image elements
+  config.images.forEach((imageSrc, index) => {
+    const img = document.createElement('img');
+    img.src = imageSrc;
+    img.alt = `${galleryType} galéria kép ${index + 1}`;
+    img.loading = 'lazy';
+    img.style.position = 'absolute';
+    img.style.top = '0';
+    img.style.left = '0';
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'cover';
+    img.style.opacity = index === 0 ? '1' : '0';
+    img.style.transition = 'opacity 0.5s ease-in-out';
+    
+    container.appendChild(img);
+  });
+}
+
+// Show specific image
+function showImage(galleryType, index) {
+  const config = galleryConfig[galleryType];
+  const container = document.getElementById(config.containerId);
+  const images = container.querySelectorAll('img');
+  
+  images.forEach((img, i) => {
+    img.style.opacity = i === index ? '1' : '0';
+  });
+  
+  config.currentIndex = index;
+}
+
+// Start auto-slide
+function startAutoSlide(galleryType) {
+  const config = galleryConfig[galleryType];
+  const interval = SLIDE_INTERVALS[galleryType] || 5000;
+  
+  config.interval = setInterval(() => {
+    nextRandomImage(galleryType);
+  }, interval);
+}
+
+// Show next random image
+function nextRandomImage(galleryType) {
+  const config = galleryConfig[galleryType];
+  if (config.images.length <= 1) return;
+  
+  let nextIndex;
+  do {
+    nextIndex = Math.floor(Math.random() * config.images.length);
+  } while (nextIndex === config.currentIndex);
+  
+  showImage(galleryType, nextIndex);
+}
+
+// Pause auto-slide
+function pauseAutoSlide(galleryType) {
+  const config = galleryConfig[galleryType];
+  if (config.interval) {
+    clearInterval(config.interval);
+    config.interval = null;
+  }
+}
+
+// Resume auto-slide
+function resumeAutoSlide(galleryType) {
+  if (!galleryConfig[galleryType].interval) {
+    startAutoSlide(galleryType);
+  }
+}
+
+// Pause galleries when page becomes hidden
+document.addEventListener('DOMContentLoaded', function() {
+  // Pause on mouse hover
+  Object.keys(galleryConfig).forEach(galleryType => {
+    const container = document.getElementById(galleryConfig[galleryType].containerId);
+    if (container) {
+      container.addEventListener('mouseenter', () => pauseAutoSlide(galleryType));
+      container.addEventListener('mouseleave', () => resumeAutoSlide(galleryType));
+    }
+  });
+});
+
+// Clean up intervals when page unloads
+window.addEventListener('beforeunload', function() {
+  Object.keys(galleryConfig).forEach(galleryType => {
+    pauseAutoSlide(galleryType);
+  });
+});
+
+// Handle page visibility changes
+document.addEventListener('visibilitychange', function() {
+  if (document.hidden) {
+    Object.keys(galleryConfig).forEach(galleryType => {
+      pauseAutoSlide(galleryType);
+    });
+  } else {
+    Object.keys(galleryConfig).forEach(galleryType => {
+      resumeAutoSlide(galleryType);
+    });
+  }
+});
+
+// Handle responsive images
+function handleResponsiveImages() {
+  const galleries = document.querySelectorAll('[id$="-gallery"]');
+  galleries.forEach(gallery => {
+    const images = gallery.querySelectorAll('img');
+    images.forEach(img => {
+      img.style.objectFit = window.innerWidth < 768 ? 'cover' : 'cover';
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', handleResponsiveImages);
+window.addEventListener('resize', handleResponsiveImages);
+
+// Export functions for testing
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    initializeGalleries,
+    nextRandomImage,
+    pauseAutoSlide,
+    resumeAutoSlide
+  };
+}

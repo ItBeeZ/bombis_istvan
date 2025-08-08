@@ -27,6 +27,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/software.css">
   <script src="../assets/js/translations.js"></script>
   <script src="../assets/js/script.js"></script>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
@@ -313,48 +314,55 @@
   <!-- Fő tartalom -->
   <main>
 
-    <!-- Apple CarPlay / Android Auto szekció -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
+    <!-- Automata váltó olajcsere szekció -->
+    <section id="transmission-oil" class="py-12 sm:py-24 lg:py-32 fade-in-up" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%);">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <!-- Tartalom -->
-          <div>
-            <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-blue-400">
-              <i class="fas fa-mobile-alt mr-3"></i>
-              Apple CarPlay / Android Auto
-            </h2>
-            <div class="space-y-6">
-              <div class="bg-gray-800 p-6 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4 text-white">Szoftveres aktiválás</h3>
-                <p class="text-gray-300 leading-relaxed">
-                  A legmodernebb módszer, amely során a meglévő rendszerben aktiváljuk a CarPlay/Android Auto funkciókat. 
-                  Ez a megoldás nem igényel fizikai beavatkozást, csak szoftver szintű módosítást.
-                </p>
-              </div>
-              <div class="bg-gray-800 p-6 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4 text-white">Modullal történő beépítés</h3>
-                <p class="text-gray-300 leading-relaxed">
-                  Speciális CarPlay/Android Auto modul beépítése, amely teljes kompatibilitást biztosít 
-                  a BMW eredeti rendszerével. Gyári minőségű integráció és működés.
-                </p>
-              </div>
-              <div class="bg-gray-800 p-6 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4 text-white">Nagy kijelzőre átalakítás</h3>
-                <p class="text-gray-300 leading-relaxed">
-                  A kisebb kijelzők cseréje nagyobb, modernebb displayekre, amelyek jobban kihasználják 
-                  a CarPlay/Android Auto lehetőségeit. Tökéletes illeszkedés és gyári megjelenés.
-                </p>
+          <!-- Galéria -->
+          <div class="relative order-2 lg:order-1">
+            <div class="gallery-container bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
+              <div id="transmission-gallery" class="relative h-96">
+                <!-- Képek dinamikusan töltődnek be -->
               </div>
             </div>
           </div>
-          <!-- Galéria -->
-          <div class="relative">
-            <div class="gallery-container bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
-              <div id="carplay-gallery" class="relative h-96">
-                <!-- Képek dinamikusan töltődnek be -->
-              </div>
-              <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2" id="carplay-dots" style="display: none;">
-                <!-- Pontok dinamikusan töltődnek be -->
+          <!-- Tartalom -->
+          <div class="order-1 lg:order-2">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">
+              Apple CarPlay / Android Auto
+            </h2>
+            <div class="space-y-4 text-gray-300">
+              <p class="text-lg leading-relaxed">
+                Modernizálja BMW-jét a legújabb okostelefon-integrációs technológiákkal. Az Apple CarPlay és Android Auto lehetővé teszi, hogy biztonságosan használja telefonját vezetés közben.
+              </p>
+              <h3 class="text-xl font-semibold text-white mt-6 mb-3">Szolgáltatásaink:</h3>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-mobile-alt text-blue-400 mt-1 mr-3"></i>
+                  <span>Szoftveres aktiválás meglévő rendszereken</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-microchip text-blue-400 mt-1 mr-3"></i>
+                  <span>Modullal történő beépítés régebbi járművekbe</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-desktop text-blue-400 mt-1 mr-3"></i>
+                  <span>Nagy kijelzőre átalakítás (8.8" → 10.25" vagy 12.3")</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-wifi text-blue-400 mt-1 mr-3"></i>
+                  <span>Vezeték nélküli CarPlay/Android Auto telepítés</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-cog text-blue-400 mt-1 mr-3"></i>
+                  <span>Teljes rendszer konfiguráció és beállítás</span>
+                </li>
+              </ul>
+              <div class="bg-blue-900/30 p-4 rounded-lg mt-6">
+                <h4 class="font-semibold text-blue-300 mb-2">Miért válassza a CarPlay/Android Auto-t?</h4>
+                <p class="text-sm">
+                  A modern okostelefon-integráció biztonságosabbá és kényelmesebbé teszi a vezetést. Használhatja kedvenc alkalmazásait, navigációját és zenéjét közvetlenül a BMW kijelzőjén keresztül.
+                </p>
               </div>
             </div>
           </div>
@@ -362,78 +370,84 @@
       </div>
     </section>
 
-    <!-- Retrofit / Utólagos extrák szekció -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
-      <div class="max-w-7xl mx-auto">
+    
+
+    <!-- Vezérlés csere szekció -->
+    <section id="timing-chain" class="py-12 sm:py-24 lg:py-32 fade-in-up" style="background: linear-gradient(135deg, #374151 0%, #1f2937 100%);">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <!-- Galéria -->
-          <div class="relative order-2 lg:order-1">
-            <div class="gallery-container bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
-              <div id="retrofit-gallery" class="relative h-96">
-                <!-- Képek dinamikusan töltődnek be -->
-              </div>
-              <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2" id="retrofit-dots" style="display: none;">
-                <!-- Pontok dinamikusan töltődnek be -->
-              </div>
-            </div>
-            <!-- Második galéria nagyobb kijelzőkön -->
-            <div class="gallery-container bg-gray-700 rounded-lg overflow-hidden shadow-2xl mt-36 relative" style="display: none;" id="retrofit-gallery-container-2">
-              <div id="retrofit-gallery-2" class="relative h-96">
-                <!-- Képek dinamikusan töltődnek be -->
-              </div>
-              <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2" id="retrofit-dots-2" style="display: none;">
-                <!-- Pontok dinamikusan töltődnek be -->
+          <!-- Tartalom -->
+          <div class="order-1 lg:order-1">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">
+              Retrofit & Szoftverfrissítés
+            </h2>
+            <div class="space-y-4 text-gray-300">
+              <p class="text-lg leading-relaxed">
+                Bővítse BMW-je funkcionalitását utólagos extrák beépítésével és rejtett funkciók aktiválásával. Professzionális szoftverfrissítéssel és fejegység javítással.
+              </p>
+              <h3 class="text-xl font-semibold text-white mt-6 mb-3">Retrofit / Utólagos extrák:</h3>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-video text-purple-400 mt-1 mr-3"></i>
+                  <span>Tolatókamera beépítés</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-eye text-purple-400 mt-1 mr-3"></i>
+                  <span>Táblafelismerő rendszer</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-key text-purple-400 mt-1 mr-3"></i>
+                  <span>Comfort Access kulcs nélküli nyitórendszer</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-tachometer-alt text-purple-400 mt-1 mr-3"></i>
+                  <span>Távtartó tempomat (ACC)</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-chair text-purple-400 mt-1 mr-3"></i>
+                  <span>Elektromos memóriás ülések</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-desktop text-purple-400 mt-1 mr-3"></i>
+                  <span>Nagy kijelzőre átalakítás, ID6 update</span>
+                </li>
+              </ul>
+              <h3 class="text-xl font-semibold text-white mt-6 mb-3">Rejtett funkciók & Szoftver:</h3>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-magic text-green-400 mt-1 mr-3"></i>
+                  <span>Start-stop gomb memória aktiválása</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-lightbulb text-green-400 mt-1 mr-3"></i>
+                  <span>Hátsó menetfény aktiválása</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-play text-green-400 mt-1 mr-3"></i>
+                  <span>M animáció és egyéb rejtett funkciók</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-download text-green-400 mt-1 mr-3"></i>
+                  <span>Szoftverfrissítés, navigáció update</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-wrench text-green-400 mt-1 mr-3"></i>
+                  <span>Fejegység javítás: CCC, CIC, NBT, NBT Evo, MGU, MGU2</span>
+                </li>
+              </ul>
+              <div class="bg-purple-900/30 p-4 rounded-lg mt-6">
+                <h4 class="font-semibold text-purple-300 mb-2">Miért válassza a retrofit szolgáltatásainkat?</h4>
+                <p class="text-sm">
+                  A retrofit és szoftverfrissítés költséghatékony módja annak, hogy BMW-je a legújabb technológiákkal rendelkezzen. Professzionális telepítéssel és eredeti BMW kompatibilitással.
+                </p>
               </div>
             </div>
           </div>
-          <!-- Tartalom -->
-          <div class="order-1 lg:order-2">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-green-400">
-              <i class="fas fa-cogs mr-3"></i>
-              Retrofit / Utólagos extrák
-            </h2>
-            <div class="space-y-6">
-              <div class="bg-gray-800 p-6 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4 text-white">Tolatókamera beépítés</h3>
-                <p class="text-gray-300 leading-relaxed">
-                  Professzionális tolatókamera rendszer telepítése gyári minőségben. 
-                  Tökéletes integráció a BMW iDrive rendszerrel.
-                </p>
-              </div>
-              <div class="bg-gray-800 p-6 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4 text-white">Táblafelismerő rendszer</h3>
-                <p class="text-gray-300 leading-relaxed">
-                  Intelligens sebességtábla felismerő és figyelmeztetőrendszer beépítése. 
-                  Automatikus sebességhatár detektálás és kijelzés.
-                </p>
-              </div>
-              <div class="bg-gray-800 p-6 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4 text-white">Comfort Access</h3>
-                <p class="text-gray-300 leading-relaxed">
-                  Kulcs nélküli nyitórendszer telepítése. Kényelmes be- és kiszállás 
-                  anélkül, hogy elő kellene venni a kulcsot.
-                </p>
-              </div>
-              <div class="bg-gray-800 p-6 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4 text-white">Távtartó tempomat</h3>
-                <p class="text-gray-300 leading-relaxed">
-                  Adaptív tempomat rendszer beépítése, amely automatikusan tartja a távolságot 
-                  az előtte haladó járműtől.
-                </p>
-              </div>
-              <div class="bg-gray-800 p-6 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4 text-white">Elektromos memóriás ülések</h3>
-                <p class="text-gray-300 leading-relaxed">
-                  Memóriás ülésbeállítás funkció aktiválása vagy telepítése. 
-                  Személyre szabott kényelmi beállítások mentése.
-                </p>
-              </div>
-              <div class="bg-gray-800 p-6 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4 text-white">ID6 update és egyéb fejlesztések</h3>
-                <p class="text-gray-300 leading-relaxed">
-                  A legújabb iDrive verzióra frissítés, új funkciók aktiválása 
-                  és rendszeroptimalizálás.
-                </p>
+          <!-- Galéria -->
+          <div class="relative order-2 lg:order-2">
+            <div class="gallery-container bg-gray-700 rounded-lg overflow-hidden shadow-2xl">
+              <div id="retrofit-gallery" class="relative h-96">
+                <!-- Képek dinamikusan töltődnek be -->
               </div>
             </div>
           </div>
@@ -442,187 +456,23 @@
     </section>
 
     <!-- Kapcsolat CTA -->
-    <section class="bmw-m-contact py-12 sm:py-24 lg:py-32 text-center px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl sm:text-4xl font-bold mb-4">Kérjen ajánlatot elektronikai szolgáltatásainkra!</h2>
-      <p class="mb-12 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto">
-        Vegye fel velünk a kapcsolatot, és kérjen személyre szabott ajánlatot BMW-je elektronikai fejlesztésére.
-      </p>
-      <a href="contact.html" class="inline-block bg-white hover:bg-gray-200 text-blue-600 text-lg font-semibold py-3 px-6 rounded-md shadow-lg transition-all transform hover:scale-105 tracking-wide">
-        <span>Kapcsolatfelvétel</span>
-      </a>
+    <section id="kapcsolat" class="bmw-m-contact py-12 sm:py-24 lg:py-32 text-center px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-4xl font-bold mb-4" data-i18n="software.contact.title">Szüksége van szoftverfrissítésre vagy kódolásra?</h2>
+      <p class="mb-12 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto" data-i18n="software.contact.subtitle">Vegye fel velünk a kapcsolatot, és kérjen ajánlatot BMW-je szoftverfrissítésére vagy kódolására.</p>
+      <a href="contact.html" class="inline-block bg-white hover:bg-gray-200 text-blue-600 text-lg font-semibold py-3 px-6 rounded-md shadow-lg transition-all transform hover:scale-105 tracking-wide" data-i18n="software.contact.button" aria-label="Időpontfoglalás BMW szoftverfrissítésre és kódolásra"><span>Időpontfoglalás</span></a>
     </section>
   </main>
 
-    <!-- Lábjegyzet -->
-    <footer class="bg-transparent py-6 sm:py-8 text-center border-t border-gray-800 relative z-10">
-      <div class="flex justify-center space-x-4 mb-4">
-        <a href="https://www.facebook.com/profile.php?id=100089991926013" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/bombis.istvan" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-instagram"></i></a>
-      </div>
-      <div class="mb-2 text-xs text-gray-400">© <span class="copyright-year">2024</span> BMW Szerviz Bömbis István. Minden jog fenntartva.</div>
-    </footer>
+  <!-- Lábjegyzet -->
+  <footer class="bg-transparent py-6 sm:py-8 text-center border-t border-gray-800 relative z-10">
+    <div class="flex justify-center space-x-4 mb-4">
+      <a href="https://www.facebook.com/profile.php?id=100089991926013" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/bombis.istvan" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="mb-2 text-xs text-gray-400" data-i18n="footer.copyright">&copy; <span class="copyright-year">2024</span> BMW Szerviz Bömbis István. Minden jog fenntartva.</div>
+  </footer>
   </div>
 
-  <script>
-    // Galéria képek
-    const carplayImages = [
-      '../assets/images/services/auto_carplay/1.jpg',
-      '../assets/images/services/auto_carplay/2.jpg',
-      '../assets/images/services/auto_carplay/3.jpg',
-      '../assets/images/services/auto_carplay/4.jpg',
-      '../assets/images/services/auto_carplay/5.jpg',
-      '../assets/images/services/auto_carplay/6.jpg',
-      '../assets/images/services/auto_carplay/7.JPG',
-      '../assets/images/services/auto_carplay/8.jpg'
-    ];
-
-    const retrofitImages = [
-      '../assets/images/services/rejtett_extrak/1.jpg',
-      '../assets/images/services/rejtett_extrak/2.jpg',
-      '../assets/images/services/rejtett_extrak/3.jpg',
-      '../assets/images/services/rejtett_extrak/4.JPG',
-      '../assets/images/services/rejtett_extrak/5.jpg',
-      '../assets/images/services/rejtett_extrak/6.jpg',
-      '../assets/images/services/rejtett_extrak/7.jpg',
-      '../assets/images/services/rejtett_extrak/8.jpg',
-      '../assets/images/services/rejtett_extrak/9.jpg',
-      '../assets/images/services/rejtett_extrak/10.jpg',
-      '../assets/images/services/rejtett_extrak/11.jpg',
-      '../assets/images/services/rejtett_extrak/12.jpg',
-      '../assets/images/services/rejtett_extrak/13.jpg',
-      '../assets/images/services/rejtett_extrak/14.jpg',
-      '../assets/images/services/rejtett_extrak/15.jpg',
-      '../assets/images/services/rejtett_extrak/17.jpg',
-      '../assets/images/services/rejtett_extrak/18.jpg',
-      '../assets/images/services/rejtett_extrak/19.jpg',
-      '../assets/images/services/rejtett_extrak/20.jpg',
-      '../assets/images/services/rejtett_extrak/21.jpg'
-    ];
-
-    let carplayCurrentIndex = 0;
-    let retrofitCurrentIndex = 0;
-    let retrofitCurrentIndex2 = 0;
-
-    // Galéria inicializálás
-    function initGallery(galleryId, dotsId, images, currentIndexVar) {
-      const gallery = document.getElementById(galleryId);
-      const dots = document.getElementById(dotsId);
-      
-      // Véletlenszerű kezdő index
-      const randomStartIndex = Math.floor(Math.random() * images.length);
-      
-      // Képek létrehozása
-      images.forEach((image, index) => {
-        const img = document.createElement('img');
-        img.src = image;
-        img.alt = `Galéria kép ${index + 1}`;
-        img.className = `absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${index === randomStartIndex ? 'opacity-100' : 'opacity-0'}`;
-        gallery.appendChild(img);
-      });
-      
-      // Pontok létrehozása
-      images.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.className = `w-3 h-3 rounded-full transition-colors ${index === randomStartIndex ? 'bg-blue-400' : 'bg-gray-600'}`;
-        dot.onclick = () => showImage(galleryId, dotsId, images, index);
-        dots.appendChild(dot);
-      });
-      
-      // Kezdő index beállítása a megfelelő változóban
-      if (galleryId === 'carplay-gallery') {
-        carplayCurrentIndex = randomStartIndex;
-      } else if (galleryId === 'retrofit-gallery') {
-        retrofitCurrentIndex = randomStartIndex;
-      } else if (galleryId === 'retrofit-gallery-2') {
-        retrofitCurrentIndex2 = randomStartIndex;
-      }
-    }
-
-    // Kép megjelenítés
-    function showImage(galleryId, dotsId, images, index) {
-      const gallery = document.getElementById(galleryId);
-      const dots = document.getElementById(dotsId);
-      
-      // Képek frissítése
-      const imgs = gallery.querySelectorAll('img');
-      imgs.forEach((img, i) => {
-        img.className = `absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${i === index ? 'opacity-100' : 'opacity-0'}`;
-      });
-      
-      // Pontok frissítése
-      const dotElements = dots.querySelectorAll('button');
-      dotElements.forEach((dot, i) => {
-        dot.className = `w-3 h-3 rounded-full transition-colors ${i === index ? 'bg-blue-400' : 'bg-gray-600'}`;
-      });
-    }
-
-    // Automatikus váltás véletlenszerűen
-    function autoSlide(galleryId, dotsId, images, currentIndexVar, intervalTime = 4000) {
-      setInterval(() => {
-        let newIndex;
-        if (galleryId === 'carplay-gallery') {
-          // Véletlenszerű index generálása, de nem ugyanaz mint a jelenlegi
-          do {
-            newIndex = Math.floor(Math.random() * images.length);
-          } while (newIndex === carplayCurrentIndex && images.length > 1);
-          carplayCurrentIndex = newIndex;
-          showImage(galleryId, dotsId, images, carplayCurrentIndex);
-        } else if (galleryId === 'retrofit-gallery') {
-          do {
-            newIndex = Math.floor(Math.random() * images.length);
-          } while (newIndex === retrofitCurrentIndex && images.length > 1);
-          retrofitCurrentIndex = newIndex;
-          showImage(galleryId, dotsId, images, retrofitCurrentIndex);
-        } else if (galleryId === 'retrofit-gallery-2') {
-          do {
-            newIndex = Math.floor(Math.random() * images.length);
-          } while (newIndex === retrofitCurrentIndex2 && images.length > 1);
-          retrofitCurrentIndex2 = newIndex;
-          showImage(galleryId, dotsId, images, retrofitCurrentIndex2);
-        }
-      }, intervalTime);
-    }
-
-    // Második galéria megjelenítésének kezelése
-    function handleSecondGalleryVisibility() {
-      const galleryContainer2 = document.getElementById('retrofit-gallery-container-2');
-      const gallery2 = document.getElementById('retrofit-gallery-2');
-      
-      console.log('Képernyő szélessége:', window.innerWidth);
-      
-      if (window.innerWidth >= 1024) {
-        // Nagyobb kijelzőn megjelenítjük
-        galleryContainer2.style.display = 'block';
-        console.log('Második galéria megjelenítve');
-        
-        // Ha még nincs inicializálva, inicializáljuk
-        if (gallery2 && gallery2.children.length === 0) {
-          console.log('Második galéria inicializálása...');
-          initGallery('retrofit-gallery-2', 'retrofit-dots-2', retrofitImages, retrofitCurrentIndex2);
-          autoSlide('retrofit-gallery-2', 'retrofit-dots-2', retrofitImages, retrofitCurrentIndex2, 6000);
-        }
-      } else {
-        // Kisebb kijelzőn elrejtjük
-        galleryContainer2.style.display = 'none';
-        console.log('Második galéria elrejtve');
-      }
-    }
-
-    // Oldal betöltés után inicializálás
-    document.addEventListener('DOMContentLoaded', function() {
-      initGallery('carplay-gallery', 'carplay-dots', carplayImages, carplayCurrentIndex);
-      initGallery('retrofit-gallery', 'retrofit-dots', retrofitImages, retrofitCurrentIndex);
-      
-      // Automatikus váltás indítása
-      autoSlide('carplay-gallery', 'carplay-dots', carplayImages, carplayCurrentIndex, 4000);
-      autoSlide('retrofit-gallery', 'retrofit-dots', retrofitImages, retrofitCurrentIndex, 5000);
-      
-      // Második galéria kezelése
-      handleSecondGalleryVisibility();
-       
-      // Ablak átméretezésének figyelése
-      window.addEventListener('resize', handleSecondGalleryVisibility);
-    });
-  </script>
+  <script src="../assets/js/software.js"></script>
 </body>
 </html>
