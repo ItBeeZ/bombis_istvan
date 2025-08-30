@@ -29,35 +29,61 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/chiptuning.css">
   <script src="../assets/js/translations.js"></script>
-    <script src="../assets/js/script.min.js"></script>
-    <script src="../assets/js/chiptuning.js"></script>
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   
+
 </head>
 <body class="bg-black text-white">
   <div class="menu-overlay"></div>
   <!-- Fejléc -->
-  <header class="bg-black border-b border-gray-800 fixed top-0 left-0 w-full z-50">
-    <div class="container mx-auto flex flex-row justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
+  <header
+    class="bg-black border-b border-gray-800 fixed top-0 left-0 w-full z-50"
+  >
+    <div
+      class="container mx-auto flex flex-row justify-between items-center py-4 px-4 sm:px-6 lg:px-8"
+    >
       <div class="flex items-center space-x-3">
         <a href="../index.html">
-          <img src="../assets/images/logos/logo.jpg" alt="BMW Szerviz Bömbis István logó" class="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-blue-400 bg-white object-contain p-1" loading="eager">
+          <img
+            src="../assets/images/logos/logo.jpg"
+            alt="BMW Szerviz Bömbis István logó"
+            class="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-blue-400 bg-white object-contain p-1"
+            loading="eager"
+          />
         </a>
-        <span class="font-bold text-lg sm:text-2xl">BMW Szerviz Bömbis István</span>
+        <span class="font-bold text-lg sm:text-2xl"
+          >BMW Szerviz Bömbis István</span
+        >
       </div>
       <div class="flex items-center space-x-4">
         <!-- Asztali navigációs menü -->
         <nav class="hidden sm:flex items-center space-x-6">
           <!-- Nyelvi választó (asztali nézet) -->
           <div class="language-selector">
-            <button class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors language-selector-btn">
+            <button
+              class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors language-selector-btn"
+            >
               <span id="current-flag-svg" class="w-6 h-4"></span>
               <span id="current-lang">HU</span>
-              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
+              <svg
+                class="w-3 h-3 ml-1"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
             </button>
-            <div id="language-menu" class="absolute right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-lg hidden">
+            <div
+              id="language-menu"
+              class="absolute right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-lg hidden"
+            >
               <div class="py-1">
-                <button data-lang="hu" class="language-option flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                <button
+                  data-lang="hu"
+                  class="language-option flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800"
+                >
                   <span class="w-6 h-4">
                     <!-- HU SVG -->
                     <svg viewBox="0 0 3 2" width="24" height="16">
@@ -68,7 +94,10 @@
                   </span>
                   <span>Magyar</span>
                 </button>
-                <button data-lang="en" class="language-option flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                <button
+                  data-lang="en"
+                  class="language-option flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800"
+                >
                   <span class="w-6 h-4">
                     <!-- EN SVG -->
                     <svg viewBox="0 0 60 30" width="24" height="16">
@@ -77,16 +106,35 @@
                       </clipPath>
                       <g clip-path="url(#s)">
                         <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
-                        <path d="M0,0 l60,30 M60,0 l-60,30" stroke="#fff" stroke-width="6" />
-                        <path d="M0,0 l60,30 M60,0 l-60,30" stroke="#c8102e" stroke-width="4" />
-                        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
-                        <path d="M30,0 v30 M0,15 h60" stroke="#c8102e" stroke-width="6" />
+                        <path
+                          d="M0,0 l60,30 M60,0 l-60,30"
+                          stroke="#fff"
+                          stroke-width="6"
+                        />
+                        <path
+                          d="M0,0 l60,30 M60,0 l-60,30"
+                          stroke="#c8102e"
+                          stroke-width="4"
+                        />
+                        <path
+                          d="M30,0 v30 M0,15 h60"
+                          stroke="#fff"
+                          stroke-width="10"
+                        />
+                        <path
+                          d="M30,0 v30 M0,15 h60"
+                          stroke="#c8102e"
+                          stroke-width="6"
+                        />
                       </g>
                     </svg>
                   </span>
                   <span>English</span>
                 </button>
-                <button data-lang="de" class="language-option flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                <button
+                  data-lang="de"
+                  class="language-option flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800"
+                >
                   <span class="w-6 h-4">
                     <!-- DE SVG -->
                     <svg viewBox="0 0 5 3" width="24" height="16">
@@ -100,35 +148,41 @@
               </div>
             </div>
           </div>
-          <a href="../index.html" class="text-white hover:text-blue-400 transition-colors flex items-center space-x-2">
+          <a
+            href="../index.html"
+            class="text-white hover:text-blue-400 transition-colors flex items-center space-x-2"
+          >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-5h-4v5H4a1 1 0 0 1-1-1V10.5z" />
             </svg>
             <span>Kezdőlap</span>
           </a>
           <div class="services-selector hidden sm:block relative">
-            <button class="flex items-center space-x-2 text-white hover:text-blue-400 transition-colors services-selector-btn">
+            <button
+              class="flex items-center space-x-2 text-white hover:text-blue-400 transition-colors services-selector-btn"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
               </svg>
               <span>Szolgáltatások</span>
-              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <svg
+                class="w-3 h-3 ml-1"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
                 <path d="M6 9l6 6 6-6" />
               </svg>
             </button>
-            <div id="services-menu" class="hidden">
+            <div
+              id="services-menu"
+              class="hidden"
+            >
               <div class="py-1">
-                <a href="services.html" class="services-option flex items-center space-x-4 w-full px-1 py-1 text-left hover:bg-gray-800 rounded-lg transition-colors">
-                  <svg class="w-[44px] h-[44px] text-blue-400" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <g>
-                      <path d="M2,14H5V11H2Zm9,0h3V11H11ZM2,5H5V2H2Zm9-3V5h3V2ZM6.5,5h3V2h-3Zm0,9h3V11h-3ZM11,9.5h3v-3H11Zm-4.5,0h3v-3h-3ZM2,9.5H5v-3H2Z"></path>
-                    </g>
-                  </svg>
-                  <div>
-                    <div class="font-medium text-white">Összes szolgáltatás</div>
-                    <div class="text-xs text-gray-400">Teljes szolgáltatási kínálat</div>
-                  </div>
-                </a>
+
                 <a href="service.html" class="services-option flex items-center space-x-4 w-full px-1 py-1 text-left hover:bg-gray-800 rounded-lg transition-colors">
                   <svg class="w-[44px] h-[44px] text-orange-400" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                     <g>
@@ -195,103 +249,161 @@
           </div>
           <a
             href="about.html"
-            class="hover:text-blue-400 flex items-center space-x-2"
-            data-i18n="nav.about"
+            class="text-white hover:text-blue-400 transition-colors flex items-center space-x-2"
           >
-            <span class="w-5 h-5 flex items-center justify-center"
-              ><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                <circle cx="12" cy="12" r="10" />
-                <text
-                  x="12"
-                  y="17"
-                  text-anchor="middle"
-                  font-size="12"
-                  fill="#000"
-                  font-family="Arial"
-                  font-weight="bold"
-                >
-                  i
-                </text>
-              </svg></span
-            >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
             <span>Rólunk</span>
           </a>
           <a
             href="contact.html"
-            class="hover:text-blue-400 flex items-center space-x-2"
-            data-i18n="nav.contact"
+            class="text-white hover:text-blue-400 transition-colors flex items-center space-x-2"
           >
-            <span class="w-5 h-5 flex items-center justify-center"
-              ><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                <path
-                  d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1H7.61a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.24 1z"
-                /></svg
-              ></span
-            >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
             <span>Kapcsolat</span>
           </a>
         </nav>
-        <button type="button" class="sm:hidden text-blue-400 hover:text-blue-300 transition-colors hamburger-icon" aria-expanded="false" aria-label="Menü megnyitása">
-          <i class="fas fa-bars text-2xl"></i>
+        <!-- Hamburger menü gomb (mobil nézet) -->
+        <button
+          type="button"
+          class="sm:hidden text-blue-400 hover:text-blue-300 transition-colors hamburger-icon"
+          aria-expanded="false"
+          aria-label="Menü megnyitása"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
         </button>
-        <nav id="mobile-menu" class="mobile-menu hidden sm:hidden">
+      </div>
+    </div>
 
-          <!-- Nyelvi választó (mobil nézet) -->
-          <div class="language-selector-mobile mb-4 sm:hidden">
-            <button class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors w-full" onclick="toggleLanguageMenuMobile()">
-              <span id="current-flag-svg-mobile" class="w-6 h-4"> <!-- SVG ide kerül JS-ből --></span>
-              <span id="current-lang-mobile">HU</span>
-              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+    <!-- Mobil menü -->
+    <nav id="mobile-menu" class="mobile-menu hidden sm:hidden">
+
+      <!-- Nyelvi választó (mobil nézet) -->
+      <div class="language-selector-mobile mb-4 sm:hidden">
+        <button
+          class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors w-full language-selector-mobile-btn"
+        >
+          <span id="current-flag-svg-mobile" class="w-6 h-4"></span>
+          <span id="current-lang-mobile">HU</span>
+          <svg
+            class="w-3 h-3 ml-1"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+        <div
+          id="language-menu-mobile"
+          class="w-full bg-gray-900 rounded-lg shadow-lg mt-2 hidden"
+        >
+          <div class="py-1">
+            <button
+              data-lang="hu"
+              class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800"
+            >
+              <span class="w-6 h-4">
+                <!-- HU SVG -->
+                <svg viewBox="0 0 3 2" width="24" height="16">
+                  <rect width="3" height="2" fill="#fff" />
+                  <rect width="3" height="0.67" y="0" fill="#cd2a3e" />
+                  <rect width="3" height="0.67" y="1.33" fill="#436f4d" />
+                </svg>
+              </span>
+              <span>Magyar</span>
             </button>
-            <div id="language-menu-mobile" class="w-full bg-gray-900 rounded-lg shadow-lg mt-2 hidden">
-              <div class="py-1">
-                <button onclick="changeLanguage('hu')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
-                  <span class="w-6 h-4"> <!-- HU SVG -->
-                    <svg viewBox="0 0 3 2" width="24" height="16"><rect width="3" height="2" fill="#fff"/><rect width="3" height="0.67" y="0" fill="#cd2a3e"/><rect width="3" height="0.67" y="1.33" fill="#436f4d"/></svg>
-                  </span>
-                  <span>Magyar</span>
-                </button>
-                <button onclick="changeLanguage('en')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
-                  <span class="w-6 h-4"> <!-- EN SVG -->
-                    <svg viewBox="0 0 60 30" width="24" height="16"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#fff" stroke-width="6"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#c8102e" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#c8102e" stroke-width="6"/></g></svg>
-                  </span>
-                  <span>English</span>
-                </button>
-                <button onclick="changeLanguage('de')" class="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
-                  <span class="w-6 h-4"> <!-- DE SVG -->
-                    <svg viewBox="0 0 5 3" width="24" height="16"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#dd0000"/><rect width="5" height="1" y="2" fill="#ffce00"/></svg>
-                  </span>
-                  <span>Deutsch</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <a href="../index.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.home">
-            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-5h-4v5H4a1 1 0 0 1-1-1V10.5z"/></svg></span>
-            <span>Kezdőlap</span>
-          </a>
-          <div class="services-selector-mobile">
-            <button class="flex items-center space-x-2 text-white hover:text-blue-400 transition-colors services-selector-mobile-btn w-full text-left">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-              </svg>
-              <span>Szolgáltatások</span>
-              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </button>
-            <div id="services-menu-mobile" class="hidden">
-              <a href="services.html" class="services-option-mobile flex items-center space-x-4 w-full px-3 py-2 text-left hover:bg-gray-800 rounded-lg transition-colors">
-                <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <g>
-                    <path d="M2,14H5V11H2Zm9,0h3V11H11ZM2,5H5V2H2Zm9-3V5h3V2ZM6.5,5h3V2h-3Zm0,9h3V11h-3ZM11,9.5h3v-3H11Zm-4.5,0h3v-3h-3ZM2,9.5H5v-3H2Z"></path>
+            <button
+              data-lang="en"
+              class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800"
+            >
+              <span class="w-6 h-4">
+                <!-- EN SVG -->
+                <svg viewBox="0 0 60 30" width="24" height="16">
+                  <clipPath id="s">
+                    <path d="M0,0 v30 h60 v-30 z" />
+                  </clipPath>
+                  <g clip-path="url(#s)">
+                    <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                    <path
+                      d="M0,0 l60,30 M60,0 l-60,30"
+                      stroke="#fff"
+                      stroke-width="6"
+                    />
+                    <path
+                      d="M0,0 l60,30 M60,0 l-60,30"
+                      stroke="#c8102e"
+                      stroke-width="4"
+                    />
+                    <path
+                      d="M30,0 v30 M0,15 h60"
+                      stroke="#fff"
+                      stroke-width="10"
+                    />
+                    <path
+                      d="M30,0 v30 M0,15 h60"
+                      stroke="#c8102e"
+                      stroke-width="6"
+                    />
                   </g>
                 </svg>
-                <div>
-                  <div class="font-medium text-white">Összes szolgáltatás</div>
-                  <div class="text-xs text-gray-400">Teljes szolgáltatási kínálat</div>
-                </div>
-              </a>
+              </span>
+              <span>English</span>
+            </button>
+            <button
+              data-lang="de"
+              class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800"
+            >
+              <span class="w-6 h-4">
+                <!-- DE SVG -->
+                <svg viewBox="0 0 5 3" width="24" height="16">
+                  <rect width="5" height="1" y="0" fill="#000" />
+                  <rect width="5" height="1" y="1" fill="#dd0000" />
+                  <rect width="5" height="1" y="2" fill="#ffce00" />
+                </svg>
+              </span>
+              <span>Deutsch</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <a
+        href="../index.html"
+        class="text-white hover:text-blue-400 transition-colors flex items-center space-x-2"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-5h-4v5H4a1 1 0 0 1-1-1V10.5z" />
+        </svg>
+        <span>Kezdőlap</span>
+      </a>
+      <div class="services-selector-mobile">
+        <button
+          class="flex items-center space-x-2 text-white hover:text-blue-400 transition-colors services-selector-mobile-btn w-full text-left"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+          </svg>
+          <span>Szolgáltatások</span>
+          <svg
+            class="w-3 h-3 ml-1"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+        <div id="services-menu-mobile" class="hidden">
+
               <a href="service.html" class="services-option-mobile flex items-center space-x-4 w-full px-3 py-2 text-left hover:bg-gray-800 rounded-lg transition-colors">
                 <svg class="w-6 h-6 text-orange-400" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                   <g>
@@ -350,43 +462,24 @@
               </a>
             </div>
           </div>
-          <a
-            href="about.html"
-            class="hover:text-blue-400 flex items-center space-x-2"
-            data-i18n="nav.about"
-          >
-            <span class="w-5 h-5 flex items-center justify-center"
-              ><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                <circle cx="12" cy="12" r="10" />
-                <text
-                  x="12"
-                  y="17"
-                  text-anchor="middle"
-                  font-size="12"
-                  fill="#000"
-                  font-family="Arial"
-                  font-weight="bold"
-                >
-                  i
-                </text>
-              </svg></span
-            >
-            <span>Rólunk</span>
-          </a>
-          <a
-            href="contact.html"
-            class="hover:text-blue-400 flex items-center space-x-2"
-            data-i18n="nav.contact"
-          >
-            <span class="w-5 h-5 flex items-center justify-center"
-              ><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                <path
-                  d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1H7.61a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.24 1z"
-                /></svg
-              ></span
-            >
-            <span>Kapcsolat</span>
-          </a>
+      <a
+        href="about.html"
+        class="text-white hover:text-blue-400 transition-colors flex items-center space-x-2"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>Rólunk</span>
+      </a>
+      <a
+        href="contact.html"
+        class="text-white hover:text-blue-400 transition-colors flex items-center space-x-2"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+        <span>Kapcsolat</span>
+      </a>
         </nav>
       </div>
     </div>
@@ -395,10 +488,12 @@
     <div class="header-spacer"></div>
     <!-- Hero szekció -->
     <section class="relative min-h-[60vh] sm:min-h-screen flex items-center justify-center bg-black py-12 sm:py-24 lg:py-32 fade-in-up">
-      <video autoplay loop muted playsinline class="hero-bg" aria-label="BMW chiptuning és teljesítménynövelés háttérvideó - Bömbis István műhelye">
-        <source src="../assets/images/backgrounds/4k_bg.mp4" type="video/mp4">
-        Az Ön böngészője nem támogatja a videó lejátszását.
-      </video>
+      <img
+        src="../assets/images/backgrounds/hero_bg.jpg"
+        alt="BMW autó szerviz háttérkép - Bömbis István műhelye"
+        class="hero-bg"
+        loading="eager"
+      />
       <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 fade-in">
         <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-4" data-i18n="chiptuning.hero.title">BMW Teljesítmény Chiptuning</h1>
         <p class="mb-6 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto" data-i18n="chiptuning.hero.subtitle">Szabadítsa fel BMW-je rejtett teljesítményét professzionális chiptuninggal és ECU optimalizálással.</p>
@@ -918,11 +1013,36 @@
       </div>
     </section>
 
-    <!-- Kapcsolat CTA -->
+    <!-- Kapcsolat CTA - FRISSÍTETT -->
     <section id="kapcsolat" class="bmw-m-contact py-12 sm:py-24 lg:py-32 text-center px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl sm:text-4xl font-bold mb-4">Kérjen ajánlatot chiptuningra!</h2>
-      <p class="mb-12 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto">Vegye fel velünk a kapcsolatot, és kérjen személyre szabott ajánlatot BMW-je teljesítménynövelésére.</p>
-      <a href="contact.html" class="inline-block bg-white hover:bg-gray-200 text-blue-600 text-lg font-semibold py-3 px-6 rounded-md shadow-lg transition-all transform hover:scale-105 tracking-wide" aria-label="Ajánlatkérés BMW chiptuningra"><span>Ajánlatkérés</span></a>
+      <div class="relative z-10">
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white">Kérjen ajánlatot chiptuningra!</h2>
+        <p class="mb-8 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">Szabadítsa fel BMW-je rejtett teljesítményét! Vegye fel velünk a kapcsolatot, és kérjen személyre szabott ajánlatot professzionális chiptuning szolgáltatásunkra.</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="contact.html" class="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-blue-600 text-lg font-semibold py-4 px-8 rounded-lg shadow-xl transition-all transform hover:scale-105 hover:shadow-2xl tracking-wide border-2 border-transparent hover:border-blue-200" aria-label="Ajánlatkérés BMW chiptuningra">
+            <i class="fas fa-rocket mr-3 text-xl"></i>
+            <span>Ajánlatkérés</span>
+          </a>
+          
+          <a href="tel:+36302774338" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-xl transition-all transform hover:scale-105 hover:shadow-2xl tracking-wide border-2 border-transparent hover:border-blue-500" aria-label="Hívás azonnal">
+            <i class="fas fa-phone mr-3 text-xl"></i>
+            <span>+36 30 277 4338</span>
+          </a>
+        </div>
+        
+        <div class="mt-8 text-center">
+          <p class="text-sm text-gray-300 mb-4">Vagy írjon nekünk:</p>
+          <div class="flex justify-center space-x-6">
+            <a href="https://www.facebook.com/profile.php?id=100089991926013" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors" aria-label="Facebook oldalunk">
+              <i class="fab fa-facebook-f text-2xl"></i>
+            </a>
+            <a href="https://www.instagram.com/bombis.istvan" target="_blank" class="text-pink-400 hover:text-pink-300 transition-colors" aria-label="Instagram oldalunk">
+              <i class="fab fa-instagram text-2xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Lábjegyzet -->
@@ -935,5 +1055,8 @@
       <div class="mb-2 text-xs text-gray-400">© <span class="copyright-year">2024</span> BMW Szerviz Bömbis István. Minden jog fenntartva.</div>
     </footer>
   </div>
+
+  <!-- JavaScript fájlok -->
+  <script src="../assets/js/chiptuning.js"></script>
 </body>
 </html>

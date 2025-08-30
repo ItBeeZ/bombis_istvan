@@ -1,4 +1,70 @@
-// Service page gallery functionality
+// Service page functionality
+
+// Initialize page when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  initializePage();
+  initializeGalleries();
+});
+
+// Page initialization
+function initializePage() {
+  // A nyelvi választó, mobil menü és szolgáltatások menü már a script.min.js-ben van inicializálva
+  
+  // Ellenőrizzük, hogy a szolgáltatások menüpont megfelelően működik-e
+  const servicesSelector = document.querySelector(".services-selector");
+  const servicesSelectorBtn = document.querySelector(".services-selector-btn");
+  const servicesMenu = document.querySelector("#services-menu");
+  
+  if (servicesSelector && servicesSelectorBtn && servicesMenu) {
+    // Eltávolítjuk a script.min.js által hozzáadott event listener-t
+    const newBtn = servicesSelectorBtn.cloneNode(true);
+    servicesSelectorBtn.parentNode.replaceChild(newBtn, servicesSelectorBtn);
+    
+    // Service oldalon: saját click handler a pozicionálási problémák elkerülésére
+    newBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Töröljük a JavaScript által beállított pozíciókat
+      if (servicesMenu.style.left) {
+        servicesMenu.style.removeProperty('left');
+      }
+      if (servicesMenu.style.top) {
+        servicesMenu.style.removeProperty('top');
+      }
+      
+      // Toggle a menüpont megjelenítése
+      const isHidden = servicesMenu.classList.contains('hidden');
+      if (isHidden) {
+        servicesMenu.classList.remove('hidden');
+        newBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        servicesMenu.classList.add('hidden');
+        newBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    
+    // Click outside handler a menüpont bezárásához
+    document.addEventListener('click', function(event) {
+      if (!servicesSelector.contains(event.target)) {
+        if (!servicesMenu.classList.contains('hidden')) {
+          servicesMenu.classList.add('hidden');
+          newBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+    
+    // Escape key handler
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        if (!servicesMenu.classList.contains('hidden')) {
+          servicesMenu.classList.add('hidden');
+          newBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  }
+}
 
 // Gallery configuration
 const galleryConfig = {
@@ -21,7 +87,7 @@ const galleryConfig = {
 // Auto-slide intervals (different for each gallery)
 const SLIDE_INTERVALS = {
   service: 3500,
-  maintenance: 4000
+  maintenance: 3500
 };
 
 // Initialize galleries when DOM is loaded

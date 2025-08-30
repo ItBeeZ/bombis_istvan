@@ -479,7 +479,7 @@ input[type="email"]:focus {
 
 /* Contact Page Specific Header Spacing */
 .contact-page .header-spacer {
-  height: 100px;
+  height: 64px;
 }
 
 /* Contact Section Spacing */

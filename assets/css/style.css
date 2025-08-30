@@ -324,9 +324,9 @@ input[type="email"]:focus {
     overflow: hidden;
     z-index: 9999;
     backdrop-filter: blur(16px) saturate(180%);
-    transform: translateY(-10px);
-    opacity: 0;
-    visibility: hidden;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0.5rem 0;
 }
@@ -423,8 +423,12 @@ input[type="email"]:focus {
     filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.2));
 }
 
+/* Services menu hidden state - override default state */
 #services-menu.hidden {
-    display: none;
+    transform: translateY(-10px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none;
 }
 
 
@@ -924,7 +928,7 @@ html, body {
 }
 
 .header-spacer {
-  height: 72px;
+  height: 64px;
   width: 100%;
   display: block;
 }
