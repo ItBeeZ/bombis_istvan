@@ -652,3 +652,115 @@ html {
     min-height: 100vh;
   }
 }
+
+/* Export functions for testing
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    initializeGalleries,
+    nextRandomImage,
+    pauseAutoSlide,
+    resumeAutoSlide
+  };
+}
+
+// Animációk inicializálása
+function initializeAnimations() {
+    // Intersection Observer a fade-in animációkhoz
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                
+                // Staggered animáció a gyerek elemekhez
+                const children = entry.target.querySelectorAll('.stagger-item');
+                children.forEach((child, index) => {
+                    setTimeout(() => {
+                        child.classList.add('animate-in');
+                    }, index * 100);
+                });
+            }
+        });
+    }, observerOptions);
+    
+    // Animálható elemek megfigyelése
+    const animateElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .slide-in-right');
+    animateElements.forEach(el => observer.observe(el));
+}
+
+/* Animációs keyframe-ek a fade-in animációkhoz */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animate-in osztályok frissítése keyframe animációkkal */
+.fade-in-up.animate-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in.animate-in {
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 1;
+}
+
+.slide-in-left.animate-in {
+  animation: slideInLeft 0.8s ease-out forwards;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right.animate-in {
+  animation: slideInRight 0.8s ease-out forwards;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.stagger-item.animate-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 1;
+  transform: translateY(0);
+}

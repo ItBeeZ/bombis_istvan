@@ -587,8 +587,7 @@ function initializeScrollEffects() {
         
         // Header background opacity based on scroll
         if (header) {
-            const opacity = Math.min(scrollY / 100, 0.95);
-            header.style.backgroundColor = `rgba(17, 24, 39, ${opacity})`;
+            header.style.backgroundColor = 'rgb(0, 0, 0)';
         }
         
         // Parallax effect for contact cards

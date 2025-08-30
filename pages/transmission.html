@@ -560,16 +560,19 @@
   <div id="scroll-container">
     <div class="header-spacer"></div>
     <!-- Hero szekció -->
-    <section class="relative min-h-[60vh] sm:min-h-screen flex items-center justify-center bg-black py-12 sm:py-24 lg:py-32 fade-in-up">
-      <img
-        src="../assets/images/backgrounds/hero_bg.jpg"
-        alt="BMW autó szerviz háttérkép - Bömbis István műhelye"
+    <section class="relative min-h-[60vh] sm:min-h-screen flex items-center justify-center bg-black py-12 sm:py-24 lg:py-32 fade-in-up hero-section">
+      <video
+        src="../assets/images/backgrounds/4k_bg.mp4"
         class="hero-bg"
-        loading="eager"
-      />
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+      ></video>
       <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 fade-in">
-        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-4" data-i18n="transmission.hero.title">BMW Váltó & Hajtás Szerviz</h1>
-        <p class="mb-6 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto" data-i18n="transmission.hero.subtitle">Professzionális automata váltó olajcsere, xDrive hajtás szerviz és vezérlés csere szolgáltatások</p>
+        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-4 hero-title" data-i18n="transmission.hero.title">BMW Váltó & Hajtás Szerviz</h1>
+        <p class="mb-4 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto hero-subtitle" data-i18n="transmission.hero.subtitle">Professzionális automata váltó olajcsere, xDrive hajtás szerviz és vezérlés csere szolgáltatások</p>
       </div>
     </section>
 

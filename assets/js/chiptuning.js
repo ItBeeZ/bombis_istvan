@@ -207,9 +207,11 @@ function updateLanguageUI() {
 // Zászló SVG tartalom
 function getFlagSvgContent(lang) {
     const flags = {
-        'hu': '<rect width="24" height="16" fill="#CD212A"/><rect width="24" height="8" y="8" fill="#436F4D"/><rect width="24" height="8" fill="#FFF"/>',
-        'en': '<rect width="24" height="16" fill="#012169"/><path d="M0 0l24 16M24 0L0 16" stroke="#FFF" stroke-width="2"/><path d="M12 0v16M0 8h24" stroke="#FFF" stroke-width="3"/><path d="M12 0v16M0 8h24" stroke="#C8102E" stroke-width="2"/>',
-        'de': '<rect width="24" height="16" fill="#000"/><rect width="24" height="8" y="5.33" fill="#DD0000"/><rect width="24" height="5.33" y="10.67" fill="#FFCE00"/>'
+        'hu': '<svg viewBox="0 0 3 2" width="24" height="16"><rect width="3" height="2" fill="#fff"/><rect width="3" height="0.67" y="0" fill="#cd2a3e"/><rect width="3" height="0.67" y="1.33" fill="#436f4d"/></svg>',
+
+        'en': '<svg viewBox="0 0 60 30" width="24" height="16"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#fff" stroke-width="6"/><path d="M0,0 l60,30 M60,0 l-60,30" stroke="#c8102e" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#c8102e" stroke-width="6"/></g></svg>',
+
+        'de': '<rect width="24" height="16" fill="#000"/><rect width="24" height="5.33" y="5.33" fill="#DD0000"/><rect width="24" height="5.33" y="10.67" fill="#FFCE00"/>'
     };
     return flags[lang] || flags['hu'];
 }
@@ -293,10 +295,10 @@ function initializeScrollEffects() {
             
             // Header átlátszóság
             if (scrollY > 100) {
-                header.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+                header.style.backgroundColor = 'rgb(0, 0, 0)';
                 header.style.backdropFilter = 'blur(10px)';
             } else {
-                header.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                header.style.backgroundColor = 'rgb(0, 0, 0)';
                 header.style.backdropFilter = 'blur(5px)';
             }
         }, 10));
@@ -305,27 +307,81 @@ function initializeScrollEffects() {
 
 // Smooth scrolling inicializálása
 function initializeSmoothScrolling() {
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href === '#') return;
-            
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                
-                const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-                const targetPosition = target.offsetTop - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
+    // Lenis smooth scroll inicializálása
+    if (typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
         });
-    });
+
+        // Lenis animation loop
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Smooth scroll anchor linkekhez
+        const links = document.querySelectorAll('a[href^="#"]');
+        
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    
+                    const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    // Lenis smooth scroll használata
+                    lenis.scrollTo(targetPosition, {
+                        duration: 1.5,
+                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+                    });
+                }
+            });
+        });
+
+        // Lenis instance globális elérhetősége
+        window.lenis = lenis;
+        
+        console.log('Lenis smooth scroll inicializálva');
+    } else {
+        // Fallback natív smooth scroll ha Lenis nem elérhető
+        const links = document.querySelectorAll('a[href^="#"]');
+        
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    
+                    const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        console.log('Natív smooth scroll inicializálva (Lenis nem elérhető)');
+    }
 }
 
 // Resize handler inicializálása

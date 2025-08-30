@@ -484,10 +484,10 @@ function initializeScrollEffects() {
                 
                 // Header átlátszóság
                 if (scrollY > 100) {
-                    header.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+                    header.style.backgroundColor = 'rgb(0, 0, 0)';
                     header.style.backdropFilter = 'blur(10px)';
                 } else {
-                    header.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                    header.style.backgroundColor = 'rgb(0, 0, 0)';
                     header.style.backdropFilter = 'blur(5px)';
                 }
             }, 10));
@@ -498,10 +498,10 @@ function initializeScrollEffects() {
                 
                 // Header átlátszóság
                 if (scrollY > 100) {
-                    header.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+                    header.style.backgroundColor = 'rgb(0, 0, 0)';
                     header.style.backdropFilter = 'blur(10px)';
                 } else {
-                    header.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                    header.style.backgroundColor = 'rgb(0, 0, 0)';
                     header.style.backdropFilter = 'blur(5px)';
                 }
             }, 10));

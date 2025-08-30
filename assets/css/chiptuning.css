@@ -1051,3 +1051,67 @@ nav a svg {
     min-height: 100vh;
   }
 }
+
+/* Animate-in osztályok a fade-in animációkhoz */
+.fade-in-up.animate-in {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.fade-in.animate-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.slide-in-left.animate-in {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.slide-in-right.animate-in {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.stagger-item.animate-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Animációs keyframe-ek */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -4,6 +4,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   initializePage();
   initializeGalleries();
+  initializeAnimations();
 });
 
 // Page initialization
@@ -298,4 +299,33 @@ if (typeof module !== 'undefined' && module.exports) {
     pauseAutoSlide,
     resumeAutoSlide
   };
+}
+
+// Animációk inicializálása
+function initializeAnimations() {
+    // Intersection Observer a fade-in animációkhoz
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                
+                // Staggered animáció a gyerek elemekhez
+                const children = entry.target.querySelectorAll('.stagger-item');
+                children.forEach((child, index) => {
+                    setTimeout(() => {
+                        child.classList.add('animate-in');
+                    }, index * 100);
+                });
+            }
+        });
+    }, observerOptions);
+    
+    // Animálható elemek megfigyelése
+    const animateElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .slide-in-right');
+    animateElements.forEach(el => observer.observe(el));
 }

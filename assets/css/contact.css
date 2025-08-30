@@ -647,3 +647,28 @@ input[type="email"]:focus {
     transform: none;
   }
 }
+
+/* Contact oldal fehér szövegek átrajzolása */
+.contact-page .text-white,
+.contact-page .text-gray-200 {
+    text-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.9),
+        0 2px 6px rgba(0, 0, 0, 0.8),
+        0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* Navigációs menü fehér szövegek */
+.services-selector-btn .text-white,
+.services-selector-mobile-btn .text-white {
+    text-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.8),
+        0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Szolgáltatás menü fehér szövegek */
+.services-menu .font-medium.text-white,
+#services-menu-mobile .font-medium.text-white {
+    text-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.8),
+        0 2px 4px rgba(0, 0, 0, 0.6);
+}
