@@ -90,7 +90,10 @@
 }
 
 #services-menu.hidden {
-    display: none;
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 #services-menu .services-option {

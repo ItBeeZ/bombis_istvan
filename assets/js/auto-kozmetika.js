@@ -6,14 +6,16 @@ document.addEventListener('DOMContentLoaded', function() {
   initializePage();
   initializeVideoGallery();
   initializeAnimations();
-  initializeMobileServicesMenu(); // Új függvény hozzáadva
   initializeMobileLanguageSelector(); // Új függvény hozzáadva
 });
 
 // Page initialization
 function initializePage() {
-  // A nyelvi választó, mobil menü és szolgáltatások menü már a script.min.js-ben van inicializálva
-  // Az auto-kozmetika oldalon nem kell felülírni a szolgáltatások menü működését
+  // A script.min.js már inicializálja a szolgáltatások menüt az initServicesSelector() függvénnyel
+  // Nem kell külön initializeServicesMenu() hívás, mert az ütközne a script.min.js-sel
+  // Desktop services menu is handled by script.min.js initServicesSelector()
+  // Mobile services menu is also handled by script.min.js initServicesSelector()
+  initializeMobileLanguageSelector();
   console.log('Auto-kozmetika page initialized');
 }
 
@@ -273,7 +275,11 @@ function createVideoElement(videoSrc, videoIndex) {
       video.addEventListener('ended', () => handleVideoEnded(video, videoWrapper));
       
       // Start playing immediately and ensure it keeps playing
-      video.play().catch(e => console.log('Video play prevented:', e));
+      video.play().catch(e => {
+        if (e.name !== 'AbortError') {
+          console.log('Video play prevented:', e);
+        }
+      });
       
       // Add play event listener to ensure video keeps playing
       video.addEventListener('play', () => {
@@ -304,16 +310,18 @@ function handleVideoEnded(video, videoWrapper) {
   // Get next available video
   const nextVideo = getNextAvailableVideo();
   
-  if (nextVideo) {
+  if (nextVideo && videoWrapper && videoWrapper.parentNode) {
     // Replace the ended video with a new one
     const newVideoWrapper = createVideoElement(nextVideo, Date.now());
-    videoWrapper.parentNode.replaceChild(newVideoWrapper, videoWrapper);
-  }
-  
-  // Ensure the new video starts playing immediately
-  const newVideo = newVideoWrapper.querySelector('video');
-  if (newVideo) {
-    newVideo.play().catch(e => console.log('Video play prevented:', e));
+    if (newVideoWrapper) {
+      videoWrapper.parentNode.replaceChild(newVideoWrapper, videoWrapper);
+      
+      // Ensure the new video starts playing immediately
+      const newVideo = newVideoWrapper.querySelector('video');
+      if (newVideo) {
+        newVideo.play().catch(e => console.log('Video play prevented:', e));
+      }
+    }
   }
 }
 
@@ -618,77 +626,16 @@ function optimizeVideoPlaybackAfterScroll() {
   }
 }
 
-// Initialize mobile services menu specifically for this page
-function initializeMobileServicesMenu() {
-  const servicesSelectorMobile = document.querySelector('.services-selector-mobile');
-  const servicesSelectorMobileBtn = document.querySelector('.services-selector-btn-mobile');
-  const servicesMenuMobile = document.querySelector('#services-menu-mobile');
-  
-  if (servicesSelectorMobileBtn && servicesMenuMobile && servicesSelectorMobile) {
-    console.log('Mobile services menu initialized');
-    
-    servicesSelectorMobileBtn.setAttribute('aria-haspopup', 'true');
-    servicesSelectorMobileBtn.setAttribute('aria-expanded', 'false');
-    servicesMenuMobile.classList.add('hidden');
-    
-    servicesSelectorMobileBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      
-      const isHidden = servicesMenuMobile.classList.contains('hidden');
-      console.log('Mobile services menu clicked, isHidden:', isHidden);
-      
-      if (isHidden) {
-        servicesMenuMobile.classList.remove('hidden');
-        servicesSelectorMobileBtn.setAttribute('aria-expanded', 'true');
-        console.log('Mobile services menu opened');
-      } else {
-        servicesMenuMobile.classList.add('hidden');
-        servicesSelectorMobileBtn.setAttribute('aria-expanded', 'false');
-        console.log('Mobile services menu closed');
-      }
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-      if (!servicesSelectorMobile.contains(event.target)) {
-        if (!servicesMenuMobile.classList.contains('hidden')) {
-          servicesMenuMobile.classList.add('hidden');
-          servicesSelectorMobileBtn.setAttribute('aria-expanded', 'false');
-          console.log('Mobile services menu closed (click outside)');
-        }
-      }
-    });
-    
-    // Close menu with Escape key
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        if (!servicesMenuMobile.classList.contains('hidden')) {
-          servicesMenuMobile.classList.add('hidden');
-          servicesSelectorMobileBtn.setAttribute('aria-expanded', 'false');
-          console.log('Mobile services menu closed (Escape key)');
-        }
-      }
-    });
-  } else {
-    console.warn('Mobile services menu elements not found:', {
-      btn: !!servicesSelectorMobileBtn,
-      menu: !!servicesMenuMobile,
-      selector: !!servicesSelectorMobile
-    });
-  }
-}
-
 // Initialize mobile language selector specifically for this page
 function initializeMobileLanguageSelector() {
-  const languageSelectorMobile = document.querySelector('.language-selector-mobile');
-  const languageSelectorBtnMobile = document.querySelector('.language-selector-btn-mobile');
-  const languageMenuMobile = document.querySelector('#language-menu-mobile');
+  const languageBtnMobile = document.querySelector('.language-selector-mobile-btn');
+  const languageMenuMobile = document.getElementById('language-menu-mobile');
+  const languageOptionsMobile = document.querySelectorAll('.language-option-mobile');
   
-  if (languageSelectorBtnMobile && languageMenuMobile && languageSelectorMobile) {
+  if (languageBtnMobile && languageMenuMobile) {
     console.log('Mobile language selector initialized');
     
-    languageSelectorBtnMobile.addEventListener('click', function(e) {
+    languageBtnMobile.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       
@@ -697,22 +644,31 @@ function initializeMobileLanguageSelector() {
       
       if (isHidden) {
         languageMenuMobile.classList.remove('hidden');
-        languageMenuMobile.classList.add('active');
-        console.log('Mobile language selector opened');
+        console.log('Mobile language menu opened');
       } else {
-        languageMenuMobile.classList.remove('active');
         languageMenuMobile.classList.add('hidden');
-        console.log('Mobile language selector closed');
+        console.log('Mobile language menu closed');
       }
+    });
+    
+    // Language option clicks
+    languageOptionsMobile.forEach(option => {
+      option.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        if (typeof changeLanguage === 'function') {
+          changeLanguage(lang);
+        }
+        languageMenuMobile.classList.add('hidden');
+        console.log('Language changed to:', lang);
+      });
     });
     
     // Close menu when clicking outside
     document.addEventListener('click', function(event) {
-      if (!languageSelectorMobile.contains(event.target)) {
-        if (languageMenuMobile.classList.contains('active')) {
-          languageMenuMobile.classList.remove('active');
+      if (!languageBtnMobile.contains(event.target) && !languageMenuMobile.contains(event.target)) {
+        if (!languageMenuMobile.classList.contains('hidden')) {
           languageMenuMobile.classList.add('hidden');
-          console.log('Mobile language selector closed (click outside)');
+          console.log('Mobile language menu closed (click outside)');
         }
       }
     });
@@ -720,31 +676,18 @@ function initializeMobileLanguageSelector() {
     // Close menu with Escape key
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape') {
-        if (languageMenuMobile.classList.contains('active')) {
-          languageMenuMobile.classList.remove('active');
+        if (!languageMenuMobile.classList.contains('hidden')) {
           languageMenuMobile.classList.add('hidden');
-          console.log('Mobile language selector closed (Escape key)');
+          console.log('Mobile language menu closed (Escape key)');
         }
       }
     });
-    
-    // Handle language selection
-    const languageOptions = languageMenuMobile.querySelectorAll('.language-option-mobile');
-    languageOptions.forEach(option => {
-      option.addEventListener('click', function() {
-        const lang = this.getAttribute('data-lang');
-        if (lang) {
-          console.log('Language selected:', lang);
-          // Itt hívhatnánk meg a nyelvváltó függvényt
-          // changeLanguage(lang);
-        }
-      });
-    });
   } else {
     console.warn('Mobile language selector elements not found:', {
-      btn: !!languageSelectorBtnMobile,
-      menu: !!languageMenuMobile,
-      selector: !!languageSelectorMobile
+      btn: !!languageBtnMobile,
+      menu: !!languageMenuMobile
     });
   }
 }
+
+// Desktop szolgáltatások menü inicializálása
