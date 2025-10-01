@@ -463,7 +463,7 @@ html {
 }
 
 #services-menu-mobile:not(.hidden) {
-    max-height: 300px;
+    max-height: 420px;
     overflow: visible;
     opacity: 1;
     visibility: visible;
