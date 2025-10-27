@@ -1,0 +1,1012 @@
+/* Index.css - Főoldal specifikus stílusok */
+
+/* Lenis smooth scroll támogatás */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Smooth scroll animációk */
+.smooth-scroll {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Görgetési élmény javítása */
+body {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar stílusok (Webkit böngészők) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.5) rgba(0, 0, 0, 0.1);
+}
+
+/* Görgetési animációk finomítása */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.fade-in.animate-in {
+  opacity: 1;
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-left.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-right.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered animációk */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.stagger-item.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Görgetési teljesítmény optimalizálás */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Transform GPU gyorsítás */
+.fade-in-up,
+.fade-in,
+.slide-in-left,
+.slide-in-right,
+.stagger-item {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Görgetési élmény finomítása */
+.container {
+  scroll-margin-top: 100px;
+}
+
+/* Anchor linkek smooth scroll támogatása */
+html {
+  scroll-padding-top: 100px;
+}
+
+/* Mobil görgetési élmény javítása */
+@media (max-width: 768px) {
+  .fade-in-up,
+  .slide-in-left,
+  .slide-in-right {
+    transform: translateY(20px);
+  }
+  
+  .stagger-item {
+    transform: translateY(15px);
+  }
+}
+
+/* Navigációs stílusok az about.html mintájára */
+/* Mobil menü stílusok */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -70%;
+    width: 70%;
+    height: 100vh;
+    background-color: #000;
+    padding: 2rem 1rem;
+    border-left: 1px solid #374151;
+    z-index: 40;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.mobile-menu.hidden {
+    display: none !important;
+}
+
+.mobile-menu.active {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    right: 0;
+}
+
+.mobile-menu a {
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+}
+
+.mobile-menu a:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Háttér homályosítás */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 30;
+    transition: opacity 0.3s ease;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+@media (min-width: 640px) {
+    .mobile-menu {
+        display: none !important;
+    }
+    
+    .mobile-menu.hidden {
+        display: none !important;
+    }
+    
+    .menu-overlay {
+        display: none !important;
+    }
+    
+    /* Navigációs ikonok stílusa asztali nézetben */
+    nav a i {
+        font-size: 1em;
+    }
+}
+
+/* Lépcsőzetes animációk csak asztali nézetben */
+@media (max-width: 639px) {
+    #services-menu .services-option {
+        transform: none;
+        opacity: 1;
+    }
+    
+    #services-menu:not(.hidden) .services-option:nth-child(1),
+    #services-menu:not(.hidden) .services-option:nth-child(2),
+    #services-menu:not(.hidden) .services-option:nth-child(3),
+    #services-menu:not(.hidden) .services-option:nth-child(4),
+    #services-menu:not(.hidden) .services-option:nth-child(5) {
+        animation: none;
+    }
+    
+    #services-menu.closing .services-option:nth-child(1),
+    #services-menu.closing .services-option:nth-child(2),
+    #services-menu.closing .services-option:nth-child(3),
+    #services-menu.closing .services-option:nth-child(4),
+    #services-menu.closing .services-option:nth-child(5) {
+        animation: none;
+    }
+}
+
+/* Hover animációk */
+.hover\:transform:hover {
+    transform: scale(1.05);
+}
+
+/* Nyelvi választó stílusok */
+.language-selector {
+    position: relative;
+    z-index: 50;
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .language-selector {
+        display: block;
+    }
+}
+
+.language-selector button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+}
+
+.language-selector button:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+#language-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 0.5rem;
+    background-color: #1a1a1a;
+    border: 1px solid #374151;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    z-index: 60;
+}
+
+#language-menu.hidden {
+    display: none;
+}
+
+#language-menu.active {
+    display: block;
+}
+
+/* Mobil nyelvi választó stílusok */
+.language-selector-mobile {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.language-selector-mobile button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+    width: 100%;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.language-selector-mobile button:hover {
+    background-color: rgba(59, 130, 246, 0.2);
+}
+
+#language-menu-mobile {
+    width: 100%;
+    background-color: #1a1a1a;
+    border: 1px solid #374151;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    z-index: 60;
+}
+
+#language-menu-mobile.hidden {
+    display: none;
+}
+
+#language-menu-mobile.active {
+    display: block;
+}
+
+/* Szolgáltatások dropdown menü stílusok */
+.services-selector {
+    position: relative;
+    z-index: 50;
+}
+
+#services-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    width: 18rem;
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(31, 41, 55, 0.95) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(59, 130, 246, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    z-index: 9999;
+    backdrop-filter: blur(16px) saturate(180%);
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.5rem 0;
+    display: block;
+}
+
+#services-menu:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    display: block;
+}
+
+#services-menu.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    display: none;
+}
+
+#services-menu .services-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: #f3f4f6;
+    background-color: transparent;
+    font-weight: 500;
+    position: relative;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.08);
+    border-radius: 0.5rem;
+    margin: 0.25rem 0.5rem;
+    width: calc(100% - 1rem);
+}
+
+#services-menu .services-option:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+#services-menu .services-option:first-child {
+    margin-top: 0;
+}
+
+#services-menu .services-option:hover {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
+    color: #60a5fa;
+    transform: translateX(3px) translateY(-1px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+#services-menu .services-option:hover svg {
+    transform: scale(1.1) rotate(2deg);
+    color: #60a5fa;
+    filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.4));
+}
+
+#services-menu .services-option svg {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.2));
+    width: 44px;
+    height: 44px;
+}
+
+/* Mobil szolgáltatások dropdown menü stílusok */
+.services-selector-mobile {
+    position: relative;
+    z-index: 50;
+}
+
+#services-menu-mobile {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin-top: 0.5rem;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(31, 41, 55, 0.95) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(59, 130, 246, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    z-index: 50;
+    backdrop-filter: blur(16px) saturate(180%);
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.5rem 0;
+    max-height: 0;
+    overflow: hidden;
+    display: none;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px);
+}
+
+#services-menu-mobile:not(.hidden) {
+    max-height: 420px;
+    overflow: visible;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    display: block;
+}
+
+#services-menu-mobile.hidden {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    display: none;
+}
+
+#services-menu-mobile .services-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: #f3f4f6;
+    background-color: transparent;
+    font-weight: 500;
+    position: relative;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.08);
+    border-radius: 0.5rem;
+    margin: 0.25rem 0.5rem;
+    width: calc(100% - 1rem);
+}
+
+#services-menu-mobile .services-option:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+#services-menu-mobile .services-option:first-child {
+    margin-top: 0;
+}
+
+#services-menu-mobile .services-option:hover {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
+    color: #60a5fa;
+    transform: translateX(3px) translateY(-1px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+#services-menu-mobile .services-option:hover svg {
+    transform: scale(1.1) rotate(2deg);
+    color: #60a5fa;
+    filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.4));
+}
+
+#services-menu-mobile .services-option svg {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.2));
+    width: 24px;
+    height: 24px;
+}
+
+/* Szolgáltatások gombok stílusai */
+.services-selector-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.services-selector-btn:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.services-selector-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.services-selector-mobile-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.services-selector-mobile-btn:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.services-selector-mobile-btn svg {
+    transition: transform 0.2s ease;
+}
+
+/* Navigációs ikonok stílusa */
+nav a i {
+    font-size: 1.1em;
+    transition: transform 0.2s ease;
+}
+
+nav a:hover i {
+    transform: scale(1.1);
+}
+
+/* Hero szekció */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 1;
+}
+
+/* Enyhe blur a főoldali hero háttérképen az olvashatóságért */
+.hero-section .hero-bg {
+  filter: blur(2px);
+  transform: scale(1.03);
+}
+
+/* Hero animációk */
+@keyframes colorShift {
+  0% {
+    background: linear-gradient(45deg, #3b82f6, #ffffff, #60a5fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  50% {
+    background: linear-gradient(45deg, #60a5fa, #3b82f6, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  100% {
+    background: linear-gradient(45deg, #ffffff, #60a5fa, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+@keyframes subtitleGlow {
+  0% {
+    background: linear-gradient(45deg, #f3f4f6, #dbeafe, #f3f4f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  50% {
+    background: linear-gradient(45deg, #dbeafe, #f3f4f6, #dbeafe);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  100% {
+    background: linear-gradient(45deg, #f3f4f6, #dbeafe, #f3f4f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+/* Szakértelem szekció kártyák */
+.expertise-card {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.expertise-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+}
+
+.expertise-card img {
+  transition: transform 0.3s ease;
+}
+
+/* Hero cím – statikus színátmenet a megadott színekkel */
+.hero-title {
+  background: linear-gradient(90deg, #ffffff, #81C4FF, #16588E, #E7222E, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+  line-height: 1.1;
+  background-size: 300% 300%;
+  animation: gradientCycle 10s linear infinite;
+}
+
+@keyframes gradientCycle {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hero cím méret – 2x nagyobb minden nézetben */
+.hero-title { font-size: 3rem; } /* ~2x a korábbi 2xl (1.5rem) helyett */
+@media (min-width: 640px) { /* sm */
+  .hero-title { font-size: 4.5rem; } /* ~2x a korábbi 4xl (~2.25rem) helyett */
+}
+@media (min-width: 1024px) { /* lg */
+  .hero-title { font-size: 6rem; } /* ~2x a korábbi 5xl (~3rem) helyett */
+}
+
+.expertise-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Miért válassz minket szekció */
+.why-us-card {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-us-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.why-us-card:hover::before {
+  left: 100%;
+}
+
+.why-us-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+}
+
+/* Ügyfél vélemények carousel */
+.testimonials-carousel {
+  position: relative;
+}
+
+.testimonials-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-slide {
+  flex: 0 0 auto;
+  padding: 0 1rem;
+}
+
+.testimonials-dot {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.testimonials-dot.active {
+  background-color: #3b82f6;
+  transform: scale(1.2);
+}
+
+.testimonials-dot:hover {
+  background-color: #60a5fa;
+}
+
+/* Testimonial kártyák */
+.testimonial-card {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border: 1px solid #374151;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover::before {
+  transform: scaleX(1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+  border-color: #3b82f6;
+}
+
+/* Kapcsolat CTA szekció */
+.bmw-m-contact {
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+  padding: 5rem 0;
+}
+
+.bmw-m-contact::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: -10vw;
+  width: 120vw;
+  height: calc(100% + 120px);
+  background: repeating-linear-gradient(
+    110deg,
+    #fff 0 22vw,
+    #81C4FF 22vw 34vw,
+    #16588E 34vw 46vw,
+    #E7222E 46vw 200vw
+  );
+  transform: skewY(-5deg);
+  z-index: -1;
+}
+
+.bmw-m-contact > * {
+  position: relative;
+  z-index: 1;
+}
+
+.bmw-m-contact h2,
+.bmw-m-contact p {
+  color: #fff;
+}
+
+.bmw-m-contact a.inline-block {
+  background-color: #fff;
+  color: #00205B;
+}
+
+.bmw-m-contact a.inline-block:hover {
+  background-color: #ddd;
+}
+
+/* CTA gomb animáció */
+.cta-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+/* Animációk */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animációs osztályok eltávolítva - csak az animate-in osztállyal együtt működnek */
+
+/* Staggered animációk */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Responsive módosítások */
+@media (max-width: 768px) {
+  .testimonials-track {
+    flex-wrap: nowrap;
+  }
+  
+  .testimonial-slide {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+  
+  .expertise-card {
+    margin-bottom: 1rem;
+  }
+  
+  .why-us-card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .testimonial-slide {
+    width: 50%;
+    flex: 0 0 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonial-slide {
+    width: 33.333%;
+    flex: 0 0 33.333%;
+  }
+}
+
+/* Alapértelmezett láthatóság az animációs elemekhez */
+.fade-in-up,
+.fade-in,
+.slide-in-left,
+.slide-in-right {
+  opacity: 1;
+  transform: none;
+}
+
+/* Csak akkor alkalmazzuk az animációt, ha a JavaScript hozzáadja az animate-in osztályt */
+.fade-in-up.animate-in {
+  animation: fade-in-up 0.8s ease-out;
+}
+
+.fade-in.animate-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.slide-in-left.animate-in {
+  animation: slide-in-left 0.8s ease-out;
+}
+
+.slide-in-right.animate-in {
+  animation: slide-in-right 0.8s ease-out;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .fade-in,
+  .slide-in-left,
+  .slide-in-right {
+    animation: none;
+  }
+  
+  .testimonials-track {
+    transition: none;
+  }
+  
+  .expertise-card,
+  .why-us-card,
+  .testimonial-card,
+  .cta-button {
+    transition: none;
+  }
+}
+
+/* Focus states */
+.testimonials-dot:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.cta-button:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .expertise-card,
+  .why-us-card,
+  .testimonial-card {
+    border: 2px solid #ffffff;
+  }
+  
+  .testimonials-dot {
+    border: 1px solid #ffffff;
+  }
+}
+
+/* Print styles */
+@media print {
+  .testimonials-carousel,
+  .bmw-m-contact {
+    display: none;
+  }
+  
+  .expertise-card,
+  .why-us-card {
+    break-inside: avoid;
+  }
+}

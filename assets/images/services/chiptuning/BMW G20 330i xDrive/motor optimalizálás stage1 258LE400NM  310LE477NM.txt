@@ -1,0 +1,1 @@
+motor optimalizálás stage1: 258LE/400NM >> 310LE/477NM

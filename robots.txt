@@ -1,0 +1,11 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://itbeez.github.io/bombis_istvan/sitemap.xml
+
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+Allow: /assets/
+Allow: /pages/

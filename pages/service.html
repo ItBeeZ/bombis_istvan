@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BMW általános szerviz Nyíregyházán - Bömbis István. Éves szerviz, olajcsere, szűrőcsere, fékjavítás, futómű javítás és beállítás.">
+  <meta name="keywords" content="BMW szerviz, éves szerviz, olajcsere, szűrőcsere, fékjavítás, futómű javítás, klíma szerviz, Bömbis István, Nyíregyháza">
+  <meta name="author" content="Bömbis István">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bombisistvan.hu/pages/service.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bombisistvan.hu/pages/service.html">
+  <meta property="og:title" content="BMW Általános Szerviz - Bömbis István">
+  <meta property="og:description" content="BMW általános szerviz Nyíregyházán - Bömbis István. Éves szerviz, olajcsere, szűrőcsere, fékjavítás, futómű javítás és beállítás.">
+  <meta property="og:image" content="https://bombisistvan.hu/assets/images/hero_bg.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://bombisistvan.hu/pages/service.html">
+  <meta property="twitter:title" content="BMW Általános Szerviz - Bömbis István">
+  <meta property="twitter:description" content="BMW általános szerviz Nyíregyházán - Bömbis István. Éves szerviz, olajcsere, szűrőcsere, fékjavítás, futómű javítás és beállítás.">
+  <meta property="twitter:image" content="https://bombisistvan.hu/assets/images/hero_bg.jpg">
+  
+  <title>BMW Általános Szerviz - Bömbis István</title>
+  <link rel="icon" href="../assets/images/logos/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../assets/images/logos/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/images/logos/favicon.png">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/service.css">
+  <script src="../assets/js/translations.js"></script>
+  <script src="../assets/js/script.min.js"></script>
+  <script src="../assets/js/service.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  
+</head>
+<body class="bg-black text-white">
+  <div class="menu-overlay"></div>
+  <!-- Fejléc -->
+  <header class="bg-black border-b border-gray-800 fixed top-0 left-0 w-full z-50">
+    <div class="container mx-auto flex flex-row justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html">
+          <img src="../assets/images/logos/logo.jpg" alt="BMW Szerviz Bömbis István logó" class="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-2 border-blue-400 bg-white object-contain p-1" loading="eager">
+        </a>
+        <span class="font-bold text-lg sm:text-2xl">BMW Szerviz Bömbis István</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <!-- Asztali navigációs menü -->
+        <nav class="hidden sm:flex items-center space-x-6">
+          <!-- Nyelvi választó (asztali nézet) -->
+          <div class="language-selector">
+            <button class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors language-selector-btn">
+              <span id="current-flag-svg" class="w-6 h-4"></span>
+              <span id="current-lang">HU</span>
+              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div id="language-menu" class="absolute right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-lg hidden">
+              <div class="py-1">
+                <button data-lang="hu" class="language-option flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                  <span class="w-6 h-4">
+                    <!-- HU SVG -->
+                    <svg viewBox="0 0 3 2" width="24" height="16">
+                      <rect width="3" height="2" fill="#fff" />
+                      <rect width="3" height="0.67" y="0" fill="#cd2a3e" />
+                      <rect width="3" height="0.67" y="1.33" fill="#436f4d" />
+                    </svg>
+                  </span>
+                  <span>Magyar</span>
+                </button>
+                <button data-lang="en" class="language-option flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                  <span class="w-6 h-4">
+                    <!-- EN SVG -->
+                    <svg viewBox="0 0 60 30" width="24" height="16">
+                      <clipPath id="s">
+                        <path d="M0,0 v30 h60 v-30 z" />
+                      </clipPath>
+                      <g clip-path="url(#s)">
+                        <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                        <path d="M0,0 l60,30 M60,0 l-60,30" stroke="#fff" stroke-width="6" />
+                        <path d="M0,0 l60,30 M60,0 l-60,30" stroke="#c8102e" stroke-width="4" />
+                        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
+                        <path d="M30,0 v30 M0,15 h60" stroke="#c8102e" stroke-width="6" />
+                      </g>
+                    </svg>
+                  </span>
+                  <span>English</span>
+                </button>
+                <button data-lang="de" class="language-option flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                  <span class="w-6 h-4">
+                    <!-- DE SVG -->
+                    <svg viewBox="0 0 5 3" width="24" height="16">
+                      <rect width="5" height="1" y="0" fill="#000" />
+                      <rect width="5" height="1" y="1" fill="#dd0000" />
+                      <rect width="5" height="1" y="2" fill="#ffce00" />
+                    </svg>
+                  </span>
+                  <span>Deutsch</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <a href="../index.html" class="text-white hover:text-blue-400 transition-colors flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-5h-4v5H4a1 1 0 0 1-1-1V10.5z" />
+            </svg>
+            <span>Kezdőlap</span>
+          </a>
+          <div class="services-selector hidden sm:block relative">
+            <button class="flex items-center space-x-2 text-white hover:text-blue-400 transition-colors services-selector-btn" aria-haspopup="true" aria-expanded="false">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+              </svg>
+              <span>Szolgáltatások</span>
+              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div id="services-menu" class="hidden">
+              <div class="py-1">
+
+                <a href="service.html" class="services-option flex items-center space-x-4 w-full px-1 py-1 text-left hover:bg-gray-800 rounded-lg transition-colors">
+                  <svg class="w-[44px] h-[44px] text-orange-400" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                    <g>
+                      <path d="M28.7,18.8l-1.8,2.9,1.4,1.4,2.9-1.8,1,.4L33,25h2l.8-3.3,1-.4,2.9,1.8,1.4-1.4-1.8-2.9a4.2,4.2,0,0,0,.4-1L43,17V15l-3.3-.8a4.2,4.2,0,0,0-.4-1l1.8-2.9L39.7,8.9l-2.9,1.8-1-.4L35,7H33l-.8,3.3-1,.4L28.3,8.9l-1.4,1.4,1.8,2.9a4.2,4.2,0,0,0-.4,1L25,15v2l3.3.8A4.2,4.2,0,0,0,28.7,18.8ZM34,14a2,2,0,1,1-2,2A2,2,0,0,1,34,14Z"></path>
+                      <path d="M42.2,28.7a5.2,5.2,0,0,0-4-1.1l-9.9,1.8a4.5,4.5,0,0,0-1.4-3.3L19.8,19H5a2,2,0,0,0-2,2v9a2,2,0,0,0,2,2H8.3l11.2,9.1,20.4-3.7a5,5,0,0,0,2.3-8.7Zm-3,4.8L20.5,36.9,10,28.2V23h8.2l5.9,5.9a.8.8,0,0,1-1.2,1.2l-3.5-3.5a2,2,0,0,0-2.8,2.8l3.5,3.5a4.5,4.5,0,0,0,3.4,1.4,5.7,5.7,0,0,0,1.8-.3h0l13.6-2.4a1.1,1.1,0,0,1,.8.2.9.9,0,0,1,.3.7A1,1,0,0,1,39.2,33.5Z"></path>
+                    </g>
+                  </svg>
+                  <div>
+                    <div class="font-medium text-white">Általános szerviz</div>
+                    <div class="text-xs text-gray-400">Karbantartás és javítás</div>
+                  </div>
+                </a>
+                <a href="chiptuning.html" class="services-option flex items-center space-x-4 w-full px-1 py-1 text-left hover:bg-gray-800 rounded-lg transition-colors">
+                  <svg class="w-[44px] h-[44px] text-green-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14Z" stroke="currentColor" stroke-width="1.5"></path>
+                    <path d="M14 6C12.8954 6 12 5.10457 12 4C12 2.89543 12.8954 2 14 2C15.1046 2 16 2.89543 16 4C16 5.10457 15.1046 6 14 6Z" stroke="currentColor" stroke-width="1.5"></path>
+                    <path d="M10 22C11.1046 22 12 21.1046 12 20C12 18.8954 11.1046 18 10 18C8.89543 18 8 18.8954 8 20C8 21.1046 8.89543 22 10 22Z" stroke="currentColor" stroke-width="1.5"></path>
+                    <path d="M17.5 20L19 20M12 20L14.75 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                    <path d="M6.5 4L5 4M12 4L9.25 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                    <path d="M19 12H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                    <path d="M19 4L16 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                    <path d="M5 20L7.66667 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                    <path d="M10 12L7.5 12M5.5 12L5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                  </svg>
+                  <div>
+                    <div class="font-medium text-white">Chiptuning</div>
+                    <div class="text-xs text-gray-400">Teljesítménynövelés</div>
+                  </div>
+                </a>
+                <a href="software.html" class="services-option flex items-center space-x-4 w-full px-1 py-1 text-left hover:bg-gray-800 rounded-lg transition-colors">
+                  <svg class="w-[44px] h-[44px] text-purple-400" fill="currentColor" viewBox="0 0 470 470">
+                    <path d="M462.5,22.5H7.5C3.357,22.5,0,25.857,0,30v410c0,4.143,3.357,7.5,7.5,7.5h455c4.143,0,7.5-3.357,7.5-7.5V30 C470,25.857,466.643,22.5,462.5,22.5z M455,432.5H15v-395h277.5v45h-255c-4.143,0-7.5,3.357-7.5,7.5s3.357,7.5,7.5,7.5h395 c4.143,0,7.5-3.357,7.5-7.5s-3.357-7.5-7.5-7.5h-125v-45H455V432.5z"/>
+                    <circle cx="381.5" cy="60" r="7.5"/>
+                    <circle cx="340.5" cy="60" r="7.5"/>
+                    <circle cx="422.5" cy="60" r="7.5"/>
+                    <path d="M235,206.676c-30.646,0-55.577,24.932-55.577,55.577S204.354,317.83,235,317.83c8.816,0,17.612-2.133,25.436-6.167 c3.682-1.898,5.127-6.422,3.229-10.104c-1.899-3.682-6.422-5.124-10.104-3.229c-5.789,2.985-12.033,4.499-18.561,4.499 c-22.374,0-40.577-18.203-40.577-40.577s18.203-40.577,40.577-40.577s40.577,18.203,40.577,40.577 c0,6.528-1.514,12.772-4.498,18.56c-1.898,3.681-0.453,8.204,3.229,10.104c3.68,1.895,8.203,0.455,10.104-3.229 c4.034-7.821,6.166-16.616,6.166-25.435C290.577,231.607,265.646,206.676,235,206.676z"/>
+                    <path d="M358.087,234.753h-31.543c-1.851-6.15-4.322-12.095-7.387-17.767l22.324-22.323c1.406-1.407,2.196-3.314,2.196-5.304 s-0.79-3.896-2.196-5.304l-28.284-28.284c-2.93-2.928-7.678-2.928-10.607,0l-22.323,22.324c-5.672-3.064-11.616-5.536-17.767-7.387 v-31.543c0-4.143-3.357-7.5-7.5-7.5h-40c-4.143,0-7.5,3.357-7.5,7.5v31.543c-6.15,1.851-12.095,4.322-17.767,7.387l-22.323-22.324 c-2.93-2.928-7.678-2.928-10.607,0l-28.284,28.284c-1.406,1.407-2.196,3.314-2.196,5.304s0.79,3.896,2.196,5.304l22.324,22.323 c-3.064,5.672-5.536,11.616-7.387,17.767h-31.543c-4.143,0-7.5,3.357-7.5,7.5v40c0,4.143,3.357,7.5,7.5,7.5h31.544 c1.851,6.152,4.321,12.096,7.386,17.767l-22.323,22.322c-1.407,1.407-2.197,3.314-2.197,5.304s0.79,3.896,2.196,5.304 l28.284,28.284c2.929,2.927,7.678,2.929,10.606,0l22.324-22.323c5.672,3.064,11.616,5.536,17.767,7.387v31.542 c0,4.143,3.357,7.5,7.5,7.5h40c4.143,0,7.5-3.357,7.5-7.5v-31.542c6.15-1.851,12.095-4.322,17.767-7.387l22.324,22.323 c2.928,2.928,7.677,2.928,10.606,0l28.284-28.284c1.406-1.407,2.196-3.314,2.196-5.304s-0.79-3.896-2.197-5.304l-22.323-22.322 c3.064-5.672,5.535-11.615,7.386-17.767h31.544c4.143,0,7.5-3.357,7.5-7.5v-40C365.587,238.11,362.229,234.753,358.087,234.753z M350.587,274.753h-29.802c-3.486,0-6.513,2.402-7.305,5.798c-1.995,8.563-5.383,16.712-10.069,24.223 c-1.848,2.961-1.408,6.805,1.061,9.273l21.1,21.099l-17.678,17.678l-21.101-21.1c-2.468-2.467-6.31-2.906-9.272-1.06 c-7.511,4.687-15.661,8.074-24.223,10.069c-3.396,0.792-5.798,3.818-5.798,7.305v29.801h-25v-29.801 c0-3.486-2.402-6.513-5.798-7.305c-8.562-1.995-16.712-5.383-24.223-10.069c-2.962-1.847-6.807-1.406-9.272,1.06l-21.101,21.1 l-17.678-17.678l21.1-21.099c2.469-2.469,2.908-6.313,1.06-9.274c-4.685-7.508-8.072-15.657-10.068-24.222 c-0.792-3.396-3.818-5.798-7.305-5.798h-29.802v-25h29.802c3.486,0,6.513-2.402,7.305-5.798 c1.995-8.562,5.383-16.712,10.069-24.223c1.848-2.961,1.408-6.805-1.06-9.273l-21.101-21.1l17.678-17.678l21.1,21.101 c2.468,2.468,6.312,2.908,9.273,1.06c7.511-4.687,15.661-8.074,24.223-10.069c3.396-0.792,5.798-3.818,5.798-7.305v-29.802h25 v29.802c0,3.486,2.402,6.513,5.798,7.305c8.562,1.995,16.712,5.383,24.223,10.069c2.962,1.848,6.807,1.405,9.273-1.06l21.1-21.101 l17.678,17.678l-21.101,21.1c-2.468,2.469-2.907,6.313-1.06,9.273c4.687,7.511,8.074,15.661,10.069,24.223 c0.792,3.396,3.818,5.798,7.305,5.798h29.802V274.753z"/>
+                  </svg>
+                  <div>
+                    <div class="font-medium text-white">Szoftverfrissítés</div>
+                    <div class="text-xs text-gray-400">ECU és rendszerfrissítés</div>
+                  </div>
+                </a>
+                <a href="transmission.html" class="services-option flex items-center space-x-4 w-full px-1 py-1 text-left hover:bg-gray-800 rounded-lg transition-colors">
+                  <svg class="w-[44px] h-[44px] text-red-400" fill="currentColor" viewBox="0 0 512 512">
+                    <g>
+                      <g>
+                        <g>
+                          <path d="M384,341.333c-23.526,0-42.667,19.14-42.667,42.667c0,23.526,19.14,42.667,42.667,42.667 c23.526,0,42.667-19.14,42.667-42.667C426.667,360.474,407.526,341.333,384,341.333z"/>
+                          <path d="M503.467,349.867h-17.587c-3.191,0-6.05-1.937-7.373-5.163c-1.229-2.987-0.572-6.366,1.672-8.61l12.433-12.433 c3.328-3.337,3.328-8.738,0-12.066l-36.207-36.207c-3.2-3.2-8.866-3.2-12.066,0l-12.433,12.433 c-2.244,2.236-5.623,2.901-8.832,1.579c-2.995-1.229-4.941-4.096-4.941-7.287v-17.579c0-4.71-3.814-8.533-8.533-8.533h-51.2 c-4.719,0-8.533,3.823-8.533,8.533v17.579c0,3.191-1.946,6.059-5.154,7.373c-2.978,1.229-6.383,0.58-8.619-1.664l-12.433-12.433 c-3.2-3.2-8.866-3.2-12.066,0l-36.207,36.207c-3.328,3.328-3.328,8.73,0,12.066l12.433,12.433 c2.244,2.244,2.901,5.623,1.579,8.832c-1.229,3.004-4.087,4.941-7.279,4.941h-17.587c-4.719,0-8.533,3.823-8.533,8.533v51.2 c0,4.71,3.814,8.533,8.533,8.533h17.587c3.191,0,6.05,1.937,7.373,5.163c1.229,2.987,0.572,6.366-1.673,8.61l-12.433,12.433 c-3.328,3.337-3.328,8.738,0,12.066l36.207,36.207c3.2,3.2,8.866,3.2,12.066,0l12.433-12.433c2.227-2.236,5.606-2.91,8.832-1.579 c2.995,1.229,4.941,4.096,4.941,7.287v17.579c0,4.71,3.814,8.533,8.533,8.533h51.2c4.719,0,8.533-3.823,8.533-8.533v-17.579 c0-3.191,1.946-6.059,5.154-7.373c2.97-1.229,6.374-0.58,8.619,1.664l12.433,12.433c3.2,3.2,8.866,3.2,12.066,0l36.207-36.207 c3.328-3.328,3.328-8.73,0-12.066l-12.433-12.433c-2.244-2.244-2.901-5.623-1.579-8.832c1.229-3.004,4.087-4.941,7.279-4.941 h17.587c4.719,0,8.533-3.823,8.533-8.533v-51.2C512,353.69,508.186,349.867,503.467,349.867z M384,443.733 c-32.93,0-59.733-26.795-59.733-59.733c0-32.939,26.803-59.733,59.733-59.733c32.93,0,59.733,26.795,59.733,59.733 C443.733,416.939,416.93,443.733,384,443.733z"/>
+                          <path d="M162.133,93.867c-37.641,0-68.267,30.626-68.267,68.267c0,37.641,30.626,68.267,68.267,68.267 c37.641,0,68.267-30.626,68.267-68.267C230.4,124.493,199.774,93.867,162.133,93.867z"/>
+                          <path d="M294.886,258.671c1.596-1.596,2.5-3.763,2.5-6.033c0-2.261-0.905-4.429-2.5-6.033l-1.297-1.289 c-7.817-7.817-9.933-19.874-5.146-31.326c4.437-10.769,14.43-17.724,25.455-17.724h1.835c4.719,0,8.533-3.823,8.533-8.533v-51.2 c0-4.71-3.814-8.533-8.533-8.533h-1.835c-11.025,0-21.018-6.955-25.711-18.321c-4.531-10.854-2.415-22.921,5.402-30.729 l1.297-1.289c1.596-1.604,2.5-3.772,2.5-6.033c0-2.27-0.905-4.437-2.5-6.033l-36.215-36.207c-3.328-3.337-8.73-3.337-12.066,0 l-1.289,1.289c-7.808,7.817-19.857,9.941-31.326,5.154c-10.769-4.446-17.724-14.438-17.724-25.464V8.533 c0-4.71-3.814-8.533-8.533-8.533h-51.2C131.814,0,128,3.823,128,8.533v1.835c0,11.025-6.955,21.018-18.321,25.711 c-10.837,4.531-22.904,2.423-30.729-5.402l-1.289-1.289c-3.337-3.337-8.738-3.337-12.066,0L29.38,65.596 c-1.596,1.596-2.5,3.763-2.5,6.033c0,2.261,0.905,4.429,2.5,6.033l1.297,1.289c7.817,7.808,9.933,19.874,5.146,31.326 C31.386,121.045,21.393,128,10.368,128H8.533C3.814,128,0,131.823,0,136.533v51.2c0,4.71,3.814,8.533,8.533,8.533h1.835 c11.025,0,21.018,6.955,25.711,18.321c4.531,10.854,2.415,22.912-5.402,30.729l-1.297,1.289c-1.596,1.604-2.5,3.772-2.5,6.033 c0,2.27,0.905,4.437,2.5,6.033l36.216,36.207c3.328,3.337,8.73,3.337,12.066,0l1.289-1.289 c7.808-7.817,19.857-9.941,31.326-5.154C121.045,292.881,128,302.874,128,313.899v1.835c0,4.71,3.814,8.533,8.533,8.533h51.2 c4.719,0,8.533-3.823,8.533-8.533v-1.835c0-11.025,6.955-21.018,18.321-25.711c10.846-4.514,22.903-2.415,30.729,5.402 l1.289,1.289c3.337,3.337,8.738,3.337,12.066,0L294.886,258.671z M162.133,247.467c-47.053,0-85.333-38.281-85.333-85.333 S115.081,76.8,162.133,76.8s85.333,38.281,85.333,85.333S209.186,247.467,162.133,247.467z"/>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                  <div>
+                    <div class="font-medium text-white">Váltó & Hajtás</div>
+                    <div class="text-xs text-gray-400">Váltó és hajtáslánc szerviz</div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <a href="about.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.about">
+            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><text x="12" y="17" text-anchor="middle" font-size="12" fill="#000" font-family="Arial" font-weight="bold">i</text></svg></span>
+            <span>Rólunk</span>
+          </a>
+          <a href="contact.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.contact">
+            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1H7.61a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.24 1z"/></svg></span>
+            <span>Kapcsolat</span>
+          </a>
+        </nav>
+        <button type="button" class="sm:hidden text-blue-400 hover:text-blue-300 transition-colors hamburger-icon" aria-expanded="false" aria-label="Menü megnyitása">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+        <nav id="mobile-menu" class="mobile-menu hidden">
+          <!-- Nyelvi választó (mobil nézet) -->
+          <div class="language-selector-mobile mb-4 sm:hidden">
+            <button class="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors w-full language-selector-mobile-btn">
+              <span id="current-flag-svg-mobile" class="w-6 h-4"><!-- SVG ide kerül JS-ből --></span>
+              <span id="current-lang-mobile">HU</span>
+              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div id="language-menu-mobile" class="w-full bg-gray-900 rounded-lg shadow-lg mt-2 hidden">
+              <div class="py-1">
+                <button data-lang="hu" class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                  <span class="w-6 h-4">
+                    <!-- HU SVG -->
+                    <svg viewBox="0 0 3 2" width="24" height="16">
+                      <rect width="3" height="2" fill="#fff" />
+                      <rect width="3" height="0.67" y="0" fill="#cd2a3e" />
+                      <rect width="3" height="0.67" y="1.33" fill="#436f4d" />
+                    </svg>
+                  </span>
+                  <span>Magyar</span>
+                </button>
+                <button data-lang="en" class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                  <span class="w-6 h-4">
+                    <!-- EN SVG -->
+                    <svg viewBox="0 0 60 30" width="24" height="16">
+                      <clipPath id="s2">
+                        <path d="M0,0 v30 h60 v-30 z" />
+                      </clipPath>
+                      <g clip-path="url(#s2)">
+                        <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                        <path d="M0,0 l60,30 M60,0 l-60,30" stroke="#fff" stroke-width="6" />
+                        <path d="M0,0 l60,30 M60,0 l-60,30" stroke="#c8102e" stroke-width="4" />
+                        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
+                        <path d="M30,0 v30 M0,15 h60" stroke="#c8102e" stroke-width="6" />
+                      </g>
+                    </svg>
+                  </span>
+                  <span>English</span>
+                </button>
+                <button data-lang="de" class="language-option-mobile flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-800">
+                  <span class="w-6 h-4">
+                    <!-- DE SVG -->
+                    <svg viewBox="0 0 5 3" width="24" height="16">
+                      <rect width="5" height="1" y="0" fill="#000" />
+                      <rect width="5" height="1" y="1" fill="#dd0000" />
+                      <rect width="5" height="1" y="2" fill="#ffce00" />
+                    </svg>
+                  </span>
+                  <span>Deutsch</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <a href="../index.html" class="text-white hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.home">
+            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>
+            <span>Kezdőlap</span>
+          </a>
+          <div class="services-selector-mobile">
+            <button class="hover:text-blue-400 flex items-center space-x-2 services-selector-mobile-btn w-full text-left" aria-haspopup="true" aria-expanded="false">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+              </svg>
+              <span>Szolgáltatások</span>
+              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div id="services-menu-mobile" class="hidden">
+              <div class="py-1">
+
+                <a href="service.html" class="services-option-mobile flex items-center space-x-4 w-full px-3 py-2 text-left hover:bg-gray-800 rounded-lg transition-colors">
+                   <svg class="w-6 h-6 text-orange-400" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                      <g>
+                        <path d="M28.7,18.8l-1.8,2.9,1.4,1.4,2.9-1.8,1,.4L33,25h2l.8-3.3,1-.4,2.9,1.8,1.4-1.4-1.8-2.9a4.2,4.2,0,0,0,.4-1L43,17V15l-3.3-.8a4.2,4.2,0,0,0-.4-1l1.8-2.9L39.7,8.9l-2.9,1.8-1-.4L35,7H33l-.8,3.3-1,.4L28.3,8.9l-1.4,1.4,1.8,2.9a4.2,4.2,0,0,0-.4,1L25,15v2l3.3.8A4.2,4.2,0,0,0,28.7,18.8ZM34,14a2,2,0,1,1-2,2A2,2,0,0,1,34,14Z"></path>
+                        <path d="M42.2,28.7a5.2,5.2,0,0,0-4-1.1l-9.9,1.8a4.5,4.5,0,0,0-1.4-3.3L19.8,19H5a2,2,0,0,0-2,2v9a2,2,0,0,0,2,2H8.3l11.2,9.1,20.4-3.7a5,5,0,0,0,2.3-8.7Zm-3,4.8L20.5,36.9,10,28.2V23h8.2l5.9,5.9a.8.8,0,0,1-1.2,1.2l-3.5-3.5a2,2,0,0,0-2.8,2.8l3.5,3.5a4.5,4.5,0,0,0,3.4,1.4,5.7,5.7,0,0,0,1.8-.3h0l13.6-2.4a1.1,1.1,0,0,1,.8.2.9.9,0,0,1,.3.7A1,1,0,0,1,39.2,33.5Z"></path>
+                      </g>
+                    </svg>
+                   <div>
+                     <div class="font-medium text-white">Általános szerviz</div>
+                     <div class="text-xs text-gray-400">Karbantartás és javítás</div>
+                   </div>
+                 </a>
+                <a href="chiptuning.html" class="services-option-mobile flex items-center space-x-4 w-full px-3 py-2 text-left hover:bg-gray-800 rounded-lg transition-colors">
+                  <svg class="w-6 h-6 text-green-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14Z" stroke="currentColor" stroke-width="1.5"></path>
+                      <path d="M14 6C12.8954 6 12 5.10457 12 4C12 2.89543 12.8954 2 14 2C15.1046 2 16 2.89543 16 4C16 5.10457 15.1046 6 14 6Z" stroke="currentColor" stroke-width="1.5"></path>
+                      <path d="M10 22C11.1046 22 12 21.1046 12 20C12 18.8954 11.1046 18 10 18C8.89543 18 8 18.8954 8 20C8 21.1046 8.89543 22 10 22Z" stroke="currentColor" stroke-width="1.5"></path>
+                      <path d="M17.5 20L19 20M12 20L14.75 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                      <path d="M6.5 4L5 4M12 4L9.25 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                      <path d="M19 12H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                      <path d="M19 4L16 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                      <path d="M5 20L7.66667 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                      <path d="M10 12L7.5 12M5.5 12L5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                    </svg>
+                   <div>
+                     <div class="font-medium text-white">Chiptuning</div>
+                     <div class="text-xs text-gray-400">Teljesítménynövelés</div>
+                   </div>
+                 </a>
+                <a href="software.html" class="services-option-mobile flex items-center space-x-4 w-full px-3 py-2 text-left hover:bg-gray-800 rounded-lg transition-colors">
+                   <svg class="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 470 470">
+                      <path d="M462.5,22.5H7.5C3.357,22.5,0,25.857,0,30v410c0,4.143,3.357,7.5,7.5,7.5h455c4.143,0,7.5-3.357,7.5-7.5V30 C470,25.857,466.643,22.5,462.5,22.5z M455,432.5H15v-395h277.5v45h-255c-4.143,0-7.5,3.357-7.5,7.5s3.357,7.5,7.5,7.5h395 c4.143,0,7.5-3.357,7.5-7.5s-3.357-7.5-7.5-7.5h-125v-45H455V432.5z"/>
+                      <circle cx="381.5" cy="60" r="7.5"/>
+                      <circle cx="340.5" cy="60" r="7.5"/>
+                      <circle cx="422.5" cy="60" r="7.5"/>
+                      <path d="M235,206.676c-30.646,0-55.577,24.932-55.577,55.577S204.354,317.83,235,317.83c8.816,0,17.612-2.133,25.436-6.167 c3.682-1.898,5.127-6.422,3.229-10.104c-1.899-3.682-6.422-5.124-10.104-3.229c-5.789,2.985-12.033,4.499-18.561,4.499 c-22.374,0-40.577-18.203-40.577-40.577s18.203-40.577,40.577-40.577s40.577,18.203,40.577,40.577 c0,6.528-1.514,12.772-4.498,18.56c-1.898,3.681-0.453,8.204,3.229,10.104c3.68,1.895,8.203,0.455,10.104-3.229 c4.034-7.821,6.166-16.616,6.166-25.435C290.577,231.607,265.646,206.676,235,206.676z"/>
+                      <path d="M358.087,234.753h-31.543c-1.851-6.15-4.322-12.095-7.387-17.767l22.324-22.323c1.406-1.407,2.196-3.314,2.196-5.304 s-0.79-3.896-2.196-5.304l-28.284-28.284c-2.93-2.928-7.678-2.928-10.607,0l-22.323,22.324c-5.672-3.064-11.616-5.536-17.767-7.387 v-31.543c0-4.143-3.357-7.5-7.5-7.5h-40c-4.143,0-7.5,3.357-7.5,7.5v31.543c-6.15,1.851-12.095,4.322-17.767,7.387l-22.323-22.324 c-2.93-2.928-7.678-2.928-10.607,0l-28.284,28.284c-1.406,1.407-2.196,3.314-2.196,5.304s0.79,3.896,2.196,5.304l22.324,22.323 c-3.064,5.672-5.536,11.616-7.387,17.767h-31.543c-4.143,0-7.5,3.357-7.5,7.5v40c0,4.143,3.357,7.5,7.5,7.5h31.544 c1.851,6.152,4.321,12.096,7.386,17.767l-22.323,22.322c-1.407,1.407-2.197,3.314-2.197,5.304s0.79,3.896,2.196,5.304 l28.284,28.284c2.929,2.927,7.678,2.929,10.606,0l22.324-22.323c5.672,3.064,11.616,5.536,17.767,7.387v31.542 c0,4.143,3.357,7.5,7.5,7.5h40c4.143,0,7.5-3.357,7.5-7.5v-31.542c6.15-1.851,12.095-4.322,17.767-7.387l22.324,22.323 c2.928,2.928,7.677,2.928,10.606,0l28.284-28.284c1.406-1.407,2.196-3.314,2.196-5.304s-0.79-3.896-2.197-5.304l-22.323-22.322 c3.064-5.672,5.535-11.615,7.386-17.767h31.544c4.143,0,7.5-3.357,7.5-7.5v-40C365.587,238.11,362.229,234.753,358.087,234.753z M350.587,274.753h-29.802c-3.486,0-6.513,2.402-7.305,5.798c-1.995,8.563-5.383,16.712-10.069,24.223 c-1.848,2.961-1.408,6.805,1.061,9.273l21.1,21.099l-17.678,17.678l-21.101-21.1c-2.468-2.467-6.31-2.906-9.272-1.06 c-7.511,4.687-15.661,8.074-24.223,10.069c-3.396,0.792-5.798,3.818-5.798,7.305v29.801h-25v-29.801 c0-3.486-2.402-6.513-5.798-7.305c-8.562-1.995-16.712-5.383-24.223-10.069c-2.962-1.847-6.807-1.406-9.272,1.06l-21.101,21.1 l-17.678-17.678l21.1-21.099c2.469-2.469,2.908-6.313,1.06-9.274c-4.685-7.508-8.072-15.657-10.068-24.222 c-0.792-3.396-3.818-5.798-7.305-5.798h-29.802v-25h29.802c3.486,0,6.513-2.402,7.305-5.798 c1.995-8.562,5.383-16.712,10.069-24.223c1.848-2.961,1.408-6.805-1.06-9.273l-21.101-21.1l17.678-17.678l21.1,21.101 c2.468,2.468,6.312,2.908,9.273,1.06c7.511-4.687,15.661-8.074,24.223-10.069c3.396-0.792,5.798-3.818,5.798-7.305v-29.802h25 v29.802c0,3.486,2.402,6.513,5.798,7.305c8.562,1.995,16.712,5.383,24.223,10.069c2.962,1.848,6.807,1.405,9.273-1.06l21.1-21.101 l17.678,17.678l-21.101,21.1c-2.468,2.469-2.907,6.313-1.06,9.273c4.687,7.511,8.074,15.661,10.069,24.223 c0.792,3.396,3.818,5.798,7.305,5.798h29.802V274.753z"/>
+                    </svg>
+                   <div>
+                     <div class="font-medium text-white">Szoftverfrissítés</div>
+                     <div class="text-xs text-gray-400">ECU és rendszerfrissítés</div>
+                   </div>
+                 </a>
+                <a href="transmission.html" class="services-option-mobile flex items-center space-x-4 w-full px-3 py-2 text-left hover:bg-gray-800 rounded-lg transition-colors">
+                   <svg class="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 512 512">
+                      <g>
+                        <g>
+                          <g>
+                            <path d="M384,341.333c-23.526,0-42.667,19.14-42.667,42.667c0,23.526,19.14,42.667,42.667,42.667 c23.526,0,42.667-19.14,42.667-42.667C426.667,360.474,407.526,341.333,384,341.333z"/>
+                            <path d="M503.467,349.867h-17.587c-3.191,0-6.05-1.937-7.373-5.163c-1.229-2.987-0.572-6.366,1.672-8.61l12.433-12.433 c3.328-3.337,3.328-8.738,0-12.066l-36.207-36.207c-3.2-3.2-8.866-3.2-12.066,0l-12.433,12.433 c-2.244,2.236-5.623,2.901-8.832,1.579c-2.995-1.229-4.941-4.096-4.941-7.287v-17.579c0-4.71-3.814-8.533-8.533-8.533h-51.2 c-4.719,0-8.533,3.823-8.533,8.533v17.579c0,3.191-1.946,6.059-5.154,7.373c-2.978,1.229-6.383,0.58-8.619-1.664l-12.433-12.433 c-3.2-3.2-8.866-3.2-12.066,0l-36.207,36.207c-3.328,3.328-3.328,8.73,0,12.066l12.433,12.433 c2.244,2.244,2.901,5.623,1.579,8.832c-1.229,3.004-4.087,4.941-7.279,4.941h-17.587c-4.719,0-8.533,3.823-8.533,8.533v51.2 c0,4.71,3.814,8.533,8.533,8.533h17.587c3.191,0,6.05,1.937,7.373,5.163c1.229,2.987,0.572,6.366-1.673,8.61l-12.433,12.433 c-3.328,3.337-3.328,8.738,0,12.066l36.207,36.207c3.2,3.2,8.866,3.2,12.066,0l12.433-12.433c2.227-2.236,5.606-2.91,8.832-1.579 c2.995,1.229,4.941,4.096,4.941,7.287v17.579c0,4.71,3.814,8.533,8.533,8.533h51.2c4.719,0,8.533-3.823,8.533-8.533v-17.579 c0-3.191,1.946-6.059,5.154-7.373c2.97-1.229,6.374-0.58,8.619,1.664l12.433,12.433c3.2,3.2,8.866,3.2,12.066,0l36.207-36.207 c3.328-3.328,3.328-8.73,0-12.066l-12.433-12.433c-2.244-2.244-2.901-5.623-1.579-8.832c1.229-3.004,4.087-4.941,7.279-4.941 h17.587c4.719,0,8.533-3.823,8.533-8.533v-51.2C512,353.69,508.186,349.867,503.467,349.867z M384,443.733 c-32.93,0-59.733-26.795-59.733-59.733c0-32.939,26.803-59.733,59.733-59.733c32.93,0,59.733,26.795,59.733,59.733 C443.733,416.939,416.93,443.733,384,443.733z"/>
+                            <path d="M162.133,93.867c-37.641,0-68.267,30.626-68.267,68.267c0,37.641,30.626,68.267,68.267,68.267 c37.641,0,68.267-30.626,68.267-68.267C230.4,124.493,199.774,93.867,162.133,93.867z"/>
+                            <path d="M294.886,258.671c1.596-1.596,2.5-3.763,2.5-6.033c0-2.261-0.905-4.429-2.5-6.033l-1.297-1.289 c-7.817-7.817-9.933-19.874-5.146-31.326c4.437-10.769,14.43-17.724,25.455-17.724h1.835c4.719,0,8.533-3.823,8.533-8.533v-51.2 c0-4.71-3.814-8.533-8.533-8.533h-1.835c-11.025,0-21.018-6.955-25.711-18.321c-4.531-10.854-2.415-22.921,5.402-30.729 l1.297-1.289c1.596-1.604,2.5-3.772,2.5-6.033c0-2.27-0.905-4.437-2.5-6.033l-36.215-36.207c-3.328-3.337-8.73-3.337-12.066,0 l-1.289,1.289c-7.808,7.817-19.857,9.941-31.326,5.154c-10.769-4.446-17.724-14.438-17.724-25.464V8.533 c0-4.71-3.814-8.533-8.533-8.533h-51.2C131.814,0,128,3.823,128,8.533v1.835c0,11.025-6.955,21.018-18.321,25.711 c-10.837,4.531-22.904,2.423-30.729-5.402l-1.289-1.289c-3.337-3.337-8.738-3.337-12.066,0L29.38,65.596 c-1.596,1.596-2.5,3.763-2.5,6.033c0,2.261,0.905,4.429,2.5,6.033l1.297,1.289c7.817,7.808,9.933,19.874,5.146,31.326 C31.386,121.045,21.393,128,10.368,128H8.533C3.814,128,0,131.823,0,136.533v51.2c0,4.71,3.814,8.533,8.533,8.533h1.835 c11.025,0,21.018,6.955,25.711,18.321c4.531,10.854,2.415,22.912-5.402,30.729l-1.297,1.289c-1.596,1.604-2.5,3.772-2.5,6.033 c0,2.27,0.905,4.437,2.5,6.033l36.216,36.207c3.328,3.337,8.73,3.337,12.066,0l1.289-1.289 c7.808-7.817,19.857-9.941,31.326-5.154C121.045,292.881,128,302.874,128,313.899v1.835c0,4.71,3.814,8.533,8.533,8.533h51.2 c4.719,0,8.533-3.823,8.533-8.533v-1.835c0-11.025,6.955-21.018,18.321-25.711c10.846-4.514,22.903-2.415,30.729,5.402 l1.289,1.289c3.337,3.337,8.738,3.337,12.066,0L294.886,258.671z M162.133,247.467c-47.053,0-85.333-38.281-85.333-85.333 S115.081,76.8,162.133,76.8s85.333,38.281,85.333,85.333S209.186,247.467,162.133,247.467z"/>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                   <div>
+                     <div class="font-medium text-white">Váltó & Hajtás</div>
+                     <div class="text-xs text-gray-400">Váltó és hajtáslánc szerviz</div>
+                   </div>
+                 </a>
+              </div>
+            </div>
+          </div>
+          <a href="about.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.about">
+            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><text x="12" y="17" text-anchor="middle" font-size="12" fill="#000" font-family="Arial" font-weight="bold">i</text></svg></span>
+            <span>Rólunk</span>
+          </a>
+          <a href="contact.html" class="hover:text-blue-400 flex items-center space-x-2" data-i18n="nav.contact">
+            <span class="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1H7.61a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.24 1z"/></svg></span>
+            <span>Kapcsolat</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div id="scroll-container">
+    <div class="header-spacer"></div>
+    <!-- Hero szekció -->
+    <section class="relative min-h-[60vh] sm:min-h-screen flex items-center justify-center bg-black py-12 sm:py-24 lg:py-32 fade-in-up hero-section">
+      <img
+        src="../assets/images/backgrounds/service_bg.jpg"
+        class="hero-bg"
+        alt="BMW szerviz háttérkép"
+      />
+      <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 fade-in">
+        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-4 hero-title" data-i18n="service.hero.title">BMW Általános Szerviz</h1>
+        <p class="mb-6 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto hero-subtitle" data-i18n="service.hero.subtitle">Komplett BMW karbantartás és javítás professzionális eszközökkel és eredeti alkatrészekkel</p>
+      </div>
+    </section>
+
+  <!-- Éves szerviz szekció -->
+  <section id="annual-service" class="py-12 sm:py-24 lg:py-32 fade-in-up" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%);">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Galéria -->
+        <div class="relative order-2 lg:order-1">
+          <div class="gallery-container bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
+            <div id="service-gallery" class="grid grid-cols-2 gap-2 h-96 xl:grid-rows-4 max-xl:grid-rows-1">
+              <!-- Felső két kép - magasabbak -->
+              <div class="gallery-image-container xl:row-span-2 max-xl:row-span-1">
+                <img src="../assets/images/services/kisebb_szervizek/1.jpg" alt="Éves szerviz és karbantartás kép 1" class="w-full h-full object-cover">
+              </div>
+              <div class="gallery-image-container xl:row-span-2 max-xl:row-span-1">
+                <img src="../assets/images/services/kisebb_szervizek/2.jpg" alt="Éves szerviz és karbantartás kép 2" class="w-full h-full object-cover">
+              </div>
+              <!-- Alsó egy kép - csak nagy képernyőn -->
+              <div class="gallery-image-container col-span-2 row-span-2 xl:block hidden">
+                <img src="../assets/images/services/kisebb_szervizek/3.jpg" alt="Éves szerviz és karbantartás nagy kép" class="w-full h-full object-cover xl:object-contain">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tartalom -->
+        <div class="order-1 lg:order-2">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">
+            Éves Szerviz & Karbantartás
+          </h2>
+          <div class="space-y-4 text-gray-300">
+            <p class="text-lg leading-relaxed">
+              A BMW járművek hosszú élettartama és megbízható működése érdekében elengedhetetlen a rendszeres karbantartás. Szakértő csapatunk minden BMW modellhez biztosítja a megfelelő szerviz szolgáltatásokat.
+            </p>
+            <h3 class="text-xl font-semibold text-white mt-6 mb-3">Szolgáltatásaink:</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-oil-can text-blue-400 mt-1 mr-3"></i>
+                <span>Motorolaj és szűrők cseréje eredeti BMW alkatrészekkel</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-cogs text-blue-400 mt-1 mr-3"></i>
+                <span>Komplett járműellenőrzés és diagnosztika</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-battery-half text-blue-400 mt-1 mr-3"></i>
+                <span>Akkumulátor és elektromos rendszer ellenőrzése</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-tachometer-alt text-blue-400 mt-1 mr-3"></i>
+                <span>Műszaki vizsga előkészítés</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-wrench text-blue-400 mt-1 mr-3"></i>
+                <span>Kisebb javítások és beállítások</span>
+              </li>
+            </ul>
+            <div class="bg-blue-900/30 p-4 rounded-lg mt-6">
+              <h4 class="font-semibold text-blue-300 mb-2">Miért fontos a rendszeres szerviz?</h4>
+              <p class="text-sm">
+                A BMW járművek komplex technológiát tartalmaznak, amely rendszeres karbantartást igényel. Az időben elvégzett szerviz megelőzi a drága javításokat és biztosítja a jármű értékállóságát.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fékrendszer szekció -->
+  <section id="brake-service" class="py-12 sm:py-24 lg:py-32 fade-in-up" style="background: linear-gradient(135deg, #374151 0%, #1f2937 100%);">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Tartalom -->
+        <div class="order-1 lg:order-1">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">
+            Fékrendszer Javítás & Karbantartás
+          </h2>
+          <div class="space-y-4 text-gray-300">
+            <p class="text-lg leading-relaxed">
+              A fékrendszer a jármű egyik legkritikusabb biztonsági eleme. Szakértő csapatunk minden BMW modell fékrendszerének javítását és karbantartását elvégzi a legmagasabb színvonalon.
+            </p>
+            <h3 class="text-xl font-semibold text-white mt-6 mb-3">Fékszerviz szolgáltatások:</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-compact-disc text-red-400 mt-1 mr-3"></i>
+                <span>Féktárcsa és fékbetét csere eredeti BMW alkatrészekkel</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-flask text-red-400 mt-1 mr-3"></i>
+                <span>Fékfolyadék csere és rendszer légtelenítés</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-tools text-red-400 mt-1 mr-3"></i>
+                <span>Féknyereg javítás és felújítás</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-search text-red-400 mt-1 mr-3"></i>
+                <span>Fékrendszer diagnosztika és hibakeresés</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-hand-paper text-red-400 mt-1 mr-3"></i>
+                <span>Kézifék beállítás és javítás</span>
+              </li>
+            </ul>
+            <div class="bg-red-900/30 p-4 rounded-lg mt-6">
+              <h4 class="font-semibold text-red-300 mb-2">Mikor szükséges fékszerviz?</h4>
+              <p class="text-sm">
+                Figyeljen a fékek szokatlan hangjára, a fékezési távolság növekedésére vagy a fékpedál "puhaságára". Ezek mind jelzik, hogy időszerű a fékrendszer ellenőrzése.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Galéria -->
+        <div class="relative order-2 lg:order-2">
+          <div class="gallery-container bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
+            <div id="maintenance-gallery" class="grid grid-cols-2 gap-2 h-96 xl:grid-rows-4 max-xl:grid-rows-1">
+              <!-- Felső két kép - ugyanaz az elrendezés -->
+              <div class="gallery-image-container xl:row-span-2 max-xl:row-span-1">
+                <img src="../assets/images/services/fekek/1.jpg" alt="Fékszerviz kép 1" class="w-full h-full object-cover">
+              </div>
+              <div class="gallery-image-container xl:row-span-2 max-xl:row-span-1">
+                <img src="../assets/images/services/fekek/3.jpg" alt="Fékszerviz kép 2" class="w-full h-full object-cover">
+              </div>
+              <!-- Alsó egy kép - csak nagy képernyőn -->
+              <div class="gallery-image-container col-span-2 row-span-2 xl:block hidden">
+                <img src="../assets/images/services/fekek/4.JPG" alt="Fékszerviz nagy kép" class="w-full h-full object-cover xl:object-contain">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Futómű és klíma szekció -->
+  <section id="suspension-climate" class="py-12 sm:py-24 lg:py-32 fade-in-up" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%);">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">
+          Futómű Javítás & Klíma Szerviz
+        </h2>
+        <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+          Komplett futómű diagnosztika, javítás és beállítás, valamint professzionális klíma szerviz szolgáltatások.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Futómű -->
+        <div class="bg-gray-800 rounded-lg p-8">
+          <div class="flex items-center mb-6">
+            <i class="fas fa-car text-3xl text-green-400 mr-4"></i>
+            <h3 class="text-2xl font-bold text-white">Futómű Javítás</h3>
+          </div>
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+              <span>Lengéscsillapító csere és javítás</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+              <span>Rugó és stabilizátor javítás</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+              <span>Kerékcsapágy csere</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+              <span>Futómű geometria beállítás</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+              <span>Felfüggesztés diagnosztika</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Klíma -->
+        <div class="bg-gray-800 rounded-lg p-8">
+          <div class="flex items-center mb-6">
+            <i class="fas fa-snowflake text-3xl text-blue-400 mr-4"></i>
+            <h3 class="text-2xl font-bold text-white">Klíma Szerviz</h3>
+          </div>
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start">
+              <i class="fas fa-check text-blue-400 mt-1 mr-3"></i>
+              <span>Klíma töltés és javítás</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-blue-400 mt-1 mr-3"></i>
+              <span>Klíma fertőtlenítés és tisztítás</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-blue-400 mt-1 mr-3"></i>
+              <span>Pollenszűrő csere</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-blue-400 mt-1 mr-3"></i>
+              <span>Klíma kompresszor javítás</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-blue-400 mt-1 mr-3"></i>
+              <span>Hűtőrendszer ellenőrzés</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kapcsolat CTA -->
+  <section id="kapcsolat" class="bmw-m-contact py-12 sm:py-24 lg:py-32 text-center px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl sm:text-4xl font-bold mb-4" data-i18n="service.contact.title">Kérjen időpontot szervizünkbe!</h2>
+    <p class="mb-12 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto" data-i18n="service.contact.subtitle">Vegye fel velünk a kapcsolatot, és kérjen ajánlatot BMW-je általános szervizére.</p>
+    <a href="contact.html" class="inline-block bg-white hover:bg-gray-200 text-blue-600 text-lg font-semibold py-3 px-6 rounded-md shadow-lg transition-all transform hover:scale-105 tracking-wide" data-i18n="service.contact.button" aria-label="Időpontfoglalás BMW általános szervizre"><span>Időpontfoglalás</span></a>
+  </section>
+
+  <!-- Lábjegyzet -->
+  <footer class="bg-transparent py-6 sm:py-8 text-center border-t border-gray-800 relative z-10">
+    <div class="flex justify-center space-x-4 mb-4">
+      <a href="https://www.facebook.com/profile.php?id=100089991926013" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/bombis.istvan" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="mb-2 text-xs text-gray-400" data-i18n="footer.copyright">© <span class="copyright-year">2024</span> BMW Szerviz Bömbis István. Minden jog fenntartva.</div>
+  </footer>
+  </div>
+</body>
+</html>
