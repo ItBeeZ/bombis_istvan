@@ -368,17 +368,15 @@
         <!-- Galéria -->
         <div class="relative order-2 lg:order-1">
           <div class="gallery-container bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
-            <div id="service-gallery" class="grid grid-cols-2 gap-2 h-96 xl:grid-rows-4 max-xl:grid-rows-1">
-              <!-- Felső két kép - magasabbak -->
+            <div id="service-gallery" class="grid grid-cols-2 gap-2 xl:grid-rows-4 max-xl:grid-rows-1">
               <div class="gallery-image-container xl:row-span-2 max-xl:row-span-1">
-                <img src="../assets/images/services/kisebb_szervizek/1.jpg" alt="Éves szerviz és karbantartás kép 1" class="w-full h-full object-cover">
+                <img data-slot="0" src="../assets/images/services/Általános szerviz/IMG_9940.jpg" alt="Éves szerviz és karbantartás kép 1" class="slot-image w-full h-full object-cover" loading="lazy">
               </div>
               <div class="gallery-image-container xl:row-span-2 max-xl:row-span-1">
-                <img src="../assets/images/services/kisebb_szervizek/2.jpg" alt="Éves szerviz és karbantartás kép 2" class="w-full h-full object-cover">
+                <img data-slot="1" src="../assets/images/services/Általános szerviz/IMG_9934.jpg" alt="Éves szerviz és karbantartás kép 2" class="slot-image w-full h-full object-cover" loading="lazy">
               </div>
-              <!-- Alsó egy kép - csak nagy képernyőn -->
               <div class="gallery-image-container col-span-2 row-span-2 xl:block hidden">
-                <img src="../assets/images/services/kisebb_szervizek/3.jpg" alt="Éves szerviz és karbantartás nagy kép" class="w-full h-full object-cover xl:object-contain">
+                <img data-slot="2" src="../assets/images/services/Általános szerviz/IMG_9829.JPG" alt="Éves szerviz és karbantartás nagy kép" class="slot-image w-full h-full object-cover xl:object-contain" loading="lazy">
               </div>
             </div>
           </div>
@@ -474,17 +472,17 @@
         <!-- Galéria -->
         <div class="relative order-2 lg:order-2">
           <div class="gallery-container bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
-            <div id="maintenance-gallery" class="grid grid-cols-2 gap-2 h-96 xl:grid-rows-4 max-xl:grid-rows-1">
+            <div id="maintenance-gallery" class="grid grid-cols-2 gap-2  xl:grid-rows-4 max-xl:grid-rows-1">
               <!-- Felső két kép - ugyanaz az elrendezés -->
               <div class="gallery-image-container xl:row-span-2 max-xl:row-span-1">
-                <img src="../assets/images/services/fekek/1.jpg" alt="Fékszerviz kép 1" class="w-full h-full object-cover">
+                <img data-slot="0" src="../assets/images/services/fekek/1.jpg" alt="Fékszerviz kép 1" class="slot-image w-full h-full object-cover" loading="lazy">
               </div>
               <div class="gallery-image-container xl:row-span-2 max-xl:row-span-1">
-                <img src="../assets/images/services/fekek/3.jpg" alt="Fékszerviz kép 2" class="w-full h-full object-cover">
+                <img data-slot="1" src="../assets/images/services/fekek/3.jpg" alt="Fékszerviz kép 2" class="slot-image w-full h-full object-cover" loading="lazy">
               </div>
               <!-- Alsó egy kép - csak nagy képernyőn -->
               <div class="gallery-image-container col-span-2 row-span-2 xl:block hidden">
-                <img src="../assets/images/services/fekek/4.JPG" alt="Fékszerviz nagy kép" class="w-full h-full object-cover xl:object-contain">
+                <img data-slot="2" src="../assets/images/services/fekek/4.JPG" alt="Fékszerviz nagy kép" class="slot-image w-full h-full object-cover xl:object-contain" loading="lazy">
               </div>
             </div>
           </div>

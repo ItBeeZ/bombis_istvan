@@ -71,7 +71,7 @@ function initializePage() {
 const galleryConfig = {
   service: {
     containerId: 'service-gallery',
-    imagePath: '../assets/images/services/kisebb_szervizek/',
+    imagePath: '../assets/images/services/Általános szerviz/',
     images: [],
     currentIndex: 0,
     interval: null
@@ -87,7 +87,7 @@ const galleryConfig = {
 
 // Auto-slide intervals (different for each gallery)
 const SLIDE_INTERVALS = {
-  service: 3500,
+  service: 1500,
   maintenance: 3500
 };
 
@@ -98,20 +98,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize both galleries
 function initializeGalleries() {
-  ['service', 'maintenance'].forEach(galleryType => {
-    const containerId = galleryConfig[galleryType].containerId;
-    const container = document.getElementById(containerId);
-    if (!container) {
-      console.warn(`Gallery container ${containerId} not found`);
-      return;
-    }
-    // Ha grid layout van (statikus képek), ne töltsünk dinamikusan és ne indítsunk slideshow-t
-    if (container.classList.contains('grid')) {
-      console.log(`Grid layout detected for ${galleryType}, skipping dynamic image creation`);
-      return;
-    }
-    loadGalleryImages(galleryType);
-  });
+  const serviceContainer = document.getElementById(galleryConfig.service.containerId);
+  if (serviceContainer) {
+    initServiceGridGallery();
+  }
+  const maintenanceContainer = document.getElementById(galleryConfig.maintenance.containerId);
+  if (maintenanceContainer) {
+    initMaintenanceGridGallery();
+  }
 }
 
 // Load images for a specific gallery
@@ -154,16 +148,51 @@ function loadGalleryImages(galleryType) {
 function getImageFiles(galleryType) {
   if (galleryType === 'service') {
     return [
-      '1.jpg',
-      '2.jpg',
-      '3.jpg',
-      '4.jpg',
-      '5.jpg',
-      '6.jpg',
-      '8.jpg',
-      '9.jpg',
-      '10.jpg',
-      '13.jpg'
+      'IMG_9940.jpg',
+      'IMG_9934.jpg',
+      'IMG_9829.JPG',
+      'IMG_9787.jpg',
+      'IMG_9077.jpg',
+      'IMG_8897.jpg',
+      'IMG_8755.jpg',
+      'IMG_8749.JPG',
+      'IMG_8836.jpg',
+      'IMG_8787.jpg',
+      'IMG_8631.jpg',
+      'IMG_4945.jpg',
+      'IMG_4944.jpg',
+      'IMG_4942.jpg',
+      'IMG_4941.jpg',
+      'IMG_4783.jpg',
+      'IMG_3737.jpg',
+      'IMG_4047.jpg',
+      'IMG_3748.jpg',
+      'IMG_3639.jpg',
+      'IMG_3638.jpg',
+      'IMG_3640.jpg',
+      'IMG_3736.jpg',
+      'IMG_2341.jpg',
+      'IMG_2320.jpg',
+      'IMG_3299.jpg',
+      'IMG_1823.jpg',
+      'IMG_2276.jpg',
+      'IMG_2251.jpg',
+      'IMG_1759.jpg',
+      'IMG_1762.jpg',
+      'IMG_1776.jpg',
+      'IMG_1391.jpg',
+      'IMG_1466.jpg',
+      'IMG_0776.jpg',
+      'IMG_0567.jpg',
+      'IMG_1226.jpg',
+      'IMG_0562.jpg',
+      'IMG_0563.jpg',
+      'IMG_0557.jpg',
+      'IMG_0556.jpg',
+      'IMG_0550.jpg',
+      'IMG_0549.jpg',
+      'att.885U7SDgmJ5iXL0-57MkaQ0BUaZ7i5Dv-rsSrqfPddg.JPG',
+      'att.885U7SDgmJ5iXL0-57MkaQ0BUaZ7i5Dv-rsSrqfPddg(1).jpg'
     ];
   } else if (galleryType === 'maintenance') {
     return [
@@ -176,6 +205,114 @@ function getImageFiles(galleryType) {
     ];
   }
   return [];
+}
+
+let serviceGridState = {
+  slotEls: [],
+  currentIndices: [],
+  nextCursor: 0,
+  interval: null,
+  preloaded: new Map()
+};
+
+function initServiceGridGallery() {
+  const container = document.getElementById(galleryConfig.service.containerId);
+  const slots = container.querySelectorAll('.gallery-image-container img');
+  serviceGridState.slotEls = Array.from(slots);
+  const files = getImageFiles('service');
+  galleryConfig.service.images = files.map(f => galleryConfig.service.imagePath + f);
+  const last = sessionStorage.getItem('serviceGalleryLastIndices');
+  let lastIndices = null;
+  if (last) {
+    try { lastIndices = JSON.parse(last); } catch (_) { lastIndices = null; }
+  }
+  const count = Math.min(3, galleryConfig.service.images.length);
+  let indices = getRandomUniqueIndices(count, galleryConfig.service.images.length);
+  if (lastIndices && Array.isArray(lastIndices) && lastIndices.length === count) {
+    let attempts = 0;
+    while (arraysEqual(indices, lastIndices) && attempts < 10) {
+      indices = getRandomUniqueIndices(count, galleryConfig.service.images.length);
+      attempts++;
+    }
+  }
+  serviceGridState.currentIndices = indices.slice();
+  sessionStorage.setItem('serviceGalleryLastIndices', JSON.stringify(indices));
+  let nc = Math.floor(Math.random() * galleryConfig.service.images.length);
+  const used = new Set(serviceGridState.currentIndices);
+  let guard = 0;
+  while (used.has(nc) && guard < galleryConfig.service.images.length) { nc = (nc + 1) % galleryConfig.service.images.length; guard++; }
+  serviceGridState.nextCursor = nc;
+  serviceGridState.slotEls.forEach((imgEl, i) => {
+    const src = galleryConfig.service.images[serviceGridState.currentIndices[i]];
+    imgEl.src = src;
+    imgEl.loading = 'lazy';
+    imgEl.onerror = function() { updateServiceSlot(i, true); };
+  });
+  preloadServiceImages();
+  startServiceAuto();
+}
+
+function preloadServiceImages() {
+  galleryConfig.service.images.forEach(src => {
+    if (!serviceGridState.preloaded.has(src)) {
+      const img = new Image();
+      img.src = src;
+      serviceGridState.preloaded.set(src, img);
+    }
+  });
+}
+
+function startServiceAuto() {
+  if (serviceGridState.interval) return;
+  let slotToUpdate = 0;
+  serviceGridState.interval = setInterval(() => {
+    updateServiceSlot(slotToUpdate, false);
+    slotToUpdate = (slotToUpdate + 1) % serviceGridState.slotEls.length;
+  }, SLIDE_INTERVALS.service);
+}
+
+function updateServiceSlot(slotIndex, skipError) {
+  if (galleryConfig.service.images.length < 3) return;
+  const used = new Set(serviceGridState.currentIndices);
+  let tries = 0;
+  let idx = serviceGridState.nextCursor;
+  while ((used.has(idx)) && tries < galleryConfig.service.images.length) {
+    idx = (idx + 1) % galleryConfig.service.images.length;
+    tries++;
+  }
+  serviceGridState.nextCursor = (idx + 1) % galleryConfig.service.images.length;
+  const imgEl = serviceGridState.slotEls[slotIndex];
+  const newSrc = galleryConfig.service.images[idx];
+  const interval = SLIDE_INTERVALS.service;
+  const swapDelay = Math.max(0, Math.min(150, interval - 10));
+  const fadeDuration = Math.max(0, Math.min(200, interval - 50));
+  imgEl.classList.add('slot-fade-out');
+  setTimeout(() => {
+    imgEl.src = newSrc;
+    imgEl.classList.remove('slot-fade-out');
+    imgEl.classList.add('slot-fade-in');
+    setTimeout(() => {
+      imgEl.classList.remove('slot-fade-in');
+    }, fadeDuration);
+  }, swapDelay);
+  serviceGridState.currentIndices[slotIndex] = idx;
+}
+
+function getRandomUniqueIndices(count, max) {
+  const arr = [];
+  const used = new Set();
+  while (arr.length < count && used.size < max) {
+    const r = Math.floor(Math.random() * max);
+    if (!used.has(r)) { used.add(r); arr.push(r); }
+  }
+  return arr;
+}
+
+function arraysEqual(a, b) {
+  if (!Array.isArray(a) || !Array.isArray(b)) return false;
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i++) { if (a[i] !== b[i]) return false; }
+  return true;
 }
 
 // Create gallery images
@@ -274,6 +411,10 @@ window.addEventListener('beforeunload', function() {
   Object.keys(galleryConfig).forEach(galleryType => {
     pauseAutoSlide(galleryType);
   });
+  if (serviceGridState.interval) {
+    clearInterval(serviceGridState.interval);
+    serviceGridState.interval = null;
+  }
 });
 
 // Handle page visibility changes
@@ -282,10 +423,15 @@ document.addEventListener('visibilitychange', function() {
     Object.keys(galleryConfig).forEach(galleryType => {
       pauseAutoSlide(galleryType);
     });
+    if (serviceGridState.interval) {
+      clearInterval(serviceGridState.interval);
+      serviceGridState.interval = null;
+    }
   } else {
     Object.keys(galleryConfig).forEach(galleryType => {
       resumeAutoSlide(galleryType);
     });
+    startServiceAuto();
   }
 });
 
@@ -340,4 +486,94 @@ function initializeAnimations() {
     // Animálható elemek megfigyelése
     const animateElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .slide-in-right');
     animateElements.forEach(el => observer.observe(el));
+}
+// Maintenance grid slideshow state and init
+let maintenanceGridState = {
+  slotEls: [],
+  currentIndices: [],
+  nextCursor: 0,
+  interval: null,
+  preloaded: new Map()
+};
+
+function initMaintenanceGridGallery() {
+  const container = document.getElementById(galleryConfig.maintenance.containerId);
+  const slots = container.querySelectorAll('.gallery-image-container img');
+  maintenanceGridState.slotEls = Array.from(slots);
+  const files = getImageFiles('maintenance');
+  galleryConfig.maintenance.images = files.map(f => galleryConfig.maintenance.imagePath + f);
+  const last = sessionStorage.getItem('maintenanceGalleryLastIndices');
+  let lastIndices = null;
+  if (last) { try { lastIndices = JSON.parse(last); } catch (_) { lastIndices = null; } }
+  const count = Math.min(3, galleryConfig.maintenance.images.length);
+  let indices = getRandomUniqueIndices(count, galleryConfig.maintenance.images.length);
+  if (lastIndices && Array.isArray(lastIndices) && lastIndices.length === count) {
+    let attempts = 0;
+    while (arraysEqual(indices, lastIndices) && attempts < 10) {
+      indices = getRandomUniqueIndices(count, galleryConfig.maintenance.images.length);
+      attempts++;
+    }
+  }
+  maintenanceGridState.currentIndices = indices.slice();
+  sessionStorage.setItem('maintenanceGalleryLastIndices', JSON.stringify(indices));
+  let nc = Math.floor(Math.random() * galleryConfig.maintenance.images.length);
+  const used = new Set(maintenanceGridState.currentIndices);
+  let guard = 0;
+  while (used.has(nc) && guard < galleryConfig.maintenance.images.length) { nc = (nc + 1) % galleryConfig.maintenance.images.length; guard++; }
+  maintenanceGridState.nextCursor = nc;
+  maintenanceGridState.slotEls.forEach((imgEl, i) => {
+    const src = galleryConfig.maintenance.images[maintenanceGridState.currentIndices[i]];
+    imgEl.src = src;
+    imgEl.loading = 'lazy';
+    imgEl.onerror = function() { updateMaintenanceSlot(i, true); };
+  });
+  preloadMaintenanceImages();
+  startMaintenanceAuto();
+}
+
+function preloadMaintenanceImages() {
+  galleryConfig.maintenance.images.forEach(src => {
+    if (!maintenanceGridState.preloaded.has(src)) {
+      const img = new Image();
+      img.src = src;
+      maintenanceGridState.preloaded.set(src, img);
+    }
+  });
+}
+
+function startMaintenanceAuto() {
+  if (maintenanceGridState.interval) return;
+  let slotToUpdate = 0;
+  const interval = SLIDE_INTERVALS.maintenance || 3500;
+  maintenanceGridState.interval = setInterval(() => {
+    updateMaintenanceSlot(slotToUpdate, false);
+    slotToUpdate = (slotToUpdate + 1) % maintenanceGridState.slotEls.length;
+  }, interval);
+}
+
+function updateMaintenanceSlot(slotIndex, skipError) {
+  if (galleryConfig.maintenance.images.length < 3) return;
+  const used = new Set(maintenanceGridState.currentIndices);
+  let tries = 0;
+  let idx = maintenanceGridState.nextCursor;
+  while ((used.has(idx)) && tries < galleryConfig.maintenance.images.length) {
+    idx = (idx + 1) % galleryConfig.maintenance.images.length;
+    tries++;
+  }
+  maintenanceGridState.nextCursor = (idx + 1) % galleryConfig.maintenance.images.length;
+  const imgEl = maintenanceGridState.slotEls[slotIndex];
+  const newSrc = galleryConfig.maintenance.images[idx];
+  const interval = SLIDE_INTERVALS.maintenance || 3500;
+  const swapDelay = Math.max(0, Math.min(150, interval - 10));
+  const fadeDuration = Math.max(0, Math.min(200, interval - 50));
+  imgEl.classList.add('slot-fade-out');
+  setTimeout(() => {
+    imgEl.src = newSrc;
+    imgEl.classList.remove('slot-fade-out');
+    imgEl.classList.add('slot-fade-in');
+    setTimeout(() => {
+      imgEl.classList.remove('slot-fade-in');
+    }, fadeDuration);
+  }, swapDelay);
+  maintenanceGridState.currentIndices[slotIndex] = idx;
 }
