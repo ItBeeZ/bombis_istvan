@@ -280,43 +280,45 @@ function toggleServicesMenuMobile() {
 
 // Animációk inicializálása
 function initializeAnimations() {
-    // Intersection Observer a fade-in animációkhoz
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.2,
+        rootMargin: '0px 0px -20% 0px'
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
+
+    const observer = new IntersectionObserver(function(entries, obs) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-                
-                // Staggered animáció a gyerek elemekhez
-                const children = entry.target.querySelectorAll('.stagger-item');
-                children.forEach((child, index) => {
-                    setTimeout(() => {
-                        child.classList.add('animate-in');
-                    }, index * 100);
-                });
+                const target = entry.target;
+                if (!target.dataset.animated) {
+                    target.classList.add('animate-in');
+                    target.dataset.animated = 'true';
+
+                    const children = target.querySelectorAll('.stagger-item');
+                    children.forEach((child, index) => {
+                        setTimeout(() => {
+                            child.classList.add('animate-in');
+                        }, index * 100);
+                    });
+
+                    obs.unobserve(target);
+                }
             }
         });
     }, observerOptions);
-    
-    // Animálható elemek megfigyelése
+
     const animateElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .slide-in-right');
     animateElements.forEach(el => observer.observe(el));
-    
-    // Szakértelem kártyák staggered animációja
+
     const expertiseCards = document.querySelectorAll('#szolgaltatasok .bg-gray-900');
     expertiseCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.2}s`;
-        card.classList.add('fade-in-up');
+        card.classList.remove('fade-in-up');
+        card.style.transitionDelay = `${index * 0.12}s`;
+        card.classList.add('fade-in');
     });
-    
-    // Miért válassz minket kártyák animációja
+
     const whyUsCards = document.querySelectorAll('#rolunk .bg-gray-800');
     whyUsCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.15}s`;
+        card.style.transitionDelay = `${index * 0.1}s`;
         card.classList.add('slide-in-left');
     });
 }
