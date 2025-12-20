@@ -34,9 +34,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/service.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
   <script src="../assets/js/translations.js"></script>
   <script src="../assets/js/script.min.js"></script>
   <script src="../assets/js/service.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   
 </head>
@@ -112,8 +114,8 @@
             </svg>
             <span>Kezdőlap</span>
           </a>
-          <div class="services-selector hidden sm:block relative">
-            <button class="flex items-center space-x-2 text-white hover:text-blue-400 transition-colors services-selector-btn" aria-haspopup="true" aria-expanded="false">
+          <div class="services-selector hidden sm:flex items-center relative">
+            <button class="flex items-center space-x-2 text-white hover:text-blue-400 transition-colors services-selector-btn pl-3" aria-haspopup="true" aria-expanded="false">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
               </svg>
@@ -122,7 +124,7 @@
                 <path d="M6 9l6 6 6-6" />
               </svg>
             </button>
-            <div id="services-menu" class="hidden">
+            <div id="services-menu" class="absolute left-0 mt-2 w-64 bg-gray-900 rounded-lg shadow-lg hidden">
               <div class="py-1">
 
                 <a href="service.html" class="services-option flex items-center space-x-4 w-full px-1 py-1 text-left hover:bg-gray-800 rounded-lg transition-colors">
@@ -185,6 +187,7 @@
                     <div class="font-medium text-white">Váltó & Hajtás</div>
                     <div class="text-xs text-gray-400">Váltó és hajtáslánc szerviz</div>
                   </div>
+                </a>
               </div>
             </div>
           </div>
@@ -258,10 +261,10 @@
             <span>Kezdőlap</span>
           </a>
           <div class="services-selector-mobile">
-            <button class="hover:text-blue-400 flex items-center space-x-2 services-selector-mobile-btn w-full text-left" aria-haspopup="true" aria-expanded="false">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <button class="hover:text-blue-400 flex items-center services-selector-mobile-btn w-full text-left" aria-haspopup="true" aria-expanded="false">
+              <span class="w-5 h-5 flex items-center justify-center"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
-              </svg>
+              </svg></span>
               <span>Szolgáltatások</span>
               <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M6 9l6 6 6-6" />
@@ -271,7 +274,7 @@
               <div class="py-1">
 
                 <a href="service.html" class="services-option-mobile flex items-center space-x-4 w-full px-3 py-2 text-left hover:bg-gray-800 rounded-lg transition-colors">
-                   <svg class="w-6 h-6 text-orange-400" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                   <svg class="w-9 h-9 text-orange-400" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                       <g>
                         <path d="M28.7,18.8l-1.8,2.9,1.4,1.4,2.9-1.8,1,.4L33,25h2l.8-3.3,1-.4,2.9,1.8,1.4-1.4-1.8-2.9a4.2,4.2,0,0,0,.4-1L43,17V15l-3.3-.8a4.2,4.2,0,0,0-.4-1l1.8-2.9L39.7,8.9l-2.9,1.8-1-.4L35,7H33l-.8,3.3-1,.4L28.3,8.9l-1.4,1.4,1.8,2.9a4.2,4.2,0,0,0-.4,1L25,15v2l3.3.8A4.2,4.2,0,0,0,28.7,18.8ZM34,14a2,2,0,1,1-2,2A2,2,0,0,1,34,14Z"></path>
                         <path d="M42.2,28.7a5.2,5.2,0,0,0-4-1.1l-9.9,1.8a4.5,4.5,0,0,0-1.4-3.3L19.8,19H5a2,2,0,0,0-2,2v9a2,2,0,0,0,2,2H8.3l11.2,9.1,20.4-3.7a5,5,0,0,0,2.3-8.7Zm-3,4.8L20.5,36.9,10,28.2V23h8.2l5.9,5.9a.8.8,0,0,1-1.2,1.2l-3.5-3.5a2,2,0,0,0-2.8,2.8l3.5,3.5a4.5,4.5,0,0,0,3.4,1.4,5.7,5.7,0,0,0,1.8-.3h0l13.6-2.4a1.1,1.1,0,0,1,.8.2.9.9,0,0,1,.3.7A1,1,0,0,1,39.2,33.5Z"></path>
@@ -283,24 +286,30 @@
                    </div>
                  </a>
                 <a href="chiptuning.html" class="services-option-mobile flex items-center space-x-4 w-full px-3 py-2 text-left hover:bg-gray-800 rounded-lg transition-colors">
-                  <svg class="w-6 h-6 text-green-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14Z" stroke="currentColor" stroke-width="1.5"></path>
-                      <path d="M14 6C12.8954 6 12 5.10457 12 4C12 2.89543 12.8954 2 14 2C15.1046 2 16 2.89543 16 4C16 5.10457 15.1046 6 14 6Z" stroke="currentColor" stroke-width="1.5"></path>
-                      <path d="M10 22C11.1046 22 12 21.1046 12 20C12 18.8954 11.1046 18 10 18C8.89543 18 8 18.8954 8 20C8 21.1046 8.89543 22 10 22Z" stroke="currentColor" stroke-width="1.5"></path>
-                      <path d="M17.5 20L19 20M12 20L14.75 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
-                      <path d="M6.5 4L5 4M12 4L9.25 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
-                      <path d="M19 12H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
-                      <path d="M19 4L16 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
-                      <path d="M5 20L7.66667 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
-                      <path d="M10 12L7.5 12M5.5 12L5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
-                    </svg>
+                  <svg class="w-9 h-9 text-red-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14Z"
+                      stroke="currentColor" stroke-width="1.5"></path>
+                    <path
+                      d="M14 6C12.8954 6 12 5.10457 12 4C12 2.89543 12.8954 2 14 2C15.1046 2 16 2.89543 16 4C16 5.10457 15.1046 6 14 6Z"
+                      stroke="currentColor" stroke-width="1.5"></path>
+                    <path
+                      d="M10 22C11.1046 22 12 21.1046 12 20C12 18.8954 11.1046 18 10 18C8.89543 18 8 18.8954 8 20C8 21.1046 8.89543 22 10 22Z"
+                      stroke="currentColor" stroke-width="1.5"></path>
+                    <path d="M17.5 20L19 20M12 20L14.75 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                    <path d="M6.5 4L5 4M12 4L9.25 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                    <path d="M19 12H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                    <path d="M19 4L16 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                    <path d="M5 20L7.66667 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                    <path d="M10 12L7.5 12M5.5 12L5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                  </svg>
                    <div>
                      <div class="font-medium text-white">Chiptuning</div>
                      <div class="text-xs text-gray-400">Teljesítménynövelés</div>
                    </div>
                  </a>
                 <a href="software.html" class="services-option-mobile flex items-center space-x-4 w-full px-3 py-2 text-left hover:bg-gray-800 rounded-lg transition-colors">
-                   <svg class="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 470 470">
+                   <svg class="w-9 h-9 text-purple-400" fill="currentColor" viewBox="0 0 470 470">
                       <path d="M462.5,22.5H7.5C3.357,22.5,0,25.857,0,30v410c0,4.143,3.357,7.5,7.5,7.5h455c4.143,0,7.5-3.357,7.5-7.5V30 C470,25.857,466.643,22.5,462.5,22.5z M455,432.5H15v-395h277.5v45h-255c-4.143,0-7.5,3.357-7.5,7.5s3.357,7.5,7.5,7.5h395 c4.143,0,7.5-3.357,7.5-7.5s-3.357-7.5-7.5-7.5h-125v-45H455V432.5z"/>
                       <circle cx="381.5" cy="60" r="7.5"/>
                       <circle cx="340.5" cy="60" r="7.5"/>
@@ -314,7 +323,7 @@
                    </div>
                  </a>
                 <a href="transmission.html" class="services-option-mobile flex items-center space-x-4 w-full px-3 py-2 text-left hover:bg-gray-800 rounded-lg transition-colors">
-                   <svg class="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 512 512">
+                   <svg class="w-9 h-9 text-red-400" fill="currentColor" viewBox="0 0 512 512">
                       <g>
                         <g>
                           <g>
@@ -367,19 +376,23 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <!-- Galéria -->
         <div class="relative order-2 lg:order-1">
-          <div class="gallery-container bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
-            <div id="service-gallery" class="grid grid-cols-2 gap-2 xl:grid-rows-4 max-xl:grid-rows-1">
-              <div class="gallery-image-container xl:row-span-2 max-xl:row-span-1">
-                <img data-slot="0" src="../assets/images/services/Általános szerviz/IMG_9940.jpg" alt="Éves szerviz és karbantartás kép 1" class="slot-image w-full h-full object-cover" loading="lazy">
-              </div>
-              <div class="gallery-image-container xl:row-span-2 max-xl:row-span-1">
-                <img data-slot="1" src="../assets/images/services/Általános szerviz/IMG_9934.jpg" alt="Éves szerviz és karbantartás kép 2" class="slot-image w-full h-full object-cover" loading="lazy">
-              </div>
-              <div class="gallery-image-container col-span-2 row-span-2 xl:block hidden">
-                <img data-slot="2" src="../assets/images/services/Általános szerviz/IMG_9829.JPG" alt="Éves szerviz és karbantartás nagy kép" class="slot-image w-full h-full object-cover xl:object-contain" loading="lazy">
-              </div>
-            </div>
-          </div>
+          <!-- Service Gallery Grid with Sliders -->
+                <div class="gallery-container bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
+                    <div id="service-gallery" class="gallery-grid">
+                        <!-- Top Left Slider -->
+                        <div class="gallery-slider xl:row-span-2" id="service-slider-1">
+                            <div class="gallery-track"></div>
+                        </div>
+                        <!-- Top Right Slider -->
+                        <div class="gallery-slider xl:row-span-2" id="service-slider-2">
+                            <div class="gallery-track"></div>
+                        </div>
+                        <!-- Bottom Large Slider -->
+                        <div class="gallery-slider col-span-2 row-span-2 xl:block hidden" id="service-slider-3">
+                            <div class="gallery-track"></div>
+                        </div>
+                    </div>
+                </div>
         </div>
         <!-- Tartalom -->
         <div class="order-1 lg:order-2">
@@ -471,22 +484,48 @@
         </div>
         <!-- Galéria -->
         <div class="relative order-2 lg:order-2">
+          <!-- Maintenance Gallery Grid with Sliders -->
           <div class="gallery-container bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
-            <div id="maintenance-gallery" class="grid grid-cols-2 gap-2  xl:grid-rows-4 max-xl:grid-rows-1">
-              <!-- Felső két kép - ugyanaz az elrendezés -->
-              <div class="gallery-image-container xl:row-span-2 max-xl:row-span-1">
-                <img data-slot="0" src="../assets/images/services/fekek/1.jpg" alt="Fékszerviz kép 1" class="slot-image w-full h-full object-cover" loading="lazy">
-              </div>
-              <div class="gallery-image-container xl:row-span-2 max-xl:row-span-1">
-                <img data-slot="1" src="../assets/images/services/fekek/3.jpg" alt="Fékszerviz kép 2" class="slot-image w-full h-full object-cover" loading="lazy">
-              </div>
-              <!-- Alsó egy kép - csak nagy képernyőn -->
-              <div class="gallery-image-container col-span-2 row-span-2 xl:block hidden">
-                <img data-slot="2" src="../assets/images/services/fekek/4.JPG" alt="Fékszerviz nagy kép" class="slot-image w-full h-full object-cover xl:object-contain" loading="lazy">
-              </div>
+            <div id="maintenance-gallery" class="gallery-grid">
+                <!-- Top Left Slider -->
+                <div class="gallery-slider xl:row-span-2" id="maintenance-slider-1">
+                    <div class="gallery-track"></div>
+                </div>
+                <!-- Top Right Slider -->
+                <div class="gallery-slider xl:row-span-2" id="maintenance-slider-2">
+                    <div class="gallery-track"></div>
+                </div>
+                <!-- Bottom Large Slider -->
+                <div class="gallery-slider col-span-2 row-span-2 xl:block hidden" id="maintenance-slider-3">
+                    <div class="gallery-track"></div>
+                </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teljes Galéria Szekció -->
+  <section id="full-gallery" class="py-12 sm:py-24 lg:py-32 fade-in-up" style="background: #111827;">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">
+          Galéria
+        </h2>
+        <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+          Tekintse meg munkáinkat és szervizünk mindennapjait.
+        </p>
+      </div>
+      
+      <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <!-- Images will be loaded here via JavaScript -->
+      </div>
+      
+      <div class="text-center mt-8">
+         <button id="load-more-gallery" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-colors hidden">
+            További képek betöltése
+         </button>
       </div>
     </div>
   </section>

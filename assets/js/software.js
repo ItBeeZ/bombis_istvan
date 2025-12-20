@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     initializePage();
     initializeGalleries();
+    initializeFullSoftwareGallery();
 });
 
 // Oldal inicializálása
@@ -819,3 +820,87 @@ function initializeAnimations() {
     const animateElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .slide-in-right');
     animateElements.forEach(el => observer.observe(el));
 }
+// Full Gallery Initialization for Software Page
+function initializeFullSoftwareGallery() {
+    const galleryGrid = document.getElementById('gallery-grid');
+    const loadMoreBtn = document.getElementById('load-more-gallery');
+    
+    if (!galleryGrid) return;
+
+    // Image lists
+    const carplayImages = [
+      '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.JPG', '8.jpg'
+    ].map(img => '../assets/images/services/auto_carplay/' + img);
+
+    const codingImages = [
+      '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg'
+    ].map(img => '../assets/images/services/kodolas/' + img);
+
+    const hiddenFeaturesImages = [
+      '1.jpg', '2.jpg', '3.jpg', '4.JPG', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', 
+      '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '17.jpg', '18.jpg', '19.jpg', '20.jpg', '21.jpg'
+    ].map(img => '../assets/images/services/rejtett_extrak/' + img);
+    
+    // Combine and shuffle
+    const allImages = [...carplayImages, ...codingImages, ...hiddenFeaturesImages].sort(() => Math.random() - 0.5);
+    
+    // Config
+    const itemsPerPage = 12;
+    let currentPage = 0;
+    
+    function renderImages() {
+        const start = currentPage * itemsPerPage;
+        const end = start + itemsPerPage;
+        const imagesToShow = allImages.slice(start, end);
+        
+        imagesToShow.forEach(src => {
+            const a = document.createElement('a');
+            a.href = src;
+            a.dataset.fancybox = 'gallery';
+            a.className = 'block overflow-hidden rounded-lg shadow-lg hover:opacity-90 transition-opacity h-64';
+            
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = 'Szoftver galéria kép';
+            img.className = 'w-full h-full object-cover transform hover:scale-105 transition-transform duration-500';
+            img.loading = 'lazy';
+            
+            a.appendChild(img);
+            galleryGrid.appendChild(a);
+        });
+        
+        currentPage++;
+        
+        // Hide button if no more images
+        if (currentPage * itemsPerPage >= allImages.length) {
+            if(loadMoreBtn) loadMoreBtn.classList.add('hidden');
+        } else {
+            if(loadMoreBtn) loadMoreBtn.classList.remove('hidden');
+        }
+    }
+    
+    // Initial render
+    renderImages();
+    
+    // Button event
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', renderImages);
+    }
+    
+    // Bind Fancybox
+    if (typeof Fancybox !== 'undefined') {
+        Fancybox.bind('[data-fancybox]', {
+            Toolbar: {
+                display: {
+                    left: ['infobar'],
+                    middle: ['zoomIn', 'zoomOut', 'toggle1to1', 'rotateCCW', 'rotateCW', 'flipX', 'flipY'],
+                    right: ['slideshow', 'thumbs', 'close'],
+                },
+            },
+             Images: {
+                zoom: true,
+             },
+        });
+    }
+}
+
