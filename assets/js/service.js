@@ -71,7 +71,7 @@ function initializePage() {
 // Gallery configuration
 const galleryConfig = {
   service: {
-    containerIds: ['service-slider-1', 'service-slider-2', 'service-slider-3'],
+    containerIds: ['service-slider-1'],
     imagePath: '../assets/images/services/Általános szerviz/',
     images: []
   },
@@ -89,7 +89,7 @@ function initializeGalleries() {
   galleryConfig.service.containerIds.forEach(id => {
     // Shuffle images for each slider to create variety
     const shuffledImages = [...serviceImages].sort(() => Math.random() - 0.5);
-    initSliderGallery({ containerId: id, imagePath: galleryConfig.service.imagePath }, shuffledImages);
+    initSliderGallery({ containerId: id, imagePath: galleryConfig.service.imagePath, synchronized: true }, shuffledImages);
   });
 
   // Initialize Maintenance Gallery Sliders
@@ -122,12 +122,19 @@ function initSliderGallery(config, imageFiles) {
   // Calculate animation duration based on number of images to maintain consistent speed
   // Target: roughly 3 seconds per image
   const baseDuration = imageFiles.length * 3;
-  // Add slight randomness to speed so sliders don't move exactly in sync
-  const randomFactor = 0.9 + Math.random() * 0.2; 
-  track.style.animationDuration = `${baseDuration * randomFactor}s`;
   
-  // Start at a random position
-  track.style.animationDelay = `-${Math.random() * baseDuration}s`;
+  if (config.synchronized) {
+    // Synchronized movement: no randomness
+    track.style.animationDuration = `${baseDuration}s`;
+    track.style.animationDelay = '0s';
+  } else {
+    // Add slight randomness to speed so sliders don't move exactly in sync
+    const randomFactor = 0.9 + Math.random() * 0.2; 
+    track.style.animationDuration = `${baseDuration * randomFactor}s`;
+    
+    // Start at a random position
+    track.style.animationDelay = `-${Math.random() * baseDuration}s`;
+  }
 
   displayImages.forEach((src, index) => {
     const img = document.createElement('img');

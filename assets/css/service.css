@@ -10,18 +10,19 @@
 /* New Grid Layout for Sliders */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: 1fr; /* Single column */
+  gap: 0; /* No gap needed for single column */
   width: 100%;
 }
 
 /* Mobile: 1 row height */
 @media (max-width: 1279px) {
   .gallery-grid {
-    height: 200px; /* Adjust as needed */
+    height: 400px; /* Increased height for better visibility */
     grid-template-rows: 1fr;
   }
 }
+
 
 /* Hero szekció stílusok - Index oldalhoz hasonlóan */
 .hero-title {
@@ -45,11 +46,11 @@
   font-weight: 500;
 }
 
-/* Desktop: 4 rows (2 visual rows of images) */
+/* Desktop: 1 row height */
 @media (min-width: 1280px) {
   .gallery-grid {
-    height: 500px; /* Adjust as needed */
-    grid-template-rows: repeat(4, 1fr);
+    height: 600px; /* Increased height for better portrait look */
+    grid-template-rows: 1fr;
   }
 }
 
@@ -75,10 +76,8 @@
 .gallery-item {
   height: 100%;
   width: auto;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  margin-right: 0; /* Gap handled by grid, but inside slider we want seamless? No, we want gap between images in slider too? */
-  /* Actually, inside the slider, images are side-by-side. */
+  /* Removed aspect-ratio to allow natural width */
+  object-fit: contain; /* Ensure full image is visible without zooming/cropping */
   margin-right: 1rem;
   border-radius: 0.25rem;
   flex-shrink: 0;
