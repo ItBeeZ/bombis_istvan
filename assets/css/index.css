@@ -657,22 +657,19 @@ nav a:hover i {
   transition: transform 0.3s ease;
 }
 
-/* Hero cím – statikus színátmenet a megadott színekkel */
+/* Hero cím – természetes hatás, sima árnyékkal és enyhe színátmenettel */
 .hero-title {
-  background: linear-gradient(90deg, #ffffff, #81C4FF, #16588E, #E7222E, #ffffff);
+  /* Enyhe fentről-lefelé világosodó/sötétedő átmenet a természetes hatásért */
+  background: linear-gradient(180deg, #ffffff 40%, #cbd5e1 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  
+  /* Sima, lágy árnyék a kemény körvonal helyett */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+  
   font-weight: 800;
   line-height: 1.1;
-  background-size: 300% 300%;
-  animation: gradientCycle 10s linear infinite;
-}
-
-@keyframes gradientCycle {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 /* Hero cím méret – 2x nagyobb minden nézetben */

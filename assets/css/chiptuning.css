@@ -95,6 +95,28 @@ img {
   z-index: 1;
 }
 
+/* Hero szekció stílusok - Index oldalhoz hasonlóan */
+.hero-title {
+  /* Enyhe fentről-lefelé világosodó/sötétedő átmenet a természetes hatásért */
+  background: linear-gradient(180deg, #ffffff 40%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  
+  /* Sima, lágy árnyék a kemény körvonal helyett */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+  
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  /* Hasonló stílus a felirathoz, de kicsit visszafogottabb árnyékkal */
+  color: #e5e7eb; /* text-gray-200 fallback */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+}
+
 /* Navigációs ikonok stílusa */
 nav a i {
     font-size: 1.1em;
