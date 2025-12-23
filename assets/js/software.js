@@ -1,6 +1,7 @@
 // Software.js - Szoftver oldal specifikus JavaScript funkciók
 
 // Globális változók
+(() => {
 let currentSlide = 0;
 let totalSlides = 0;
 let isAutoPlaying = true;
@@ -8,28 +9,18 @@ let autoPlayInterval;
 let resizeTimeout;
 let currentLanguage = "hu";
 
-// Gallery configuration
+// Gallery configuration - Futószalag galéria
 const galleryConfig = {
-  transmission: {
-    containerId: 'transmission-gallery',
+  carplay: {
+    containerIds: ['carplay-slider-1'],
     imagePath: '../assets/images/services/auto_carplay/',
-    images: [],
-    currentIndex: 0,
-    interval: null
+    images: []
   },
   retrofit: {
-    containerId: 'retrofit-gallery',
-    imagePath: '../assets/images/services/rejtett_extrak/',
-    images: [],
-    currentIndex: 0,
-    interval: null
+    containerIds: ['retrofit-slider-1'],
+    imagePath: '../assets/images/services/kodolas/',
+    images: []
   }
-};
-
-// Auto-slide interval (different for each gallery)
-const SLIDE_INTERVALS = {
-  transmission: 4000,
-  retrofit: 5000
 };
 
 // DOM betöltés után inicializálás
@@ -63,6 +54,7 @@ function initializePage() {
     
     console.log('Software oldal inicializálva - saját menü inicializálással');
 }
+ 
 
 // Nyelvi választó inicializálása
 function initializeLanguageSelector() {
@@ -315,27 +307,98 @@ function initializeServicesMenu() {
     
     const servicesBtnMobile = document.querySelector('.services-selector-mobile-btn');
     const servicesMenuMobile = document.getElementById('services-menu-mobile');
+    const servicesSelector = document.querySelector('.services-selector');
+    
+    // Desktop: biztosítsuk, hogy a konténer ne legyen hidden
+    if (servicesSelector && window.innerWidth >= 640) {
+        servicesSelector.classList.remove('hidden');
+    }
     
     // Desktop szolgáltatások menü
     if (servicesBtn && servicesMenu) {
         servicesBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            servicesMenu.classList.toggle('hidden');
+            const isHidden = servicesMenu.classList.contains('hidden');
+            if (isHidden) {
+                servicesMenu.classList.remove('hidden');
+                servicesMenu.style.display = 'block';
+                servicesMenu.style.visibility = 'visible';
+                servicesMenu.style.opacity = '1';
+                servicesMenu.style.position = 'absolute';
+                servicesMenu.style.right = '0px';
+                servicesMenu.style.top = '100%';
+                servicesMenu.style.width = '18rem';
+                servicesMenu.style.zIndex = '9999';
+                servicesBtn.setAttribute('aria-expanded', 'true');
+            } else {
+                servicesMenu.classList.add('hidden');
+                servicesMenu.style.display = '';
+                servicesMenu.style.visibility = '';
+                servicesMenu.style.opacity = '';
+                servicesMenu.style.position = '';
+                servicesMenu.style.right = '';
+                servicesMenu.style.top = '';
+                servicesMenu.style.width = '';
+                servicesMenu.style.zIndex = '';
+                servicesBtn.setAttribute('aria-expanded', 'false');
+            }
         });
+        servicesBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const isHidden = servicesMenu.classList.contains('hidden');
+                if (isHidden) {
+                    servicesMenu.classList.remove('hidden');
+                    servicesMenu.style.display = 'block';
+                    servicesMenu.style.visibility = 'visible';
+                    servicesMenu.style.opacity = '1';
+                    servicesBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    servicesMenu.classList.add('hidden');
+                    servicesMenu.style.display = '';
+                    servicesMenu.style.visibility = '';
+                    servicesMenu.style.opacity = '';
+                    servicesBtn.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+        servicesMenu.addEventListener('click', function(e) { e.stopPropagation(); });
     }
     
     // Mobil szolgáltatások menü
     if (servicesBtnMobile && servicesMenuMobile) {
         servicesBtnMobile.addEventListener('click', function(e) {
             e.stopPropagation();
-            servicesMenuMobile.classList.toggle('hidden');
+            const isHidden = servicesMenuMobile.classList.contains('hidden');
+            if (isHidden) {
+                servicesMenuMobile.classList.remove('hidden');
+                servicesMenuMobile.style.display = 'block';
+                servicesMenuMobile.style.visibility = 'visible';
+                servicesMenuMobile.style.opacity = '1';
+                servicesBtnMobile.setAttribute('aria-expanded', 'true');
+            } else {
+                servicesMenuMobile.classList.add('hidden');
+                servicesMenuMobile.style.display = '';
+                servicesMenuMobile.style.visibility = '';
+                servicesMenuMobile.style.opacity = '';
+                servicesBtnMobile.setAttribute('aria-expanded', 'false');
+            }
         });
+        servicesMenuMobile.addEventListener('click', function(e) { e.stopPropagation(); });
     }
     
     // Kívülre kattintás esetén bezárás
-    document.addEventListener('click', function() {
-        if (servicesMenu) servicesMenu.classList.add('hidden');
-        if (servicesMenuMobile) servicesMenuMobile.classList.add('hidden');
+    document.addEventListener('click', function(event) {
+        const servicesSelector = document.querySelector('.services-selector');
+        const servicesSelectorMobile = document.querySelector('.services-selector-mobile');
+        if (servicesSelector && servicesMenu && !servicesSelector.contains(event.target)) {
+            servicesMenu.classList.add('hidden');
+            servicesBtn && servicesBtn.setAttribute('aria-expanded', 'false');
+        }
+        if (servicesSelectorMobile && servicesMenuMobile && !servicesSelectorMobile.contains(event.target)) {
+            servicesMenuMobile.classList.add('hidden');
+            servicesBtnMobile && servicesBtnMobile.setAttribute('aria-expanded', 'false');
+        }
     });
 }
 
@@ -351,7 +414,15 @@ function initializeMobileMenu() {
             mobileMenu.classList.remove("hidden");
             mobileMenu.classList.toggle("active");
             hamburgerIcon.classList.toggle("active");
-            if (menuOverlay) menuOverlay.classList.toggle("active");
+            const isActive = mobileMenu.classList.contains("active");
+            hamburgerIcon.setAttribute("aria-expanded", isActive ? "true" : "false");
+            if (menuOverlay) {
+                if (isActive) {
+                    menuOverlay.classList.add("active");
+                } else {
+                    menuOverlay.classList.remove("active");
+                }
+            }
         });
     }
     
@@ -361,6 +432,7 @@ function initializeMobileMenu() {
             mobileMenu.classList.remove("active");
             mobileMenu.classList.add("hidden");
             hamburgerIcon.classList.remove("active");
+            hamburgerIcon.setAttribute("aria-expanded", "false");
             menuOverlay.classList.remove("active");
         });
     }
@@ -371,6 +443,7 @@ function initializeMobileMenu() {
                 mobileMenu.classList.remove("active");
                 mobileMenu.classList.add("hidden");
                 hamburgerIcon.classList.remove("active");
+                hamburgerIcon.setAttribute("aria-expanded", "false");
                 if (menuOverlay) menuOverlay.classList.remove("active");
             });
         });
@@ -553,56 +626,107 @@ function initializeResizeHandler() {
 
 
 
-// Initialize all galleries
+// Initialize both galleries - Futószalag galéria
 function initializeGalleries() {
-  loadGalleryImages('transmission');
-  loadGalleryImages('retrofit');
+  console.log('Initializing galleries...');
+  
+  // Initialize CarPlay Gallery Sliders
+  const carplayImages = getImageFiles('carplay');
+  console.log('CarPlay images:', carplayImages);
+  
+  galleryConfig.carplay.containerIds.forEach(id => {
+    console.log('Initializing CarPlay slider:', id);
+    // Shuffle images for each slider to create variety
+    const shuffledImages = [...carplayImages].sort(() => Math.random() - 0.5);
+    initSliderGallery({ containerId: id, imagePath: galleryConfig.carplay.imagePath, synchronized: true }, shuffledImages);
+  });
+
+  // Initialize Retrofit Gallery Sliders
+  const retrofitImages = getImageFiles('retrofit');
+  console.log('Retrofit images:', retrofitImages);
+  
+  galleryConfig.retrofit.containerIds.forEach(id => {
+    console.log('Initializing Retrofit slider:', id);
+    const shuffledImages = [...retrofitImages].sort(() => Math.random() - 0.5);
+    initSliderGallery({ containerId: id, imagePath: galleryConfig.retrofit.imagePath }, shuffledImages);
+  });
+  
+  console.log('Galleries initialized');
 }
 
-// Load images for a specific gallery
-function loadGalleryImages(galleryType) {
-  const config = galleryConfig[galleryType];
+// Initialize a slider gallery
+function initSliderGallery(config, imageFiles) {
   const container = document.getElementById(config.containerId);
+  if (!container) return;
+
+  const track = container.querySelector('.gallery-track');
+  if (!track) return;
+
+  // Clear existing content
+  track.innerHTML = '';
+
+  // Generate full image paths
+  const fullPaths = imageFiles.map(filename => config.imagePath + filename);
+
+  // We need to duplicate the images to create a seamless infinite scroll effect
+  // Depending on the width, we might need to duplicate them more times
+  // For safety, let's create enough duplicates to definitely cover the screen width multiple times
+  const displayImages = [...fullPaths, ...fullPaths]; 
+
+  // Calculate animation duration based on number of images to maintain consistent speed
+  // Target: roughly 3 seconds per image
+  const baseDuration = imageFiles.length * 3;
   
-  if (!container) {
-    console.warn(`Gallery container ${config.containerId} not found`);
-    return;
+  if (config.synchronized) {
+    // Synchronized movement: no randomness
+    track.style.animationDuration = `${baseDuration}s`;
+    track.style.animationDelay = '0s';
+  } else {
+    // Add slight randomness to speed so sliders don't move exactly in sync
+    const randomFactor = 0.9 + Math.random() * 0.2; 
+    track.style.animationDuration = `${baseDuration * randomFactor}s`;
+    
+    // Start at a random position
+    track.style.animationDelay = `-${Math.random() * baseDuration}s`;
   }
 
-  // Add loading state
-  container.classList.add('gallery-loading');
-  
-  // Define image lists based on gallery type
-  const imageFiles = getImageFiles(galleryType);
-  
-  if (imageFiles.length === 0) {
-    console.warn(`No images found for ${galleryType} gallery`);
-    container.innerHTML = '<div class="flex items-center justify-center h-full text-gray-400">Nincsenek elérhető képek</div>';
-    return;
-  }
+  displayImages.forEach((src, index) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = `Gallery Image ${index + 1}`;
+    img.className = 'gallery-item';
+    img.loading = 'lazy';
+    
+    // Handle error to not break the layout (though empty space might appear)
+    img.onerror = function() { 
+      this.style.display = 'none'; 
+    };
 
-  config.images = imageFiles;
+    track.appendChild(img);
+  });
+
+  // Optimization: Pause animation when not in viewport (Lazy Load / Performance)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Resume animation (remove inline pause, revert to CSS)
+        track.style.animationPlayState = '';
+      } else {
+        // Pause animation to save resources
+        track.style.animationPlayState = 'paused';
+      }
+    });
+  }, { rootMargin: '50px 0px' }); // Start slightly before viewport
+
+  observer.observe(container);
   
-  // Create image elements
-  createGalleryImages(galleryType);
-  
-  // Start with random image
-  const randomStartIndex = Math.floor(Math.random() * config.images.length);
-  config.currentIndex = randomStartIndex;
-  
-  // Show initial image
-  showImage(galleryType, config.currentIndex);
-  
-  // Remove loading state
-  container.classList.remove('gallery-loading');
-  
-  // Start auto-slide
-  startAutoSlide(galleryType);
+  // Set initial state to paused
+  track.style.animationPlayState = 'paused';
 }
 
-// Get image files for specific gallery type
+// Get image files for each gallery type
 function getImageFiles(galleryType) {
-  if (galleryType === 'transmission') {
+  if (galleryType === 'carplay') {
     return [
       '1.jpg',
       '2.jpg',
@@ -618,177 +742,28 @@ function getImageFiles(galleryType) {
       '1.jpg',
       '2.jpg',
       '3.jpg',
-      '4.JPG',
+      '4.jpg',
       '5.jpg',
       '6.jpg',
-      '7.jpg',
-      '8.jpg',
-      '9.jpg',
-      '10.jpg',
-      '11.jpg',
-      '12.jpg',
-      '13.jpg',
-      '14.jpg',
-      '15.jpg',
-      '17.jpg',
-      '18.jpg',
-      '19.jpg',
-      '20.jpg',
-      '21.jpg'
+      '7.jpg'
     ];
   }
   return [];
 }
 
-// Create image elements for gallery
-function createGalleryImages(galleryType) {
-  const config = galleryConfig[galleryType];
-  const container = document.getElementById(config.containerId);
-  
-  // Check if container already has grid layout (static images)
-  if (container.classList.contains('grid')) {
-    console.log(`Grid layout detected for ${galleryType}, skipping dynamic image creation`);
-    return;
-  }
-  
-  // Clear existing content only for slideshow galleries
-  container.innerHTML = '';
-  
-  // Create images for slideshow
-  config.images.forEach((imageName, index) => {
-    const img = document.createElement('img');
-    img.src = `${config.imagePath}${imageName}`;
-    img.alt = `${galleryType} galéria kép ${index + 1}`;
-    img.className = `gallery-image ${index === 0 ? 'active' : 'inactive'}`;
-    img.loading = 'lazy';
-    
-    // Add error handling
-    img.onerror = function() {
-      console.warn(`Failed to load image: ${this.src}`);
-      this.style.display = 'none';
-    };
-    
-    container.appendChild(img);
-  });
-}
-
-// Show specific image in gallery
-function showImage(galleryType, index) {
-  const config = galleryConfig[galleryType];
-  const container = document.getElementById(config.containerId);
-  const images = container.querySelectorAll('.gallery-image');
-  
-  images.forEach((img, i) => {
-    if (i === index) {
-      img.classList.remove('inactive');
-      img.classList.add('active');
-    } else {
-      img.classList.remove('active');
-      img.classList.add('inactive');
-    }
-  });
-  
-  config.currentIndex = index;
-}
-
-// Start auto-slide for gallery
-function startAutoSlide(galleryType) {
-  const config = galleryConfig[galleryType];
-  const interval = SLIDE_INTERVALS[galleryType] || 5000;
-  
-  // Clear existing interval
-  if (config.interval) {
-    clearInterval(config.interval);
-  }
-  
-  config.interval = setInterval(() => {
-    nextRandomImage(galleryType);
-  }, interval);
-}
-
-// Show next random image
-function nextRandomImage(galleryType) {
-  const config = galleryConfig[galleryType];
-  
-  if (config.images.length <= 1) return;
-  
-  let newIndex;
-  do {
-    newIndex = Math.floor(Math.random() * config.images.length);
-  } while (newIndex === config.currentIndex);
-  
-  showImage(galleryType, newIndex);
-}
-
-// Pause auto-slide
-function pauseAutoSlide(galleryType) {
-  const config = galleryConfig[galleryType];
-  if (config.interval) {
-    clearInterval(config.interval);
-    config.interval = null;
-  }
-}
-
-// Resume auto-slide
-function resumeAutoSlide(galleryType) {
-  startAutoSlide(galleryType);
-}
-
-// Handle page visibility changes
-document.addEventListener('visibilitychange', function() {
-  if (document.hidden) {
-    // Pause all galleries when page is hidden
-    Object.keys(galleryConfig).forEach(galleryType => {
-      pauseAutoSlide(galleryType);
-    });
-  } else {
-    // Resume all galleries when page is visible
-    Object.keys(galleryConfig).forEach(galleryType => {
-      resumeAutoSlide(galleryType);
-    });
-  }
-});
-
-// Clean up intervals before page unload
-window.addEventListener('beforeunload', function() {
-  Object.keys(galleryConfig).forEach(galleryType => {
-    pauseAutoSlide(galleryType);
-  });
-});
-
-// Handle responsive images
-function handleResponsiveImages() {
-  const galleries = document.querySelectorAll('[id$="-gallery"]');
-  galleries.forEach(gallery => {
-    const images = gallery.querySelectorAll('img');
-    images.forEach(img => {
-      if (window.innerWidth < 768) {
-        img.style.objectFit = 'cover';
-      } else {
-        img.style.objectFit = 'cover';
-      }
-    });
-  });
-}
-
-document.addEventListener('DOMContentLoaded', handleResponsiveImages);
-window.addEventListener('resize', handleResponsiveImages);
-
 // Export functions for global access
 window.SoftwarePage = {
     changeLanguage,
-    nextRandomImage,
-    pauseAutoSlide,
-    resumeAutoSlide
+    initializeGalleries,
+    initSliderGallery
 };
 
 // Export functions for testing
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     initializeGalleries,
-    nextRandomImage,
-    pauseAutoSlide,
-    resumeAutoSlide
+    initSliderGallery,
+    getImageFiles
   };
 }
 
@@ -888,19 +863,21 @@ function initializeFullSoftwareGallery() {
     }
     
     // Bind Fancybox
-    if (typeof Fancybox !== 'undefined') {
-        Fancybox.bind('[data-fancybox]', {
-            Toolbar: {
-                display: {
-                    left: ['infobar'],
-                    middle: ['zoomIn', 'zoomOut', 'toggle1to1', 'rotateCCW', 'rotateCW', 'flipX', 'flipY'],
-                    right: ['slideshow', 'thumbs', 'close'],
-                },
-            },
-             Images: {
-                zoom: true,
-             },
-        });
-    }
+  if (typeof Fancybox !== 'undefined') {
+      Fancybox.bind('[data-fancybox]', {
+          Toolbar: {
+              display: {
+                  left: ['infobar'],
+                  middle: ['zoomIn', 'zoomOut', 'toggle1to1', 'rotateCCW', 'rotateCW', 'flipX', 'flipY'],
+                  right: ['slideshow', 'thumbs', 'close'],
+              },
+          },
+           Images: {
+              zoom: true,
+           },
+      });
+  }
 }
+})();
+ 
 

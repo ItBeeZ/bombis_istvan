@@ -138,15 +138,8 @@ html {
   scroll-padding-top: 100px;
 }
 
-/* Szoftver oldal galéria magasság nagy képernyőkön */
-@media (min-width: 1280px) {
-  #transmission-gallery {
-    height: 40rem; /* ~640px, hogy a nagy galéria teljesen látszódjon */
-  }
-  #retrofit-gallery {
-    height: 40rem; /* Azonos magasság a másik galérián */
-  }
-}
+/* Szoftver oldal galéria magasság nagy képernyőkön - REMOVED obsolete ID selectors */
+
 
 /* Mobil görgetési élmény javítása */
 @media (max-width: 768px) {
@@ -438,6 +431,64 @@ html {
 
 /* Content styles removed - not needed for this structure */
 
+/* Gallery styles from service.css */
+.gallery-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  width: 100%;
+  background: #1f2937; /* Fallback */
+}
+
+/* New Grid Layout for Sliders */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column */
+  gap: 0; /* No gap needed for single column */
+  width: 100%;
+  height: 400px; /* Default height for mobile, overridden by specific IDs on desktop */
+}
+
+.gallery-slider {
+  width: 100%;
+  height: 100%; /* Fill the grid cell */
+  overflow: hidden;
+  position: relative;
+  border-radius: 0.25rem;
+}
+
+.gallery-track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  animation: scroll 40s linear infinite;
+}
+
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
+.gallery-item {
+  height: 100%;
+  width: auto;
+  /* Removed aspect-ratio to allow natural width */
+  object-fit: contain; /* Ensure full image is visible without zooming/cropping */
+  margin-right: 1rem;
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+  display: block;
+  min-width: 100px; /* Prevent collapse */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* Hover title and description styles removed - not needed */
 
 /* Mobil szolgáltatások menü stílusok */
@@ -535,92 +586,92 @@ html {
     color: #d1d5db;
 }
 
-/* Gallery container styles */
+/* Gallery container styles - Futószalag galéria */
 .gallery-container {
   position: relative;
   overflow: hidden;
-}
-
-.gallery-loading {
-  opacity: 0.7;
-}
-
-.gallery-loading::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 40px;
-  height: 40px;
-  margin: -20px 0 0 -20px;
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #3498db;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  z-index: 10;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Gallery image styles */
-.gallery-image {
-  position: absolute;
-  top: 0;
-  left: 0;
+  border-radius: 0.5rem;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.5s ease-in-out;
+  background: #1f2937; /* Fallback */
+  min-height: 400px; /* Minimum height to ensure visibility */
 }
 
-.gallery-image.active {
-  opacity: 1;
+/* New Grid Layout for Sliders */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column */
+  gap: 0; /* No gap needed for single column */
+  width: 100%;
+  min-height: 400px; /* Minimum height */
 }
 
-.gallery-image.inactive {
-  opacity: 0;
-}
-
-/* Gallery dots styles */
-.gallery-dots {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.5rem;
-  z-index: 5;
-}
-
-.gallery-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.gallery-dot.active {
-  background-color: #3b82f6;
-}
-
-.gallery-dot:hover {
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .gallery-container {
-    height: 250px;
+/* Mobile: 1 row height */
+@media (max-width: 1279px) {
+  .gallery-grid {
+    height: 400px; /* Increased height for better visibility */
+    min-height: 400px;
+    grid-template-rows: 1fr;
   }
   
-  .gallery-dot {
-    width: 10px;
-    height: 10px;
+  .gallery-container {
+    min-height: 400px;
+  }
+}
+
+/* Desktop: 1 row height */
+@media (min-width: 1280px) {
+  .gallery-grid {
+    height: 600px; /* Increased height for better portrait look */
+    min-height: 600px;
+    grid-template-rows: 1fr;
+  }
+  
+  .gallery-container {
+    min-height: 600px;
+  }
+}
+
+.gallery-slider {
+  width: 100%;
+  height: 100%; /* Fill the grid cell */
+  min-height: 400px; /* Minimum height */
+  overflow: hidden;
+  position: relative;
+  border-radius: 0.25rem;
+}
+
+@media (min-width: 1280px) {
+  .gallery-slider {
+    min-height: 600px;
+  }
+}
+
+.gallery-track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  animation: scroll 40s linear infinite;
+}
+
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
+.gallery-item {
+  height: 100%;
+  width: auto;
+  object-fit: contain; /* Ensure full image is visible without zooming/cropping */
+  margin-right: 1rem;
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
